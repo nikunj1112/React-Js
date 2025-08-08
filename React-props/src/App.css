@@ -1,0 +1,12 @@
+.user-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  min-height: 100vh;
+  padding: 40px;
+  /* background: url("https://images.unsplash.com/photo-1501594907352-04cda38ebc29") no-repeat center center/cover; */
+  /* background: linear-gradient(135deg, #667eea, #764ba2); */
+  background: url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e") no-repeat center center/cover;
+  backdrop-filter: blur(4px);
+}
