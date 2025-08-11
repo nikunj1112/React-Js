@@ -1,5 +1,5 @@
 .user-card {
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.481);
   backdrop-filter: blur(10px);
   border-radius: 15px;
   padding: 20px;
@@ -27,12 +27,19 @@
   line-height: 1.5;
 }
 
-
-/* Phone number highlight */
 .user-card span {
+  font-weight: bold;
+ 
+}
+
+.user-card small{
   margin-top: 12px;
   color: #3c42f0;
   font-size: 1.05rem;
-  font-weight: 600px;
-
+  font-weight: 700px;
+  cursor: 'pointer';
+ text-decoration: underline;
 }
+
+
+

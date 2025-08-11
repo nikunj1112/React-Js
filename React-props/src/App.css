@@ -1,10 +1,26 @@
+.main {
+  min-height: 100vh;
+  padding: 20px;
+  background: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e') no-repeat center center / cover;
+}
+
+.app-header {
+  text-align: center;
+  margin-bottom: 30px;
+  padding: 20px 0;
+}
+
+.app-header h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #004aad;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+  margin: 0;
+}
+
 .user-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 20px;
-  min-height: 100vh;
-  padding: 40px;
-  background: url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e") no-repeat center center/cover;
-  backdrop-filter: blur(4px);
 }
