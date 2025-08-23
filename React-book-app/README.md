@@ -1,12 +1,70 @@
-# React + Vite
+# 📚🪺 BookNest
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple **React Book Management App** where you can add, update, and delete books with their **Title** and **Author**.  
+It has a **beautiful glassmorphism UI** with background image and smooth button hover effects.  
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
+- ➕ Add new books with **Book Name & Author Name**  
+- 📝 Update existing books  
+- ❌ Delete books from the list  
+- 🎨 Modern **Glass UI Design** with background image  
+- ⚡ Built with **React Hooks (`useState`)**  
+- 💾 Initial book data is preloaded for demo  
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🖼️ Demo Preview
+
+
+
+https://github.com/user-attachments/assets/1dc40627-cc0a-45a1-aa01-73ca3f740cc2
+
+
+
+---
+
+## 🛠️ Tech Stack
+- **React.js** ⚛️  
+- **CSS3 (Glassmorphism UI)** 🎨  
+
+---
+
+## 📂 Project Structure
+
+BookNest/
+│── src/
+│ ├── Books.jsx # Main Component
+│ ├── Book.css # Styling file
+│ └── index.js # Entry point
+│
+└── public/
+└── index.html
+
+
+---
+
+## ▶️ How to Run Locally
+1. Clone this repository  
+   ```bash
+   git clone https://github.com/your-username/booknest.git
+   cd booknest
+   
+---
+
+## 📌 Future Enhancements
+
+🔍 Search & Filter books
+💾 LocalStorage persistence (save books even after reload)
+🌙☀️ Dark/Light theme toggle
+
+
+---
+
+## 👨‍💻 Author
+
+Developed by Rana Nikunj ✨
+📌 GitHub: nikunj1112
+
+---
