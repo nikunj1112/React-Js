@@ -1,12 +1,75 @@
-# React + Vite
+# 🧑 User Card Component
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple and elegant **React component** to display user details (Name, Username, Email, Phone) with a modern **Glassmorphism UI**.  
+Includes a **Copy Phone Number** feature for quick sharing.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
+- 📝 Display user information (Name, Username, Email, Phone)  
+- 📋 One-click **Copy Phone Number to Clipboard**  
+- 🎨 Modern **Glassmorphism Card UI**  
+- ⚡ Built with **React Functional Component & Props**  
+- 💻 Responsive and reusable  
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🖼️ Preview
+
+[Untitled.tiff](https://github.com/user-attachments/files/21947640/Untitled.tiff)
+
+
+
+---
+
+## 🛠️ Tech Stack
+- **React.js** ⚛️  
+- **CSS3 (Glassmorphism UI)** 🎨  
+
+---
+
+## 📂 Project Structure
+
+UserCard/
+│── src/
+│ ├── User.jsx # User Card Component
+│ ├── User.css # Styling file
+│ └── App.jsx # Example usage
+│
+└── public/
+└── index.html
+
+
+---
+
+## ▶️ How to Use
+
+1. Import the `User` component in your React project:
+   ```jsx
+   import User from './User';
+
+
+2.Use it with props:
+<User 
+   name="John Doe" 
+   username="johndoe" 
+   email="john@example.com" 
+   phone="+91 9876543210" 
+/>
+
+---
+
+## 📌 Future Enhancements
+
+✅ Add Profile Picture support 🖼️
+✅ Add Social Media links 🔗
+✅ Dark/Light Theme Toggle 🌙☀️
+
+---
+
+## 👨‍💻 Author
+
+Developed by Rana Nikunj ✨
+📌 GitHub: nikunj1112.
+
+---
