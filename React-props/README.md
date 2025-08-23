@@ -42,6 +42,18 @@ UserCard/
 
 ---
 
+
+## 📌 Props
+| Prop      | Type     | Description                        |
+|-----------|----------|------------------------------------|
+| `name`    | string   | Full name of the user              |
+| `username`| string   | Username/handle of the user        |
+| `email`   | string   | Email address of the user          |
+| `phone`   | string   | Phone number (click to copy)       |
+
+
+---
+
 ## ▶️ How to Use
 
 1. Import the `User` component in your React project:
