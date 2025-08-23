@@ -62,7 +62,9 @@ UserCard/
 ## 📌 Future Enhancements
 
 ✅ Add Profile Picture support 🖼️
+
 ✅ Add Social Media links 🔗
+
 ✅ Dark/Light Theme Toggle 🌙☀️
 
 ---
