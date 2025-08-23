@@ -16,8 +16,8 @@ Includes a **Copy Phone Number** feature for quick sharing.
 
 ## 🖼️ Preview
 
-[Untitled.tiff](https://github.com/user-attachments/files/21947640/Untitled.tiff)
 
+<img width="1437" height="811" alt="profileDeck" src="https://github.com/user-attachments/assets/148e070b-e78d-4f96-969e-1c044749484c" />
 
 
 ---
