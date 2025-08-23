@@ -1,0 +1,150 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #0d1117;
+  color: white;
+}
+
+.twitter-dark {
+  max-width: 900px;
+  margin: auto;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  border-bottom: 1px solid #21262d;
+}
+
+.logo {
+  width: 40px;
+  margin-right: 10px;
+}
+
+.header h2 {
+  margin: 0;
+}
+
+.header p {
+  margin: 0;
+  color: #8b949e;
+  font-size: 0.9rem;
+}
+
+.main {
+  display: flex;
+}
+
+.left {
+  flex: 2;
+  padding: 15px;
+}
+
+.right {
+  flex: 1;
+  padding: 15px;
+}
+
+.tweet-box {
+  background: #161b22;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+textarea {
+  width: 100%;
+  background: transparent;
+  border: none;
+  color: white;
+  resize: none;
+  font-size: 1rem;
+}
+
+textarea:focus {
+  outline: none;
+}
+
+.tweet-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.upload-btn {
+  cursor: pointer;
+}
+
+button {
+  background: #1da1f2;
+  border: none;
+  padding: 6px 15px;
+  border-radius: 20px;
+  color: white;
+  cursor: pointer;
+}
+
+.tweet {
+  display: flex;
+  border-bottom: 1px solid #21262d;
+  padding: 15px 0;
+}
+
+.avatar {
+  background: #30363d;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 20px;
+  font-weight: bold;
+}
+
+.tweet-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+ 
+}
+
+.tweet-header span {
+  color: #8b949e;
+  font-size: 0.9rem;
+  
+}
+
+
+.edit-btn, .delete-btn {
+  cursor: pointer;
+  height: 35px; 
+  width: 40px;
+background-color: transparent;
+  font-size: 16px;
+}
+
+.tweet-img {
+  width: 90%;
+  border-radius: 10px;
+  margin-top: 10px;
+
+}
+
+.tweet-actions {
+  display: flex;
+  gap: 20px;
+  margin-top: 8px;
+  color: #8b949e;
+}
+
+.trends {
+  background: #161b22;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.trends h3 {
+  margin-top: 0;
+}
