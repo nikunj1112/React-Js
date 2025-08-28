@@ -1,0 +1,41 @@
+/* General page styling */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    background: #f8f9fa;
+    color: #222;
+  }
+  
+  /* Wrapper */
+  .home-container {
+    display: flex;
+    flex-direction: column;
+    gap: 80px; /* spacing between About, Projects, Contact */
+    padding-top: 80px; /* leave space for sticky navbar */
+  }
+  
+  /* Section styling (About, Projects, Contact) */
+  section {
+    width: 100%;
+    padding: 60px 10%;
+    box-sizing: border-box;
+  }
+  
+  /* Loading & error messages */
+  p {
+    font-size: 1.1rem;
+    text-align: center;
+    margin-top: 50px;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 900px) {
+    .home-container {
+      gap: 50px;
+    }
+  
+    section {
+      padding: 40px 5%;
+    }
+  }
+  

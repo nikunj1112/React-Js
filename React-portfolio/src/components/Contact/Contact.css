@@ -1,0 +1,111 @@
+/* Outer container */
+.contact-div {
+    padding: 20px 10%;
+    background: #f4f7fb;
+    min-height: 70vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  /* Subtitle */
+  .title3 {
+    font-size: 14px;
+    color: #777;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+    text-align: center;
+  }
+  
+  /* Main Title */
+  .title2 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #222;
+    margin-bottom: 40px;
+    text-align: center;
+    position: relative;
+    margin-top: 3px;
+  }
+  
+  .title2::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: #0077b5;
+    margin: 10px auto 0;
+    border-radius: 2px;
+  }
+  
+  /* Contact form */
+  .contact {
+    background: #fff;
+    padding: 40px;
+    border-radius: 18px;
+    box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 480px;
+    text-align: center;
+    transition: transform 0.3s ease;
+  }
+  
+  .contact:hover {
+    transform: translateY(-5px);
+  }
+  
+  .contact h2 {
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+    color: #0077b5;
+    font-weight: 600;
+  }
+  
+  /* Input fields */
+  .contact input {
+    width: 90%;
+    padding: 12px 15px;
+    margin: 12px 0;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 15px;
+    outline: none;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .contact input:focus {
+    border-color: #0077b5;
+    box-shadow: 0 0 8px rgba(0, 119, 181, 0.25);
+  }
+  
+  /* Submit button */
+  .contact button {
+    margin-top: 18px;
+    padding: 12px 30px;
+    background: #0077b5;
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .contact button:hover {
+    background: #005582;
+    transform: translateY(-2px);
+  }
+  
+  /* Responsive */
+  @media (max-width: 600px) {
+    .contact {
+      padding: 30px 20px;
+    }
+  
+    .title2 {
+      font-size: 1.6rem;
+    }
+  }
+  

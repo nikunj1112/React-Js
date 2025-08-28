@@ -1,0 +1,123 @@
+.project-section {
+    padding: 30px 10%;
+    background: #f8f9fa;
+    min-height: 70vh;
+    text-align: center;
+  }
+  
+  /* Subtitle */
+  .title1 {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 0px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+  
+  /* Main Title */
+  .title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 40px;
+    margin-top: 15px;
+    color: #222;
+    position: relative;
+    display: inline-block;
+  }
+  
+  .title::after {
+    content: "";
+    display: block;
+    width: 60%;
+    height: 3px;
+    background: #0077b5;
+    margin: 8px auto 0;
+    border-radius: 2px;
+  }
+  
+  /* Projects Grid */
+  .grid {
+    display: grid;
+    
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+  }
+  
+  /* Card Box */
+  .box {
+    background: #fff;
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.25s ease-in-out, box-shadow 0.25s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: left;
+  }
+  
+  .box:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+  }
+  
+  .box h2 {
+    font-size: 1.3rem;
+    color: #222;
+    margin-bottom: 15px;
+    word-break: break-word;
+    text-transform: capitalize;
+  }
+  
+  /* Button Row */
+  .btn-row {
+    display: flex;
+    justify-content: space-between;
+    margin-top: auto;
+    gap: 10px;
+  }
+  
+  .btn-row button {
+    flex: 1;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 25px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+  }
+  
+  /* Language Button */
+  .btn-row button:first-child {
+    background: #e0e0e0;
+    color: #333;
+  }
+  
+  /* Link Button */
+  .btn-row button:last-child {
+    background: #0077b5;
+  }
+  
+  .btn-row button:last-child a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 500;
+  }
+  
+  .btn-row button:hover {
+    transform: translateY(-2px);
+  }
+  
+  .btn-row button:last-child:hover {
+    background: #005582;
+  }
+  
+  /* Responsive */
+  @media (max-width: 600px) {
+    .grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  
