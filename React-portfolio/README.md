@@ -1,12 +1,102 @@
-# React + Vite
+# 🌐 Personal Portfolio Website  
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to my **personal portfolio website** 🎉 – a modern, responsive, and dynamic web app built with **React.js ⚛️**.  
+It showcases my **skills, projects, and journey as a MERN Stack Developer 💻** while integrating with the **GitHub API 🐙** to fetch real-time data like repositories and profile details.  
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ Features  
 
-## Expanding the ESLint configuration
+- 🔗 **Dynamic GitHub Integration** – Auto-fetches profile & repositories from GitHub  
+- 👤 **About Me Section** – Intro, bio, location, followers & following  
+- 📂 **Projects Showcase** – Displays latest 6 repositories with links  
+- 📬 **Contact Form** – Simple input form (logs data for now)  
+- 🖼️ **Responsive Design** – Works smoothly on mobile & desktop  
+- 🧭 **Navbar** – Easy navigation across all sections  
+- ⚡ **Reusable Components** – Clean code structure for scalability  
+- ⏳ **Loading & Error Handling** – User-friendly API fetch feedback  
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 🛠️ Tech Stack  
+
+- ⚛️ **Frontend:** React.js, JSX, CSS  
+- 🌐 **API:** GitHub REST API  
+- 📦 **Libraries:** Axios, React Hooks (useState, useEffect, useRef)  
+- 🔧 **Version Control:** Git & GitHub  
+- 🚀 **Deployment:** Vercel / Netlify  
+
+---
+
+## 📂 Project Structure  
+
+
+portfolio/
+├── src
+│   ├── components
+│   │   ├── Navbar/Navbar.jsx       # 🧭 Navigation bar
+│   │   ├── About/About.jsx         # 👤 About Me section
+│   │   ├── Projects/Projects.jsx   # 📂 Projects showcase
+│   │   ├── Contact/Contact.jsx     # 📬 Contact form
+│   │   └── Footer/Footer.jsx       # 👣 Footer with links
+│   ├── screen/Home/Home.jsx        # 🏠 Main Home page
+│   ├── App.jsx                     # ⚛️ App entry component
+│   └── index.js                    # 🚪 React entry point
+├── public
+│   └── index.html                  # 🌍 HTML template
+└── README.md                       # 📄 Documentation
+
+
+---
+
+ 
+## ⚙️Installation & Setup
+
+1.📥 Clone the repository
+
+  git clone https://github.com/nikunj1112/portfolio.git
+  cd portfolio
+ 
+
+2.📦 Install dependencies
+
+  npm install
+
+
+3.▶️ Run the development server
+
+  npm start
+
+
+4.🌍 Open in browser → http://localhost:3000
+
+---
+
+
+## 🔗 Live Demo
+
+
+
+
+https://github.com/user-attachments/assets/8678024c-c8fc-4eb0-9df2-78e4576e74ac
+
+
+
+
+---
+
+## 🤝 Connect with Me
+
+  => 🐙 GitHub: nikunj1112
+
+  => 💼 LinkedIn: Nikunj Rana
+
+  => 📧 Email: rnikunj540@gmail.com
+
+---
+
+## 📜 License
+
+This project is licensed under the MIT License ✅ – free to use, modify, and share.
+
+---
