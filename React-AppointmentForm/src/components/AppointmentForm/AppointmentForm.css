@@ -1,0 +1,128 @@
+.form-container {
+   width: 500px;
+   height: 600px;
+    margin: 40px auto;
+    padding: 25px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.1);
+    font-family: "Poppins", sans-serif;
+  }
+  
+  .form-container h2 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 10px;
+    font-size: 35px;
+  }
+  
+  .subtitle {
+    text-align: center;
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 30px;
+    margin-top: 0px;
+    font-family: sans-serif;
+  }
+
+  .options {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 15px 0;
+    flex-wrap: wrap;
+    
+  }
+  
+  .options label {
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.548);
+    cursor: pointer;
+    font-size:18px;
+    
+  }
+  
+  .options input {
+    margin-right: 6px;
+  }
+
+  .options1 {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 15px 0;
+    flex-wrap: wrap;
+    
+  }
+  .options1 label {
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.548);
+    cursor: pointer;
+    font-size:18px;
+    
+  }
+  
+  .options1 input {
+    margin-right: 6px;
+    margin-bottom: 20px;
+  }
+  .input-group {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 17px;
+    flex-wrap: wrap;
+  }
+  
+  .input-group input,
+  .input-group select,
+  textarea {
+    flex: 1;
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 15px;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .input-group input:focus,
+  .input-group select:focus,
+  textarea:focus {
+    border-color: #e91e63;
+    outline: none;
+    box-shadow: 0px 0px 5px rgba(52, 152, 219, 0.3);
+  }
+  
+  .options input[type="checkbox"] {
+    accent-color: #e91e63;  
+  }
+  .options input[type="radio"] {
+    accent-color: #e91e63;  
+  }
+  .options1 input[type="radio"] {
+    accent-color: #e91e63;  
+  }
+
+  textarea {
+    width: 95%;
+    min-height: 100px;
+    resize: vertical;
+    margin-bottom: 15px;
+  }
+
+  .submit-btn {
+    width: 100%;
+    padding: 12px;
+    background: #e91e63;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  .submit-btn:hover {
+    background: #d81b60;
+  }
+  
+  
