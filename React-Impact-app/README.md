@@ -33,9 +33,7 @@ src/
 │ ├── AboutPic.jsx
 
 │ ├── Footer.jsx
-
 │
-
 ├── App.jsx
 
 ├── index.js
@@ -83,7 +81,15 @@ CSS (Custom Styling)
 
 ---
 
+## 🖼️ Demo Preview
 
+
+
+https://github.com/user-attachments/assets/b9c4b93f-f278-4236-963d-4782fa8977a0
+
+
+
+---
 
 
 ## 📌 Future Improvements
@@ -100,7 +106,7 @@ Improve footer with links & newsletter
 
 Your Name (Rana Niikunj)
 
-🔗 GitHub : 
+🔗 GitHub : https://github.com/nikunj1112/React-Js/edit/main/React-Impact-app
 
 💼 Aspiring Full Stack Developer (MERN)
 
