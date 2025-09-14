@@ -1,0 +1,86 @@
+.call-to-action {
+    position: relative;
+    background-image: url('https://bootstrapmade.com/content/demo/Impact/assets/img/cta-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    min-height: 300px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    padding: 60px 15px;
+    overflow: hidden;
+  }
+  
+  /* Overlay */
+  .call-to-action::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1;
+  }
+  
+  /* Container content */
+  .call-to-action .container {
+    position: relative;
+    z-index: 2;
+  }
+  
+  /* Heading */
+  .call-to-action h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    font-family: "Poppins", sans-serif;
+  }
+  
+  /* Paragraph */
+  .call-to-action p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 30px;
+  }
+  
+  /* Button */
+  .call-to-action .btn {
+    border-width: 2px;
+    transition: all 0.3s ease;
+  }
+  
+  .call-to-action .btn:hover {
+    background-color: #fff;
+    color: #008374;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Responsive */
+  @media (max-width: 992px) {
+    .call-to-action h1 {
+      font-size: 2rem;
+    }
+  
+    .call-to-action p {
+      font-size: 1rem;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .call-to-action {
+      padding: 40px 15px;
+    }
+  
+    .call-to-action h1 {
+      font-size: 1.8rem;
+    }
+  
+    .call-to-action p {
+      width: 90%;
+      margin: 0 auto 20px auto;
+    }
+  }
+  

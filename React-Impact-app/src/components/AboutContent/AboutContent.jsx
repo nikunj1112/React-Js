@@ -1,54 +1,58 @@
-import React from 'react'
+import React from "react";
+import "./AboutContent.css";
+
 
 export default function AboutContent() {
+  const stats = [
+    {
+      icon: "bi bi-emoji-smile",
+      number: 232,
+      text: "Happy Clients consequuntur quae",
+    },
+    {
+      icon: "bi bi-headset",
+      number: 1453,
+      text: "Hours Of Support aut commodi quaerat",
+    },
+    {
+      icon: "bi bi-journal-richtext",
+      number: 521,
+      text: "Projects adipisci atque cum quia aut",
+    },
+    {
+      icon: "bi bi-people",
+      number: 32,
+      text: "Hard Workers rerum asperiores dolor",
+    },
+  ];
+
   return (
-    <div className="container">
-    <div className="row">
-      <div className="col-lg-5 col-md-12 col-sm-12">
-        <img
-          src="https://bootstrapmade.com/content/demo/Impact/assets/img/stats-img.svg"
-          width="100%"
-          alt=""
-        />
-      </div>
-      <div className="col-lg-7 col-md-12 col-sm-12">
-        <div className="row d-flex justify-content-evenly p-5">
-          <div className="col-lg-5">
-            <h1 className="fw-bold pb-5 pt-3 ">
-              <i className="bi bi-emoji-smile fs-1 text-success" /> 232 <br />
-              <p style={{ fontSize: 15, color: "rgb(111, 109, 109)" }}>
-                Happy Clients consequuntur quae
-              </p>
-            </h1>
-            <h1 className="fw-bold pb-5 ">
-              <i className="bi bi-headset fs-1 text-success" />
-              1453 <br />
-              <p style={{ fontSize: 15, color: "rgb(111, 109, 109)" }}>
-                Hours Of Support aut commodi quaerat
-              </p>
-            </h1>
-          </div>
-          <div className="col-lg-5 ">
-            <h1 className=" fw-bold pb-5 pt-3">
-              <i className="bi bi-journal-richtext fs-1 text-success" />
-              521 <br />
-              <p style={{ fontSize: 15, color: "rgb(111, 109, 109)" }}>
-                {" "}
-                Projects adipisci atque cum quia aut
-              </p>
-            </h1>
-            <h1 className="fw-bold pb-5">
-              <i className="bi bi-people fs-1 text-success" />
-              32 <br />
-              <p style={{ fontSize: 15, color: "rgb(111, 109, 109)" }}>
-                Hard Workers rerum asperiores dolor
-              </p>
-            </h1>
+    <div className="container my-5">
+      <div className="row align-items-center">
+        {/* Left Image */}
+        <div className="col-lg-5 col-md-12 mb-4 mb-lg-0">
+          <img
+            src="https://bootstrapmade.com/content/demo/Impact/assets/img/stats-img.svg"
+            alt="Statistics"
+            className="img-fluid"
+          />
+        </div>
+
+        {/* Right Stats */}
+        <div className="col-lg-7 col-md-12">
+          <div className="row text-center">
+            {stats.map((item, index) => (
+              <div key={index} className="col-6 mb-4">
+                <i className={`${item.icon} fs-1 text-success`} />
+                <h2 className="fw-bold">{item.number}</h2>
+                <p style={{ fontSize: 15, color: "rgb(111, 109, 109)" }}>
+                  {item.text}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </div>
     </div>
-  </div>
-  
-  )
+  );
 }

@@ -1,0 +1,87 @@
+/* Main container spacing */
+.container.my-5 {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+  
+  /* Left image */
+  .col-lg-5 img {
+    max-width: 100%;
+    height: auto;
+    transition: transform 0.3s ease;
+  }
+  
+  .col-lg-5 img:hover {
+    transform: scale(1.05);
+  }
+  
+  /* Right stats cards */
+  .col-lg-7 .row .col-6 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 12px;
+  }
+  
+  .col-lg-7 .row .col-6:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Icons */
+  .col-lg-7 .row i {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: #28a745; /* text-success equivalent */
+    transition: transform 0.3s ease, color 0.3s ease;
+  }
+  
+  .col-lg-7 .row i:hover {
+    transform: scale(1.2);
+    color: #00bfa6;
+  }
+  
+  /* Numbers */
+  .col-lg-7 .row h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+  }
+  
+  /* Stat text */
+  .col-lg-7 .row p {
+    font-size: 0.9rem;
+    color: rgb(111, 109, 109);
+    text-align: center;
+    line-height: 1.4;
+  }
+  
+  /* Responsive tweaks */
+  @media (max-width: 992px) {
+    .container.my-5 {
+      padding-top: 40px;
+      padding-bottom: 40px;
+    }
+  
+    .col-lg-7 .row .col-6 {
+      margin-bottom: 20px;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .col-lg-7 .row h2 {
+      font-size: 1.5rem;
+    }
+  
+    .col-lg-7 .row i {
+      font-size: 2rem;
+    }
+  
+    .col-lg-7 .row p {
+      font-size: 0.85rem;
+    }
+  }
+  

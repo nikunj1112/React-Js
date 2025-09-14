@@ -1,0 +1,63 @@
+/* ===== Services Section ===== */
+.services-section {
+    background-color: #f5f5f5;
+    padding: 60px 0;
+  }
+  
+  .services-section h1 {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+  
+  .services-section p {
+    color: #555;
+    font-size: 16px;
+    margin-bottom: 40px;
+  }
+  
+  /* ===== Service Cards ===== */
+  .services-card {
+    border: none;
+    border-radius: 12px;
+    transition: all 0.3s ease-in-out;
+    background: #fff;
+  }
+  
+  .services-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.12);
+  }
+  
+  .services-card i {
+    color: #00a690;
+    transition: color 0.3s ease;
+  }
+  
+  .services-card:hover i {
+    color: #008374;
+  }
+  
+  .services-card h3 {
+    font-size: 22px;
+    font-weight: 600;
+    margin-top: 15px;
+  }
+  
+  .services-card p {
+    font-size: 15px;
+    color: #666;
+    margin: 15px 0;
+  }
+  
+  /* ===== Read More Link ===== */
+  .services-card a {
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+  }
+  
+  .services-card a:hover {
+    color: #008374;
+  }
+  

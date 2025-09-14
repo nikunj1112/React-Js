@@ -1,0 +1,56 @@
+/* Footer main styles */
+footer {
+    background-color: #006d63;
+    color: #f1f1f1;
+    font-family: "Poppins", sans-serif;
+  }
+  
+  /* Footer headings */
+  footer h5,
+  footer h6 {
+    color: #fff;
+    margin-bottom: 1rem;
+  }
+  
+  /* Links */
+  footer a {
+    color: #f1f1f1;
+    transition: color 0.3s ease;
+  }
+  
+  footer a:hover {
+    color: #00bfa6; /* highlight on hover */
+    text-decoration: underline;
+  }
+  
+  /* Social icons */
+  footer .bi {
+    transition: color 0.3s ease, transform 0.3s ease;
+  }
+  
+  footer .bi:hover {
+    color: #00bfa6;
+    transform: scale(1.2);
+  }
+  
+  /* Copyright section */
+  footer .border-top {
+    border-color: #006d63;
+  }
+  
+  footer p {
+    font-size: 14px;
+    margin: 0;
+  }
+  
+  /* Responsive tweaks */
+  @media (max-width: 768px) {
+    footer .d-flex.gap-3 {
+      justify-content: flex-start;
+    }
+  
+    footer .row > div {
+      margin-bottom: 1.5rem;
+    }
+  }
+  

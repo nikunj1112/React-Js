@@ -1,0 +1,36 @@
+/* Section spacing */
+.container.my-5.py-5 {
+    background: #f9f9f9;
+    border-radius: 12px;
+  }
+  
+  /* Logo wrapper */
+  .col-lg-2.col-md-4.col-sm-6 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Logo image */
+  .col-lg-2.col-md-4.col-sm-6 img {
+    max-width: 100%;
+    height: auto;
+    filter: grayscale(100%);
+    opacity: 0.8;
+    transition: transform 0.3s ease, filter 0.3s ease, opacity 0.3s ease;
+  }
+  
+  /* Hover effect */
+  .col-lg-2.col-md-4.col-sm-6 img:hover {
+    transform: scale(1.1);
+    filter: grayscale(0%);
+    opacity: 1;
+  }
+  
+  /* Responsive tweaks */
+  @media (max-width: 768px) {
+    .col-lg-2.col-md-4.col-sm-6 {
+      margin-bottom: 20px;
+    }
+  }
+  
