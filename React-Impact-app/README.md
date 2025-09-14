@@ -90,7 +90,7 @@ Improve footer with links & newsletter
 
 ## 👨‍💻 Author
 
-Your Name (Rana Niikunj)
+Rana Niikunj
 
 🔗 GitHub : https://github.com/nikunj1112/React-Js/edit/main/React-Impact-app
 
