@@ -19,7 +19,6 @@ The project is divided into **modular components** for better reusability and ma
 ## 📂 Project Structure
 
 src/
-
 ├── components/
 │ ├── Header.jsx
 │ ├── Banner.jsx
@@ -31,7 +30,6 @@ src/
 ├── App.jsx
 ├── index.js
 ├── style.css
-
 
 
 ---
