@@ -53,7 +53,7 @@ src/
 
 4. Open in browser
 
-  http://localhost:3000
+http://localhost:5173/
 
 
  ---
