@@ -21,23 +21,15 @@ The project is divided into **modular components** for better reusability and ma
 src/
 
 ├── components/
-
 │ ├── Header.jsx
-
 │ ├── Banner.jsx
-
 │ ├── AboutUs.jsx
-
 │ ├── AboutContent.jsx
-
 │ ├── AboutPic.jsx
-
 │ ├── Footer.jsx
 │
 ├── App.jsx
-
 ├── index.js
-
 ├── style.css
 
 
