@@ -48,13 +48,9 @@ src/
    
 3. Start the development server
 
-  npm start
-
+   npm start
 
 4. Open in browser
-
-http://localhost:5173
-
 
  ---
 
