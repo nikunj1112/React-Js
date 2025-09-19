@@ -95,6 +95,13 @@ src/
 
 Rana Niikunj
 📌 MERN Stack Developer
-🔗 GitHub : 
+
+🔗 GitHub : https://github.com/nikunj1112/React-Js/tree/main/React-FlourMill-app
+
+---
+
+ ## 📄 License
+
+This project is licensed under the MIT License – feel free to use and modify.
 
 ---
