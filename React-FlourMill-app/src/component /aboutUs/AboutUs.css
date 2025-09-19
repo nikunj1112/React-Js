@@ -1,0 +1,29 @@
+.about-container {
+    background-color: #eadaab;
+    border-radius: 8px;
+  }
+  
+  .about-title {
+    color: #f14849;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+  
+  .about-text {
+    color: #222;
+    font-size: 1rem;
+    line-height: 1.7;
+    text-align: justify;
+  }
+  
+  .about-img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+  }
+  
+  .about-img:hover {
+    transform: scale(1.03);
+  }
+  

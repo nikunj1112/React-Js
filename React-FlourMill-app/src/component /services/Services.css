@@ -1,0 +1,56 @@
+/* Services Section */
+
+  
+  .services-section h2 {
+    font-size: 2.3rem;
+    letter-spacing: 1px;
+    position: relative;
+    display: inline-block;
+  }
+  
+  .services-section h2::after {
+    content: "";
+    width: 80px;
+    height: 3px;
+    background: #f14849;
+    display: block;
+    margin: 10px auto 0;
+    border-radius: 2px;
+  }
+  
+  /* Service Card */
+  .service-card {
+    border-radius: 15px;
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+  }
+  
+  .service-img {
+    height: 280px;
+    object-fit: cover;
+    transition: transform 0.4s ease-in-out;
+  }
+  
+  .service-card:hover .service-img {
+    transform: scale(1.05);
+  }
+  
+  /* Dropdown style */
+  .dropdown-menu {
+    border-radius: 10px;
+    font-size: 0.95rem;
+  }
+  
+  .dropdown-menu span {
+    color: #333;
+  }
+  .card-body h5{
+    color: #f14849;
+    padding-top: 10px;
+  }
+  

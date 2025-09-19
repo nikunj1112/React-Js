@@ -1,0 +1,51 @@
+.visitus-container {
+    background: #fdf6ec;
+    padding: 40px;
+    border-radius: 12px;
+  }
+  
+  .visitus-title {
+    color: #f14849;
+    font-weight: 700;
+    font-family: "Poppins", sans-serif;
+  }
+  
+  .visitus-subtitle {
+    color: #444;
+    margin-bottom: 30px;
+  }
+  
+  .map-frame {
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  }
+  
+  .visitus-info {
+    background: #fff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  }
+  
+  .visitus-heading {
+    color: #f14849;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  
+  .btn-call {
+    display: inline-block;
+    margin-top: 8px;
+    background-color: #f14849;
+    color: white;
+    border-radius: 8px;
+    padding: 8px 20px;
+    transition: all 0.3s ease-in-out;
+    text-decoration: none;
+  }
+  
+  .btn-call:hover {
+    background-color: #d43636;
+    transform: scale(1.05);
+  }
+  

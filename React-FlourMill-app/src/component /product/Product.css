@@ -1,0 +1,121 @@
+.products-container {
+  max-width: 1200px;  /* center container */
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.products-title {
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 28px;
+  font-weight: bold;
+  color: #f14849;
+  position: relative;
+}
+
+.products-title::after {
+  content: "";
+  width: 80px;
+  height: 3px;
+  background: #f14849;
+  display: block;
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* ✅ 3 cards */
+  gap: 25px;
+}
+
+.product-card {
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.product-image {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-bottom: 1px solid #eee;
+}
+
+.product-info {
+  padding: 16px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.product-name {
+  font-size: 20px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.product-desc {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 12px;
+  line-height: 1.4;
+}
+
+.product-price {
+  font-size: 18px;
+  font-weight: bold;
+  color: #f14849;
+  margin-bottom: 12px;
+}
+
+.unit {
+  font-size: 14px;
+  color: #777;
+  font-weight: normal;
+}
+
+.btn-buy {
+ 
+  border: none;
+  background: #f14849;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 500;
+  transition: 0.3s ease;
+}
+
+.btn-buy:hover {
+  background: #d93636;
+}
+
+.btn-view {
+  padding: 0px 14px;
+  border: 2px solid #f14849;
+  background: transparent;
+  color: #f14849;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 500;
+  transition: 0.3s ease;
+  margin-left: 10px; /* Buy Now se gap */
+}
+
+.btn-view:hover {
+  background: #f14849;
+  color: #fff;
+}

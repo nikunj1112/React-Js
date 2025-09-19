@@ -1,0 +1,86 @@
+/* Navbar Base */
+.navbar {
+    background-color: #eadaab ;
+    padding: 0.6rem 1rem;
+  }
+  
+  /* Brand */
+  .navbar-brand {
+    color: #f14849 ;
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+   
+  }
+  
+  /* Navbar Links */
+  .nav-link {
+    color: #222 ;
+    font-weight: 550;
+    margin: 0 2px;
+    position: relative;
+    transition: color 0.7s ease;
+  }
+  
+  .nav-link:hover {
+    color: #f14849 ;
+  }
+  
+  /* Underline Hover Animation */
+  .nav-link::after {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    left: 0;
+    bottom: 1px;
+    background-color: #f14849;
+    transition: width 0.7s ease;
+  }
+  
+  .nav-link:hover::after {
+    width: 100%;
+  }
+  
+  /* Toggler */
+  .navbar-toggler {
+    border: 2px solid #f14849 ;
+    color: #f14849 ;
+  }
+  
+  /* Call Button */
+  .btn-call {
+    background-color: #f14849 ;
+    color: white ;
+    font-weight: 600;
+    padding: 6px 14px;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+  }
+  
+  .btn-call:hover {
+    background-color: #c83232 ;
+  }
+  
+  /* Cart Button */
+  .btn-cart {
+    position: relative;
+    border-radius: 50%;
+    padding: 8px 12px;
+  }
+  
+  .btn-cart i {
+    font-size: 18px;
+  }
+  
+  .btn-cart .badge {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    background: #f14849;
+    color: white;
+    font-size: 12px;
+    padding: 4px 6px;
+    border-radius: 50%;
+  }
+  
