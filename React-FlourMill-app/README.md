@@ -1,12 +1,100 @@
-# React + Vite
+# 🌾 Shree Laxmi Flour Mill Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a responsive **React-based web application** built for **Shree Laxmi Flour Mill**.  
+It showcases products, services, and company details with a modern and user-friendly design.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ Features
 
-## Expanding the ESLint configuration
+- 🖼 **Dynamic Banner** – Auto-sliding images for an attractive homepage.
+- 🛒 **Products Section** – Interactive product cards with image hover effect, "Buy Now" and "View" options.
+- ℹ️ **About Us Section** – Brief description of the company with supporting image.
+- 💡 **Why Us Section** – Highlights key strengths (machinery, rates, efficiency, expertise).
+- 🛠 **Services Section** – Cards describing flour grinding, papad making, and more, with a "Read More" dropdown.
+- 📍 **Location & Contact** – Embedded Google Maps, contact info, and visiting hours.
+- 📱 **Responsive Design** – Works across desktop, tablet, and mobile.
+- 🎨 **Bootstrap + Custom CSS** – For modern styling and consistency.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 🛠 Tech Stack
+
+- **Frontend:** React.js
+- **Styling:** Bootstrap 5, Bootstrap Icons, Custom CSS
+- **Routing:** React Router DOM
+- **State Management:** React Hooks (`useState`, `useEffect`)
+- **Data:** JSON-based product list
+
+---
+
+## 🎥 Demo Video
+
+
+
+
+https://github.com/user-attachments/assets/b5ad5c87-4169-498f-827e-ba428ca8aa6c
+
+
+
+
+---
+
+## 📂 Project Structure
+
+src/
+┣ assets/ # Images & Icons
+┣ components/
+┃ ┣ home/ # Home page components
+┃ ┣ product/ # Product-related components
+┃ ┃ ┣ productDetails/ # Single product detail page
+┃ ┣ services/ # Services section
+┃ ┣ aboutUs/ # About section
+┃ ┣ whyUs/ # Why Us section
+┃ ┣card/ # Product cards (grid view)
+┣ json/ # Products JSON data
+┣ App.js # Main application
+┣ index.js # Entry point
+
+---
+
+## 🚀 Installation & Setup
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/flour-mill.git
+   cd flour-mill
+
+2.Install dependencies:
+
+  npm install
+
+3.Start the development server:
+
+  npm start
+
+4. Open in browser:
+
+    http://localhost:3000
+
+---
+
+ ##  📌 Future Enhancements
+
+✅ Shopping Cart functionality
+
+✅ Online order & payment system
+
+✅ Admin dashboard for product/service management
+
+✅ Customer reviews & ratings section
+
+---
+
+## 👨‍💻 Author
+
+Rana Niikunj
+📌 MERN Stack Developer
+🔗 GitHub : 
+
+---
