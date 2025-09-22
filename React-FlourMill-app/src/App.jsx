@@ -14,6 +14,7 @@ import { Routes, Route, useNavigate, Link } from 'react-router-dom';
 import Cart from './component /cart/Cart';
 import { products } from './json/Product'
 import ProductDetails from './component /productDetails/ProductDetails';
+import Login from './component /login/Login';
 
 
 
@@ -84,6 +85,7 @@ function App() {
     element={<Cart  CartItem={CartItem}  setCartItem={setCartItem}  onAdd={onAdd} onRemove={onRemove}  />} 
   />
    <Route path="/product/:id" element={<ProductDetails />} />
+   <Route path="/login" element={<Login />} /> 
 </Routes>
 
 

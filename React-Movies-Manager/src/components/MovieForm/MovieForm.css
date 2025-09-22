@@ -1,0 +1,144 @@
+/* Container */
+.movie-container {
+    text-align: center;
+    margin-top: 50px;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Header: Greeting + Buttons */
+  .movie-header {
+    display: flex;
+    justify-content: space-between;
+    max-width: 500px;
+    margin: 0 auto 20px auto;
+    align-items: center;
+  }
+  
+  .movie-header h2 {
+    font-size: 22px;
+    color: #333;
+  }
+  
+  .header-buttons {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .header-buttons button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+    font-size: 14px;
+    transition: 0.3s;
+  }
+  
+  .btn-logout {
+    background-color: #6c757d;
+  }
+  
+  .btn-logout:hover {
+    background-color: #5a6268;
+  }
+  
+  .btn-favourite {
+    background-color: #17a2b8;
+  }
+  
+  .btn-favourite:hover {
+    background-color: #138496;
+  }
+  
+  /* Movie Form */
+  .movie-form input {
+    padding: 8px;
+    margin: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 200px;
+    font-size: 14px;
+  }
+  
+  .movie-form input:focus {
+    border-color: #f14849;
+    outline: none;
+  }
+  
+  .movie-form button {
+    padding: 10px 20px;
+    margin-top: 10px;
+    background-color: #f14849;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.3s;
+  }
+  
+  .movie-form button:hover {
+    background-color: #d73737;
+  }
+  
+  /* Movie List */
+  .movie-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 30px;
+  }
+  
+  .movie-item {
+    background: #eadaab;
+    margin: 10px auto;
+    padding: 10px;
+    width: 400px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+  }
+  
+  .item-buttons {
+    display: flex;
+    gap: 5px;
+  }
+  
+  .item-buttons button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    color: white;
+    transition: 0.3s;
+  }
+  
+  .btn-edit {
+    background-color: #f0ad4e;
+  }
+  
+  .btn-edit:hover {
+    background-color: #ec971f;
+  }
+  
+  .btn-delete {
+    background-color: #d9534f;
+  }
+  
+  .btn-delete:hover {
+    background-color: #c9302c;
+  }
+  
+  .btn-heart {
+    background-color: transparent;
+    font-size: 18px;
+    padding: 5px 10px;
+    color: gray;
+  }
+  
+  .btn-heart.favourite {
+    color: red;
+  }
+  

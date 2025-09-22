@@ -31,6 +31,11 @@ export default function Navbar() {
         {/* Menu */}
         <div className="collapse navbar-collapse" id="menu">
           <ul className="navbar-nav mx-auto">
+          <li className="nav-item">
+  <Link className="nav-link" to="/login">
+    Login
+  </Link>
+</li>
             <li className="nav-item">
               <Link className="nav-link" style={{ color: "black" }} to="/">
                 Home
@@ -56,6 +61,8 @@ export default function Navbar() {
                 Visit Us
               </Link>
             </li>
+
+
           </ul>
 
           {/* Call + Cart (Right Side) */}
@@ -85,3 +92,5 @@ export default function Navbar() {
     </nav>
   );
 }
+
+
