@@ -38,6 +38,16 @@ A simple React-based Movie Manager app with user login, movie CRUD functionality
 
 ---
 
+## 🖼️ Demo Preview
+
+
+
+https://github.com/user-attachments/assets/678f9cf9-7e8f-474d-a21a-bd075ec07990
+
+
+
+---
+
 ## 🖥 Pages
 
 1. **Login Page**
