@@ -1,16 +1,99 @@
-# React + Vite
+# 📦 React Orders Filter
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A **React** application to display and filter order data dynamically. Users can search orders by Order ID, Customer, Phone, Product, Payment, Status, and Date. The project features a modern, responsive UI with styled tables and status badges.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🛠 Features
 
-## React Compiler
+- **Dynamic Filtering**: Filter orders by multiple fields.
+- **Clear Filters**: Reset all filters with a single click.
+- **Responsive Table**: Clean and organized table layout.
+- **Status Badges**: Color-coded badges for order status (New, Completed, Pending, Canceled).
+- **User Info Display**: Shows user profile picture and name.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 📋 Order Data Structure
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+| Field      | Type     | Description                        |
+|------------|---------|------------------------------------|
+| `id`       | string  | Unique order ID (e.g., #513279)   |
+| `date`     | string  | Order date (DD/MM/YYYY)            |
+| `customer` | string  | Customer name                      |
+| `phone`    | string  | Customer phone number              |
+| `product`  | string  | Ordered product                    |
+| `price`    | number  | Product price in £                  |
+| `payment`  | string  | Payment status (Paid, Pending, Not Paid) |
+| `status`   | string  | Order status (New, Completed, Pending, Canceled) |
+
+---
+
+## 🎨 Styling
+
+- CSS-based modern UI
+- Responsive grid layout for filters
+- Gradient table headers with hover effects
+- Rounded corners, shadows, and smooth transitions
+- Status badges for visual distinction
+
+---
+
+## 💻 Technologies Used
+
+* React – Frontend library
+
+* JavaScript (ES6) – Programming language
+
+* CSS – Styling
+
+* React Hooks – useState for state management
+
+---
+
+## 🚀 Getting Started
+
+  ### Prerequisites
+
+  - Node.js (v16+)
+  - npm or yarn
+
+  ### Installation
+
+     1. Clone the repository:
+    ```bash
+    git clone <repository-url>
+
+    2.Navigate to the project directory:
+    cd react-order-filter
+
+   3. Install dependencies:
+      npm install
+   
+  4. Start the development server:
+     npm start
+     The application will run at http://localhost:3000.
+
+---
+
+## 📂 Folder Structure
+
+src/
+├── assets/
+│   └── Data.js         # Orders data
+├── components/
+│   └── OrderFilter/    # Main component
+│       ├── Home.css
+│       └── OrderFilter.jsx
+└── App.js
+
+---
+
+## ✨ Author
+
+Nikünj Ränä – Developer | React Enthusiast
+
+
+
+
+    
