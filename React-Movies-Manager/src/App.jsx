@@ -7,13 +7,12 @@ import Favourite from "./components/favourite/favourite.jsx";
 function App() {
   const [currentUser, setCurrentUser] = useState("");
 
-  // Load user from sessionStorage on mount
   useEffect(() => {
     const storedUser = sessionStorage.getItem("currentUser");
     if (storedUser) setCurrentUser(storedUser);
   }, []);
 
-  // Function to set user both in state and sessionStorage
+
   const handleSetUser = (name) => {
     sessionStorage.setItem("currentUser", name);
     setCurrentUser(name);
@@ -22,10 +21,10 @@ function App() {
   return (
     <Router>
       <Routes>
-        {/* Pass setUser prop to Login to update state */}
+   
         <Route path="/" element={<Login setUser={handleSetUser} />} />
         
-        {/* Pass currentUser to MovieForm */}
+
         <Route path="/movies" element={<MovieForm currentUser={currentUser} />} />
         <Route path="/favourites" element={<Favourite />} />
 
