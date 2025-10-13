@@ -1,0 +1,279 @@
+🌟 Global Layout
+.step-container {
+    font-family: "Poppins", sans-serif;
+    padding: 20px;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #fff9e6, #fff5d6);
+    color: #3a2c00;
+  }
+  
+  /* ---------------- Step 1: Select Table ---------------- */
+  h2 {
+    text-align: center;
+    color: #b68a00;
+    font-weight: 700;
+    margin-bottom: 15px;
+    letter-spacing: 0.5px;
+  }
+  
+  .table-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+    margin: 20px 0;
+  }
+  
+  .table-card {
+    border-radius: 14px;
+    padding: 15px;
+    text-align: center;
+    background: #fff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+  }
+  
+  .table-card.available:hover {
+    transform: translateY(-5px);
+    border-color: #b68a00;
+    box-shadow: 0 6px 20px rgba(182, 138, 0, 0.3);
+  }
+  
+  .table-card.occupied {
+    background: #f5f5f5;
+    color: #999;
+    cursor: not-allowed;
+  }
+  
+  .table-card.selected {
+    border: 2px solid #f1c40f;
+    background: #fffbea;
+    box-shadow: 0 0 12px rgba(255, 215, 0, 0.5);
+  }
+  
+  /* Next Button */
+  .next-btn {
+    display: block;
+    margin: 10px auto;
+    background: linear-gradient(90deg, #b68a00, #f9d342);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 25px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: transform 0.2s;
+  }
+  
+  .next-btn:hover {
+    transform: scale(1.05);
+  }
+  
+  /* ---------------- Step 2: Add Customer Details ---------------- */
+  .customer-modal {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(8px);
+    border: 2px solid #b68a00;
+    border-radius: 16px;
+    padding: 25px;
+    width: 400px;
+    margin: 50px auto;
+    box-shadow: 0 8px 30px rgba(182, 138, 0, 0.25);
+    animation: slideUp 0.6s ease;
+  }
+  
+  .customer-modal h3 {
+    text-align: center;
+    color: #b68a00;
+    margin-bottom: 20px;
+  }
+  
+  .input-group {
+    margin-bottom: 15px;
+  }
+  
+  .input-group label {
+    font-weight: 600;
+    color: #6e5b00;
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .input-group input,
+  .input-group textarea {
+    width: 100%;
+    padding: 8px 10px;
+    border-radius: 8px;
+    border: 1.5px solid #e3c44c;
+    background: #fff;
+    outline: none;
+    transition: border-color 0.3s;
+  }
+  
+  .input-group input:focus,
+  .input-group textarea:focus {
+    border-color: #b68a00;
+  }
+  
+  .submit-btn {
+    width: 100%;
+    background: linear-gradient(90deg, #b68a00, #f9d342);
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .submit-btn:hover {
+    transform: scale(1.03);
+  }
+  
+  /* Slide up animation */
+  @keyframes slideUp {
+    from {
+      transform: translateY(30px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  /* ---------------- Step 3: Take Order ---------------- */
+  .order-step {
+    animation: fadeIn 0.5s ease;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  .order-layout {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-top: 1rem;
+  }
+  
+  .menu-list {
+    flex: 2;
+    background: #fff;
+    border-radius: 15px;
+    padding: 1rem;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+  }
+  
+  .cat-title {
+    color: #b68a00;
+    font-weight: 700;
+    margin: 10px 0 5px;
+  }
+  
+  .menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 10px;
+  }
+  
+  .menu-card {
+    background: #fffdf5;
+    border: 1.5px solid #e3c44c;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .menu-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(212,175,55,0.3);
+  }
+  
+  .menu-card h4 {
+    color: #4a3900;
+    font-weight: 600;
+  }
+  
+  .menu-card button {
+    margin-top: 5px;
+    background: linear-gradient(90deg,#b68a00,#f7d774);
+    border: none;
+    padding: 5px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    color: white;
+    font-weight: 600;
+    transition: transform 0.2s ease;
+  }
+  
+  .menu-card button:hover {
+    transform: scale(1.05);
+  }
+  
+  .order-summary {
+    flex: 1;
+    background: #fffef9;
+    border-radius: 15px;
+    padding: 1rem;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    border: 1.5px solid #f1d674;
+  }
+  
+  .order-summary h3 {
+    text-align: center;
+    color: #b68a00;
+  }
+  
+  .order-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 8px 0;
+    font-size: 0.9rem;
+  }
+  
+  .qty-controls button {
+    background: #b68a00;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 2px 8px;
+    cursor: pointer;
+  }
+  
+  .qty-controls span {
+    margin: 0 6px;
+    font-weight: 600;
+  }
+  
+  .remove-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #c0392b;
+    font-size: 1rem;
+  }
+  
+  .place-btn {
+    width: 100%;
+    padding: 10px;
+    background: linear-gradient(90deg,#b68a00,#f7d774);
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-weight: 600;
+    margin-top: 10px;
+    transition: all 0.3s ease;
+  }
+  
+  .place-btn:hover {
+    transform: scale(1.05);
+  }
+  

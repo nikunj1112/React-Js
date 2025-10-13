@@ -1,0 +1,215 @@
+/* -------------------- Base Styles -------------------- */
+.hero-container {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  font-family: "Poppins", sans-serif;
+}
+
+/* -------------------- Slideshow -------------------- */
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transform: scale(1.1);
+  transition: opacity 1.2s ease-in-out, transform 2s ease-in-out;
+}
+
+.hero-slide.active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* -------------------- Overlay -------------------- */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(6, 6, 6, 0.597) 10%, rgba(1, 1, 0, 0.097) 100%);
+  backdrop-filter: blur(1.5px);
+  z-index: 1;
+}
+
+/* -------------------- Hero Content -------------------- */
+.hero-content {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 2;
+  color: #5c4a00;
+  padding: 0 20px;
+}
+
+.hero-title {
+  font-family: "Playfair Display", serif;
+  font-size: 4rem;
+  letter-spacing: 3px;
+  color: #f5d76e;
+  text-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+  margin-bottom: 1rem;
+  animation: fadeInDown 1.2s ease-in-out;
+}
+
+.hero-subtitle {
+  font-size: 1.4rem;
+  color: white;
+  font-weight: 400;
+  margin-bottom: 2rem;
+  text-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
+  animation: fadeInUp 1.5s ease-in-out;
+}
+
+/* -------------------- CTA Button -------------------- */
+.btn-start {
+  background: linear-gradient(90deg, #b7950b 0%, #f7d774 100%);
+  color: #fff;
+  border: none;
+  padding: 0.9rem 2rem;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(212, 175, 55, 0.4);
+  transition: all 0.3s ease;
+}
+
+.btn-start:hover {
+  background: linear-gradient(90deg, #a7892a 0%, #f1c232 100%);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 25px rgba(212, 175, 55, 0.45);
+}
+
+/* -------------------- Features Section -------------------- */
+.features-container {
+  position: absolute;
+  bottom: 40px; /* Float cards slightly above bottom */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 2rem;
+  z-index: 3;
+}
+
+/* -------------------- Feature Cards -------------------- */
+.feature-card {
+  flex: 1;
+  max-width: 300px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1.5px solid rgba(212, 175, 55, 0.4);
+  border-radius: 20px;
+  text-align: center;
+  padding: 1.8rem 1.2rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+  transition: all 0.4s ease;
+  backdrop-filter: blur(8px);
+  position: relative;
+  overflow: hidden;
+}
+
+/* ✨ Hover Glow + Lift */
+.feature-card:hover {
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 0 15px 35px rgba(212, 175, 55, 0.35);
+  transform: translateY(-10px);
+  border: 1.5px solid #e8c547;
+}
+
+/* 🪄 Gold shimmer border animation */
+.feature-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  background: linear-gradient(120deg, transparent, rgba(255, 215, 0, 0.5), transparent);
+  transform: translateX(-100%);
+  transition: all 0.6s ease;
+}
+
+.feature-card:hover::before {
+  transform: translateX(100%);
+}
+
+/* -------------------- Card Content -------------------- */
+.feature-card i {
+  font-size: 2.5rem;
+  color: #b7950b;
+  margin-bottom: 1rem;
+  transition: color 0.4s ease;
+}
+
+.feature-card:hover i {
+  color: #f1c232;
+  text-shadow: 0 0 10px rgba(241, 194, 50, 0.6);
+}
+
+.feature-card h4 {
+  font-family: "Playfair Display", serif;
+  font-size: 1.3rem;
+  color: #5c4a00;
+  margin-bottom: 0.5rem;
+  transition: color 0.3s ease;
+}
+
+.feature-card:hover h4 {
+  color: #b7950b;
+}
+
+.feature-card p {
+  color: #6b5720;
+  font-size: 1rem;
+  line-height: 1.6;
+  font-weight: 400;
+  transition: color 0.3s ease;
+}
+
+.feature-card:hover p {
+  color: #4d3f00;
+}
+
+/* -------------------- Animations -------------------- */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* -------------------- Responsive -------------------- */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.8rem;
+  }
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+  .features-container {
+    flex-direction: column;
+    align-items: center;
+    bottom: 20px;
+  }
+  .feature-card {
+    width: 90%;
+  }
+}

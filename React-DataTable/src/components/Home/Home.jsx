@@ -16,11 +16,10 @@ export default function OrderFilter() {
 
   const handleFilter = () => {
     let data = [...ordersData];
-
+  
     if (orderId) {
-      data = data.filter(
-        (d) => parseInt(d.id.replace("#", "")) >= parseInt(orderId)
-      );
+      const cleanId = orderId.replace("#", "");
+      data = data.filter((d) => d.id.replace("#", "") === cleanId);
     }
     if (customer) {
       data = data.filter((d) =>
@@ -44,9 +43,10 @@ export default function OrderFilter() {
     if (date) {
       data = data.filter((d) => d.date === date);
     }
-
+  
     setFilteredData(data);
   };
+  
 
   // Clear filters
   const handleClear = () => {
@@ -79,7 +79,7 @@ export default function OrderFilter() {
   return (
     <div className="container">
       <div className="name">
-        <h2>📦 Orders</h2>
+        <h2>📦Orders</h2>
         <div className="name1">
           <img
             src="https://t3.ftcdn.net/jpg/02/25/10/36/360_F_225103684_9opc6FzD29B5K2YMXlOTR1yuSQQemA4m.jpg"
