@@ -1,0 +1,28 @@
+/* Make sidebar and main content horizontal */
+.screen-container {
+  display: flex;
+  height: 100vh;        /* full screen height */
+  width: 100vw;         /* full screen width */
+  overflow: hidden;     /* prevent scrollbars if sidebar expands */
+  background-color: #f8f9fa; /* light gray background */
+}
+
+/* Sidebar styles (if needed override here or inside Sidebar.css) */
+.screen-container > div {
+  flex-shrink: 0;       /* sidebar keeps its width */
+}
+
+/* Main content takes remaining space */
+.main-content {
+  flex: 1;              /* take all available horizontal space */
+  padding: 24px;        /* internal spacing */
+  background-color: #f4f4f4;
+  overflow-y: auto;     /* scrolls if content exceeds screen */
+}
+
+/* Simple heading style */
+.main-content h1 {
+  font-size: 24px;
+  font-weight: 600;
+  color: #333;
+}

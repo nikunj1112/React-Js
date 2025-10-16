@@ -1,0 +1,377 @@
+/* 🌟 Overall Wrapper Layout */
+
+  
+  /* 🌟 Two-Section Layout */
+  .menu-layout {
+    display: flex;
+    height: calc(110vh - 210px);
+  }
+  
+  /* Left Scroll Section (Menu) */
+  .menu-section {
+    flex: 0.65;
+    overflow-y: auto;
+    padding: 1.5rem 3rem;
+    scrollbar-width: thin;
+    scrollbar-color: #b7950b #fff8e1;
+    scroll-behavior: smooth;
+  }
+  
+  .menu-section::-webkit-scrollbar {
+    width: 8px;
+  }
+  .menu-section::-webkit-scrollbar-thumb {
+    background: #b7950b;
+    border-radius: 10px;
+  }
+  .menu-section::-webkit-scrollbar-track {
+    background: #fff8e1;
+  }
+  
+  /* Right Fixed Order Summary */
+  .order-summary-card {
+    flex: 0.35;
+    background: linear-gradient(180deg, #fffdf3, #fff6d1);
+    /* border-left: 3px solid #b7950b; */
+    padding: 1.5rem;
+    height: calc(98vh - 130px);
+    overflow: scroll;
+    position: sticky;
+    top: 0;
+    box-shadow: -4px 0 12px rgba(183, 149, 11, 0.2);
+    border-radius: 16px 16px 16px 16px;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+    margin-right: 10px;
+  }
+  
+  .order-summary-card h4 {
+    text-align: center;
+    font-family: "Playfair Display", serif;
+    font-weight: 700;
+    color: #5c4a00;
+    margin-bottom: 1.2rem;
+  }
+  
+  /* ✨ Menu Card Design */
+  .menu-card {
+    background: linear-gradient(135deg, #fffef4 0%, #f8e08d 100%);
+    border: 1px solid #b7950b;
+    border-radius: 16px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 6px rgba(183, 149, 11, 0.15);
+  }
+  
+  .menu-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 12px rgba(92, 74, 0, 0.25);
+    background: linear-gradient(135deg, #f7d774, #b7950b);
+  }
+  
+  /* 🍽️ Menu Image */
+  .menu-img {
+    width: 95px;
+    height: 95px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #b7950b;
+  }
+  
+  /* 📜 Menu Text */
+  .menu-text {
+    flex: 1;
+    margin: 0 1.2rem;
+  }
+  .menu-name {
+    font-family: "Playfair Display", serif;
+    color: #4b3c00;
+    font-weight: 600;
+    font-size: 1.1rem;
+  }
+  .menu-desc {
+    color: #555;
+    font-size: 0.9rem;
+    line-height: 1.3;
+  }
+  
+  /* 💰 Price + Add Button */
+  .menu-action {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.6rem;
+  }
+/* 🖤 Hover par price ka color black ho jayega */
+.menu-price {
+  color: #b7950b;
+  font-weight: 700;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.menu-card:hover .menu-price {
+  color: #000;
+}
+
+  .add-btn {
+    background: linear-gradient(135deg, #b7950b, #e0b93a) !important;
+    border: none;
+    color: white;
+    font-weight: 500;
+    border-radius: 25px;
+    padding: 6px 16px;
+    transition: all 0.3s ease;
+  }
+  .add-btn:hover {
+    background: linear-gradient(135deg, #a7892a, #b7950b) !important;
+    transform: scale(1.08);
+  }
+  
+  /* 🧾 Order Summary Items */
+  .summary-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #fff8e1;
+    border: 1px solid #e6c85d;
+    border-radius: 10px;
+    padding: 0.6rem 0.9rem;
+    margin-bottom: 0.7rem;
+    transition: all 0.3s ease;
+  }
+  .summary-item:hover {
+    background: #f7e08a;
+    transform: translateY(-2px);
+  }
+  
+  .summary-left {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+  .summary-left strong {
+    color: #3a2f00;
+    font-size: 0.95rem;
+  }
+  .summary-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  .summary-controls button {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    font-weight: bold;
+    font-size: 0.85rem;
+    transition: 0.2s ease;
+  }
+  .summary-controls button:hover {
+    transform: scale(1.1);
+  }
+  
+  .summary-right {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .summary-right span {
+    font-weight: 600;
+    color: #b7950b;
+  }
+  
+  /* 💎 Total Section */
+  .order-summary-card hr {
+    border-color: #e6c85d;
+  }
+  .order-summary-card h5 {
+    text-align: right;
+    font-weight: 700;
+    color: #2b1f00;
+    margin-top: 1rem;
+  }
+  
+  /* 🟡 Place Order Button */
+  .place-btn {
+    background: linear-gradient(135deg, #b7950b, #e0b93a) !important;
+    border: none;
+    border-radius: 30px;
+    color: #fff;
+    font-weight: 600;
+    margin-top: 1rem;
+    transition: all 0.3s ease;
+  }
+  .place-btn:hover {
+    transform: scale(1.05);
+    background: linear-gradient(135deg, #a7892a, #b7950b) !important;
+  }
+  
+  /* 🌟 Royal Tabs */
+  .royal-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 0.8rem;
+    background: linear-gradient(135deg, #fff8e1 0%, #fdf3c4 100%);
+    border-radius: 50px;
+    padding: 0.6rem 1rem;
+    box-shadow: 0 3px 10px rgba(183, 149, 11, 0.15);
+    width: fit-content;
+    margin: 1rem auto;
+  }
+  .royal-tabs .nav-link {
+    color: #5c4a00;
+    font-weight: 600;
+    border-radius: 25px;
+    padding: 0.6rem 1.4rem;
+    transition: all 0.3s ease;
+  }
+  .royal-tabs .nav-link:hover {
+    background: linear-gradient(135deg, #ffefb7, #f5d77b);
+    box-shadow: 0 2px 8px rgba(183, 149, 11, 0.25);
+  }
+  .royal-tabs .nav-link.active {
+    background: linear-gradient(135deg, #b7950b, #e0b93a);
+    color: white !important;
+    box-shadow: 0 3px 8px rgba(183, 149, 11, 0.4);
+  }
+  
+  /* 📱 Mobile Responsive */
+  @media (max-width: 992px) {
+    .menu-layout {
+      flex-direction: column;
+      height: auto;
+    }
+    .menu-section {
+      flex: 1;
+      padding: 1rem;
+    }
+    .order-summary-card {
+      flex: 1;
+      border-left: none;
+      border-top: 3px solid #b7950b;
+      border-radius: 16px 16px 0 0;
+      height: auto;
+    }
+  }
+  
+
+
+
+
+  .category-search-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1rem 3rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  
+  .menu-search {
+    padding: 0.6rem 1rem;
+    border: 2px solid #b7950b;
+    border-radius: 25px;
+    background-color: #fffef6;
+    font-size: 1rem;
+    width: 260px;
+    transition: all 0.3s ease;
+    outline: none;
+    color: #5c4a00;
+  }
+  .menu-search:focus {
+    border-color: #e0b93a;
+    box-shadow: 0 0 6px rgba(183, 149, 11, 0.4);
+  }
+  .menu-search::placeholder {
+    color: #b7950b;
+    opacity: 0.7;
+  }
+  .category-heading {
+    font-family: "Playfair Display", serif;
+    font-weight: 600;
+    color: #5c4a00;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  
+
+
+
+.content-area {
+  flex: 1;
+  background: #fffdf5;
+  padding: 0px;
+  overflow-y: auto;
+  color: #3b3000;
+  animation: fadeInContent 1s ease;
+  position: relative;
+}
+
+
+
+
+/* 🔹 Tabs + Search container (same line me aligned) */
+.category-search-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1rem 3rem;
+  flex-wrap: nowrap; /* no wrapping */
+  gap: 1rem;
+}
+
+/* 🟡 Royal Tabs left me aligned */
+.royal-tabs {
+  display: flex;
+ 
+  background: linear-gradient(135deg, #fff8e1 0%, #fdf3c4 100%);
+  border-radius: 50px;
+  padding: 0.6rem 0.1rem;
+  box-shadow: 0 3px 10px rgba(183, 149, 11, 0.15);
+  width: 90%;
+  margin: 0; /* 🔸 remove center margin */
+}
+
+/* 🔍 Search box right me aligned */
+.menu-search {
+  padding: 0.6rem 1rem;
+  border: 2px solid #b7950b;
+  border-radius: 25px;
+  background-color: #fffef6;
+  font-size: 1rem;
+  width: 260px;
+  transition: all 0.3s ease;
+  outline: none;
+  color: #5c4a00;
+}
+
+.menu-search:focus {
+  border-color: #e0b93a;
+  box-shadow: 0 0 6px rgba(183, 149, 11, 0.4);
+}
+
+.menu-search::placeholder {
+  color: #b7950b;
+  opacity: 0.7;
+}
+
+/* 📱 Responsive — small screen me column ban jaye */
+@media (max-width: 768px) {
+  .category-search-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .menu-search {
+    width: 100%;
+  }
+
+  .royal-tabs {
+    justify-content: center;
+  }
+}

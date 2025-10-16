@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+.select-table-page {
+  font-family: 'Poppins', sans-serif;
+  background: #fffbea;
+  min-height: 100vh;
+  padding: 40px 20px;
+  color: #5a4300;
+}
+
+.page-title {
+  text-align: center;
+  font-weight: 700;
+  font-size: 26px;
+  color: #6b4e00;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  text-align: center;
+  margin-bottom: 35px;
+  font-size: 15px;
+  color: #7a6200;
+}
+
+/* 🟨 Table Grid */
+.table-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 25px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.table-card {
+  background: #fffdf5;
+  border: 2px solid #f3da7f;
+  border-radius: 14px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 3px 8px rgba(200, 160, 0, 0.15);
+  transition: all 0.25s ease;
+  cursor: pointer;
+  position: relative;
+}
+
+.table-card.available:hover {
+  transform: translateY(-4px);
+  border-color: #d8b200;
+  box-shadow: 0 6px 12px rgba(200, 150, 0, 0.3);
+}
+
+.table-card.occupied {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.table-card.selected {
+  border-color: #c4a000;
+  box-shadow: 0 0 10px rgba(210, 160, 0, 0.6);
+  background: linear-gradient(to bottom right, #fff6cc, #ffe999);
+}
+
+/* 🪑 Inner Info */
+.table-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.status-badge {
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  color: white;
+}
+
+.status-badge.green {
+  background-color: #78c57c;
+}
+
+.status-badge.red {
+  background-color: #e05a5a;
+}
+
+.seats-info {
+  font-size: 15px;
+  margin-top: 5px;
+}
+
+/* ✅ Footer Section */
+.footer-bar {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.footer-bar p {
+  font-size: 16px;
+  margin-bottom: 12px;
+  color: #604b00;
+}
+
+.next-btn {
+  background: linear-gradient(to right, #d4b000, #b69300);
+  color: white;
+  font-weight: 600;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.next-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(200, 160, 0, 0.4);
+}
+
+/* 📱 Responsive Design */
+@media (max-width: 768px) {
+  .table-grid {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  }
+
+  .table-card {
+    padding: 15px;
+  }
+
+  .next-btn {
+    width: 90%;
+  }
+}
+
+@media (max-width: 480px) {
+  .page-title {
+    font-size: 22px;
+  }
+
+  .subtitle {
+    font-size: 13px;
+  }
+
+  .table-grid {
+    gap: 18px;
+  }
+}

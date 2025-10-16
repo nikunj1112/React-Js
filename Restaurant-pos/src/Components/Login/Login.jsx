@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import "./Login.css";
 import "remixicon/fonts/remixicon.css";
-
-import imgo1 from "../../assets/img/login-img/login-img2.png"; // 🪄 Left side logo or image
+import { useNavigate } from "react-router-dom";
+import imgo1 from "../../assets/img/login-img/login-img2.png";
 
 export default function Login() {
   const [role, setRole] = useState("");
@@ -11,26 +11,37 @@ export default function Login() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
+  const navigate = useNavigate();
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    // ✅ Manager Login
     if (
       role === "manager" &&
       email === "manager@urbanspice.com" &&
       password === "admin123"
     ) {
-      alert("Manager login successful!");
+      alert("✅ Manager login successful!");
       setError("");
-    } else if (
+      navigate("/dashboard");
+      return;
+    }
+
+    // ✅ Employee Login
+    if (
       role === "employee" &&
       empCode === "EMP001" &&
       password === "waiter123"
     ) {
-      alert("Employee login successful!");
+      alert("✅ Employee login successful!");
       setError("");
-    } else {
-      setError("Invalid credentials or role selection.");
+      navigate("/dashboard");
+      return;
     }
+
+    // ❌ Invalid credentials
+    setError("❌ Invalid credentials or wrong role selected.");
   };
 
   return (
@@ -39,7 +50,9 @@ export default function Login() {
         {/* 👑 Logo Section */}
         <div className="branding-content">
           <img src={imgo1} alt="Maharaja Palace Logo" className="branding-logo" />
-          <p className="branding-tagline">Experience Royal Dining at its Finest</p>
+          <p className="branding-tagline">
+            Experience Royal Dining at its Finest
+          </p>
         </div>
 
         {/* 🪄 Role Selection */}
@@ -51,6 +64,9 @@ export default function Login() {
             onChange={(e) => {
               setRole(e.target.value);
               setError("");
+              setEmail("");
+              setEmpCode("");
+              setPassword("");
             }}
           >
             <option value="">Select Role</option>
@@ -68,7 +84,7 @@ export default function Login() {
                 <input
                   type="email"
                   id="managerEmail"
-                  placeholder="manager@maharajapalace.com"
+                  placeholder="manager@urbanspice.com"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
@@ -82,7 +98,7 @@ export default function Login() {
                 <input
                   type="text"
                   id="employeeCode"
-                  placeholder="e.g., MP-EMP-001"
+                  placeholder="e.g., EMP001"
                   value={empCode}
                   onChange={(e) => setEmpCode(e.target.value)}
                   required

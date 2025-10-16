@@ -1,0 +1,187 @@
+/* 🌟 Full Page Background with Subtle Gold Grid */
+* {
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+
+.customer-info-page {
+    min-height: 100vh;
+    background-color: #fdf5d4;
+    /* Pale Gold Background */
+    background-image:
+        linear-gradient(to right, rgba(183, 149, 11, 0.15) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(183, 149, 11, 0.15) 1px, transparent 1px);
+    background-size: 100px 100px;
+    /* Relaxed spacing */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 60px 40px;
+    animation: subtleGlow 8s ease-in-out infinite alternate;
+}
+
+/* 🌟 Animated background glow */
+@keyframes subtleGlow {
+    0% {
+        background-color: #fdf5d4;
+    }
+
+    100% {
+        background-color: #fff8e1;
+    }
+}
+
+/* 🏰 Header */
+.customer-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.customer-title {
+    font-size: 2rem;
+    color: #5c4a00;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-shadow: 0 0 6px rgba(247, 215, 116, 0.4);
+}
+
+/* 💫 Main Container — Form Left | Preview Right */
+.customer-form-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 60px;
+    width: 100%;
+    max-width: 1200px;
+}
+
+/* ✍️ Form Section (simple look, no card style) */
+.customer-form {
+    flex: 1;
+    min-width: 480px;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    padding: 10px 40px;
+}
+
+.form-heading {
+    font-size: 1.3rem;
+    color: #5c4a00;
+    font-weight: bold;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.input-group {
+    margin-bottom: 18px;
+    display: flex;
+    flex-direction: column;
+}
+
+.input-group label {
+    color: #5c4a00;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.input-group input,
+.input-group textarea {
+    padding: 10px 14px;
+    border: 2px solid #b7950b;
+    border-radius: 10px;
+    background: #fffef6;
+    font-size: 1rem;
+    color: #5c4a00;
+    transition: all 0.3s ease;
+}
+
+.input-group input:focus,
+.input-group textarea:focus {
+    outline: none;
+    border-color: #f7d774;
+    box-shadow: 0 0 8px rgba(247, 215, 116, 0.5);
+}
+
+textarea {
+    resize: none;
+}
+
+/* 🟡 Submit Button */
+.submit-btn {
+    background: linear-gradient(90deg, #b7950b, #f7d774);
+    color: #5c4a00;
+    font-weight: bold;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.submit-btn:hover {
+    background: linear-gradient(90deg, #f7d774, #b7950b);
+    box-shadow: 0 0 12px rgba(183, 149, 11, 0.6);
+    transform: translateY(-2px);
+}
+
+/* 👑 Preview Section (Right side) */
+.preview-section {
+    flex: 0.8;
+    min-width: 400px;
+    background: rgba(255, 248, 225, 0.6);
+    border: 2px solid #b7950b;
+    border-radius: 20px;
+    padding: 30px 40px;
+    box-shadow: 0 0 15px rgba(167, 137, 42, 0.3);
+    transition: all 0.3s ease;
+}
+
+.preview-section:hover {
+    box-shadow: 0 0 25px rgba(183, 149, 11, 0.6);
+}
+
+.preview-heading {
+    color: #5c4a00;
+    font-weight: bold;
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #b7950b;
+    padding-bottom: 5px;
+}
+
+.preview-box p {
+    color: #5c4a00;
+    font-size: 1rem;
+    margin: 8px 0;
+}
+
+/* 📱 Responsive */
+@media (max-width: 900px) {
+    .customer-form-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+    }
+
+    .customer-form,
+    .preview-section {
+        width: 100%;
+        max-width: 550px;
+    }
+}
+
+
+.content-area {
+    flex: 1;
+    background: #fffdf5;
+    padding: 0px;
+    overflow-y: auto;
+    color: #3b3000;
+    animation: fadeInContent 1s ease;
+    position: relative;
+}

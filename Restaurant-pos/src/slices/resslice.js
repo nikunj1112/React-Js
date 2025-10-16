@@ -1,49 +1,55 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
+// 📂 src/slices/resslice.js
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import axios from "axios";
 
-export const resmenu = createAsyncThunk(
-  "resmenu/fetch",
-  async () => {
-    const res = await axios.get("http://localhost:3000/menu");
-    return res.data;
-  }
-);
-export const resuser = createAsyncThunk(
-  "resuser/fetch",
-  async () => {
-    const res = await axios.get("http://localhost:3000/users");
-    return res.data;
-  }
-);
-
-const reslice = createSlice({
-    name: "menu",
-    initialState: {
-        res: [],
-        user:[],
-        isLoading: true,
-        error: null,
-    },
-    reducers: {
-        addmenu: (state, action) => {
-            state.res.push(action.payload);
-        }
-    },
-    extraReducers: (builder) => {
-        builder
-            .addCase(resmenu.pending, (state) => {
-                state.isLoading = true;
-            })
-            .addCase(resmenu.fulfilled, (state, action) => {
-                state.res = action.payload;
-                state.isLoading = false;
-            })
-            .addCase(resmenu.rejected, (state, action) => {
-                state.isLoading = false;
-                state.error = action.error.message;
-            });
-    },
+// Async thunk to fetch menu data
+export const fetchMenu = createAsyncThunk("restaurant/fetchMenu", async () => {
+  const response = await axios.get("http://localhost:3001/menu");
+  return response.data;
 });
 
-export default reslice.reducer;
-export const { addmenu } = reslice.actions;
+const restaurantSlice = createSlice({
+  name: "restaurant",
+  initialState: {
+    menu: {},
+    tableOrders: {},
+    isLoading: false,
+  },
+  reducers: {
+    placeOrder: (state, action) => {
+      const { tableId, orderItems } = action.payload;
+      if (!state.tableOrders[tableId]) state.tableOrders[tableId] = [];
+      state.tableOrders[tableId].push(
+        ...orderItems.map((item) => ({
+          ...item,
+          order_status: "Pending",
+        }))
+      );
+    },
+    autoProgressStatus: (state) => {
+      Object.values(state.tableOrders).forEach((orders) =>
+        orders.forEach((item) => {
+          if (item.order_status === "Pending") item.order_status = "Cooking";
+          else if (item.order_status === "Cooking")
+            item.order_status = "Served";
+        })
+      );
+    },
+  },
+  extraReducers: (builder) => {
+    builder
+      .addCase(fetchMenu.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(fetchMenu.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.menu = action.payload;
+      })
+      .addCase(fetchMenu.rejected, (state) => {
+        state.isLoading = false;
+      });
+  },
+});
+
+export const { placeOrder, autoProgressStatus } = restaurantSlice.actions;
+export default restaurantSlice.reducer;
