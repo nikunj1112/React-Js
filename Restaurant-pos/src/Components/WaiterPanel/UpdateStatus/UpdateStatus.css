@@ -1,0 +1,292 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@400;500&display=swap');
+
+/* 🌟 Overall Wrapper */
+.update-status-wrapper {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #fdf5d4 0%, #fff8e1 100%);
+  display: flex;
+  flex-direction: column;
+  font-family: 'Poppins', sans-serif;
+  color: #5c4a00;
+  overflow: hidden;
+  padding-bottom: 1rem;
+}
+
+
+/* 🌟 Header Section (Updated - No Background) */
+/* 🌟 Header Section (Final Clean Version) */
+.status-header {
+  background: transparent; /* ✅ No background */
+  color: #5c4a00; /* ✅ Deep brown text */
+  text-align: center;
+  padding: 1.2rem;
+  border: none; /* ✅ No underline */
+  box-shadow: none; /* ✅ No shadow */
+}
+
+.status-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  margin: 0;
+  letter-spacing: 0.5px;
+  color: #5c4a00;
+}
+
+.status-subtitle {
+  font-size: 0.95rem;
+  margin-top: 0.25rem;
+  opacity: 0.85;
+  color: #5c4a00;
+}
+
+/* 🌟 Scroll Section */
+.order-scroll-container {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1.5rem;
+  scrollbar-width: thin;
+  scrollbar-color: #b7950b #fff8e1;
+}
+
+/* Custom scrollbar for WebKit */
+.order-scroll-container::-webkit-scrollbar {
+  width: 8px;
+}
+.order-scroll-container::-webkit-scrollbar-track {
+  background: #fff8e1;
+}
+.order-scroll-container::-webkit-scrollbar-thumb {
+  background: #b7950b;
+  border-radius: 8px;
+}
+
+/* 🌟 Order List */
+.order-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.2rem;
+}
+
+/* 🌟 Order Card */
+.order-card {
+  background: #fffef8;
+  border: 2px solid #f7d774;
+  border-radius: 14px;
+  padding: 1rem 1.2rem;
+  box-shadow: 0 3px 10px rgba(92, 74, 0, 0.15);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.order-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 5px 18px rgba(183, 149, 11, 0.25);
+  border-color: #b7950b;
+}
+
+/* 🌟 Completed Orders */
+.completed-card {
+  background: #dfba288e;
+  opacity: 0.9;
+}
+
+/* 🌟 Order Header */
+.order-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px dashed #a7892a;
+  padding-bottom: 0.4rem;
+  margin-bottom: 0.6rem;
+}
+
+.order-header h4 {
+  font-family: 'Playfair Display', serif;
+  color: #5c4a00;
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+/* 🌟 Status Badge */
+.status-badge {
+  padding: 0.35rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-transform: capitalize;
+  background: #f7d774;
+  color: #5c4a00;
+  border: 1px solid #b7950b;
+}
+
+.status-badge.pending {
+  background: #cf2020;
+  color:  #fdf5d4 ;
+}
+
+.status-badge.in-progress {
+  background: #eac24b;
+  color: black;
+}
+
+.status-badge.served {
+  background: #2b8f19;
+  color: #fff;
+}
+
+.status-badge.completed {
+  background: #41883b;
+  color: #fff;
+}
+
+/* 🌟 Order Details */
+.order-details p {
+  margin: 0.2rem 0;
+  font-size: 0.9rem;
+}
+
+.order-details strong {
+  color: #5c4a00;
+}
+
+/* 🌟 Ordered Items */
+.order-items {
+  margin-top: 0.6rem;
+  border-top: 1px dashed #f7d774;
+  padding-top: 0.6rem;
+}
+
+.order-items h5 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  color: #5c4a00;
+  margin-bottom: 0.4rem;
+}
+
+.order-items ul {
+  margin: 0;
+  padding-left: 1.2rem;
+  list-style: square;
+}
+
+.order-items li {
+  font-size: 0.9rem;
+  color: #444444;
+  margin-bottom: 0.2rem;
+}
+
+.order-total {
+  font-weight: 600;
+  color: #5c4a00;
+  margin-top: 0.4rem;
+}
+
+/* 🌟 Status Buttons */
+.status-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.8rem;
+}
+
+.status-btn {
+  flex: 1;
+  border: none;
+  border-radius: 20px;
+  background: #fdf5d4;
+  color: #5c4a00;
+  font-weight: 500;
+  padding: 0.45rem 0.6rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.85rem;
+  border: 1px solid #f7d774;
+}
+
+.status-btn:hover {
+  background: linear-gradient(90deg, #f7d774, #b7950b);
+  color: #fff;
+  transform: scale(1.03);
+}
+
+.status-btn.active {
+  background: linear-gradient(90deg, #b7950b, #a7892a);
+  color: #fff;
+  border: none;
+}
+
+/* 🌟 Modify & Remove Buttons */
+.modify-remove {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.8rem;
+}
+
+.modify-btn,
+.delete-btn {
+  flex: 1;
+  border: none;
+  border-radius: 20px;
+  padding: 0.45rem 0.6rem;
+  font-weight: 500;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.modify-btn {
+  background: linear-gradient(90deg, #f7d774, #b7950b);
+  color: #fff;
+  margin-right: 0.4rem;
+}
+
+.modify-btn:hover {
+  background: linear-gradient(90deg, #b7950b, #a7892a);
+}
+
+.delete-btn {
+  background: #fff8e1;
+  color: #b20000;
+  border: 1px solid #b20000;
+}
+
+.delete-btn:hover {
+  background: #b20000;
+  color: #fff;
+}
+
+/* 🌟 No Orders */
+.no-orders {
+  text-align: center;
+  color: #5c4a00;
+  font-size: 1rem;
+  margin-top: 2rem;
+  font-family: 'Playfair Display', serif;
+}
+
+/* ✨ Smooth Transitions */
+button,
+.order-card {
+  transition: all 0.25s ease-in-out;
+}
+
+/* 💫 Responsive */
+@media (max-width: 768px) {
+  .order-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+
+.main-content {
+  flex: 1;
+  margin-left: 270px;
+  height: 100vh;
+  overflow-y: auto;
+  padding: 0px;
+  animation: fadeInContent 1s 
+ease;
+  color: #3b3000;
+  background: #fffdf5;
+}

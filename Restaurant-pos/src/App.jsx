@@ -1,38 +1,3 @@
-// import './App.css'
-// // import Home from './Components/Home/Home'
-// // import LoginPage from './Components/Login/Login'
-// import Login from './Components/Login/Login'
-// // import Dashboard from './Components/Dashboard/Dashboard'
-// import { Routes, Route, useNavigate, Link } from 'react-router-dom';
-// import HeroSection from './Components/heroSection/HeroSection'
-// import SelectTable from './Components/Admin Panel/ EmployeeFlow/SelectTable/SelectTable';
-// import CustomerInfo from './Components/Admin Panel/ EmployeeFlow/CustomerInfo/CustomerInfo';
-// import EmployeeDashboard from './Components/Admin Panel/ EmployeeFlow/EmployeeDashboard';
-
-
-// function App() {
-
-
-//   return (
-// <>
-
-// <SelectTable />
-//     <Routes>
-//       {/* <Route path="/" element={<HeroSection />} />
-//       <Route path="/login" element={<Login />} /> */}
-
-//     <Route path="/customer/:tableId" element={<CustomerInfo />} />
-
-//     </Routes>
-
-
-
-// </>
-
-//   )
-// }
-
-// export default App;
 
 
 import React from "react";
@@ -63,20 +28,33 @@ export default function App() {
         {/* 🔐 Login Page */}
         <Route path="/login" element={<Login />} />
 
-        {/* 🧑‍🍳 Waiter Dashboard Layout */}
+        {/* 🧑‍🍳 Waiter Dashboard Routes */}
         <Route path="/dashboard" element={<EmployeeDashboard />}>
+          {/* 🪑 Step 1: Table Selection */}
           <Route index element={<SelectTable />} />
           <Route path="select-table" element={<SelectTable />} />
+
+          {/* 👤 Step 2: Customer Info */}
           <Route path="customer-info" element={<CustomerInfo />} />
+
+          {/* 🍽️ Step 3: Take Order */}
           <Route path="take-order" element={<TakeOrder />} />
-          {/* <Route path="order-summary" element={<OrderSummary />} /> */}
+
+          {/* 🔄 Step 4: Update Status */}
           <Route path="update-order" element={<UpdateStatus />} />
+
+
+          {/* ✏️ Modify Order */}
           <Route path="modify-order" element={<ModifyOrder />} />
+
+          {/* 🧾 Invoice */}
           <Route path="invoice" element={<GenerateInvoice />} />
+
+          {/* 📜 History */}
           <Route path="history" element={<History />} />
         </Route>
 
-        {/* 🚫 Fallback */}
+        {/* 🚫 Fallback — redirect to home */}
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </Router>

@@ -1,113 +1,153 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./UpdateStatus.css";
 
 export default function UpdateStatus() {
   const [orders, setOrders] = useState([]);
+  const navigate = useNavigate();
 
-  // 🧾 Load from localStorage
+  // 🟢 Load orders from localStorage
   useEffect(() => {
     const savedOrders = JSON.parse(localStorage.getItem("orders")) || [];
     setOrders(savedOrders);
   }, []);
 
-  // ⚙️ Auto cycle through statuses
-  useEffect(() => {
-    const statuses = ["Pending", "In Progress", "Served", "Completed"];
+  // 🔄 Update order status
+  const updateStatus = (index, newStatus) => {
+    setOrders((prevOrders) => {
+      const updated = [...prevOrders];
+      updated[index] = { ...updated[index], status: newStatus };
+      localStorage.setItem("orders", JSON.stringify(updated));
+      return updated;
+    });
+  };
 
-    const interval = setInterval(() => {
-      setOrders((prev) =>
-        prev.map((order) => {
-          const currentIndex = statuses.indexOf(order.status);
-          const nextIndex = (currentIndex + 1) % statuses.length;
-          return { ...order, status: statuses[nextIndex] };
-        })
-      );
-    }, 6000);
+  // ❌ Remove completed order
+  const removeOrder = (index) => {
+    const updated = orders.filter((_, i) => i !== index);
+    setOrders(updated);
+    localStorage.setItem("orders", JSON.stringify(updated));
+  };
 
-    return () => clearInterval(interval);
-  }, []);
-
-  // 💾 Persist updated orders
-  useEffect(() => {
-    localStorage.setItem("orders", JSON.stringify(orders));
-  }, [orders]);
-
-  const getStatusColor = (status) => {
-    switch (status) {
-      case "Pending": return "#b7950b";
-      case "In Progress": return "#a7892a";
-      case "Served": return "#5c4a00";
-      case "Completed": return "#4caf50";
-      default: return "#444";
-    }
+  // ✏️ Navigate to Modify Order page
+  const handleModify = (order) => {
+    localStorage.setItem("modifyOrder", JSON.stringify(order));
+    navigate("/dashboard/modify-order");
   };
 
   return (
-    <div className="update-status-page">
-      <h1 className="page-title">🍽️ Active Orders & Table Status</h1>
+    <div className="update-status-wrapper">
+      {/* 🔹 Header (Fixed) */}
+      <div className="status-header">
+        <h2 className="status-title">📋 Order Status Dashboard</h2>
+        <p className="status-subtitle">
+          Track, modify, and complete customer orders in real-time.
+        </p>
+      </div>
 
-      {orders.length === 0 ? (
-        <p className="no-orders">No active orders yet.</p>
-      ) : (
-        <div className="table-grid">
-          {orders.map((order, index) => (
-            <div key={index} className="table-card">
-              <h3>{order.customerInfo?.tableNo || order.tableId}</h3>
-              <p><strong>Customer:</strong> {order.customerInfo?.customerName}</p>
-              <p><strong>Total:</strong> ₹{order.total}</p>
-              <p><strong>Time:</strong> {order.time}</p>
+      {/* 🔹 Scrollable Order Cards Section */}
+      <div className="order-scroll-container">
+        {orders.length === 0 ? (
+          <p className="no-orders">No active orders yet.</p>
+        ) : (
+          <div className="order-list">
+            {orders.map((order, index) => (
+              <div
+                key={index}
+                className={`order-card ${
+                  order.status === "Completed" ? "completed-card" : ""
+                }`}
+              >
+                {/* 🧾 Order Header */}
+                <div className="order-header">
+                  <h4>Order #{index + 1}</h4>
+                  <span
+                    className={`status-badge ${
+                      order.status?.toLowerCase().replace(" ", "-") || "pending"
+                    }`}
+                  >
+                    {order.status}
+                  </span>
+                </div>
 
-              <div className="status-display">
-                <span
-                  className="status-dot"
-                  style={{ backgroundColor: getStatusColor(order.status) }}
-                ></span>
-                <p className="status-text" style={{ color: getStatusColor(order.status) }}>
-                  {order.status}
-                </p>
-              </div>
+                {/* 👤 Customer Details */}
+                <div className="order-details">
+                  <p>
+                    <strong>👤 Customer:</strong>{" "}
+                    {order.customerInfo?.customerName || "N/A"}
+                  </p>
+                  <p>
+                    <strong>📞 Phone:</strong>{" "}
+                    {order.customerInfo?.phone || "N/A"}
+                  </p>
+                  <p>
+                    <strong>🪑 Table:</strong>{" "}
+                    {order.customerInfo?.tableNo || "N/A"}
+                  </p>
+                  {order.customerInfo?.specialRequest && (
+                    <p>
+                      <strong>📝 Request:</strong>{" "}
+                      {order.customerInfo.specialRequest}
+                    </p>
+                  )}
+                  <p>
+                    <strong>⏰ Time:</strong> {order.time}
+                  </p>
+                </div>
 
-              <details className="order-details">
-                <summary>View Order Items</summary>
-                <ul>
-                  {order.orderItems.map((item, i) => (
-                    <li key={i}>
-                      {item.food_name} × {item.qty} — ₹{item.price * item.qty}
-                    </li>
-                  ))}
-                </ul>
-              </details>
+                {/* 🍽 Ordered Items */}
+                <div className="order-items">
+                  <h5>Ordered Items</h5>
+                  <ul>
+                    {order.orderItems.map((item, i) => (
+                      <li key={i}>
+                        {item.food_name} × {item.qty} = ₹
+                        {item.price * item.qty}
+                      </li>
+                    ))}
+                  </ul>
+                  <p className="order-total">💰 Total: ₹{order.total}</p>
+                </div>
 
-              {order.status !== "Completed" ? (
-                <button
-                  className="update-btn"
-                  onClick={() =>
-                    setOrders((prev) =>
-                      prev.map((o, i) =>
-                        i === index
-                          ? {
-                              ...o,
-                              status:
-                                o.status === "Pending"
-                                  ? "In Progress"
-                                  : o.status === "In Progress"
-                                  ? "Served"
-                                  : "Completed",
-                            }
-                          : o
-                      )
+                {/* 🔄 Status Buttons */}
+                <div className="status-buttons">
+                  {["Pending", "In Progress", "Served", "Completed"].map(
+                    (s) => (
+                      <button
+                        key={s}
+                        className={`status-btn ${
+                          order.status === s ? "active" : ""
+                        }`}
+                        onClick={() => updateStatus(index, s)}
+                      >
+                        {s}
+                      </button>
                     )
-                  }
-                >
-                  Update Status
-                </button>
-              ) : (
-                <p className="redirect-text">✅ Completed</p>
-              )}
-            </div>
-          ))}
-        </div>
-      )}
+                  )}
+                </div>
+
+                {/* ✏️ Modify + 🗑 Remove */}
+                {order.status === "Completed" && (
+                  <div className="modify-remove">
+                    <button
+                      className="modify-btn"
+                      onClick={() => handleModify(order)}
+                    >
+                      ✏️ Modify
+                    </button>
+                    <button
+                      className="delete-btn"
+                      onClick={() => removeOrder(index)}
+                    >
+                      🗑 Remove
+                    </button>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
     </div>
   );
 }

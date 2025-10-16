@@ -1,12 +1,67 @@
-/* 🌟 Overall Wrapper Layout */
 
+/* 🌟 Fixed Title Header */
+.takeorder-header {
+  font-size: 30px;
+    color: #5c4a00;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-shadow: 0 0 6px rgba(247, 215, 116, 0.4);
+    text-align: center;
+    padding-top: 25px;
+    padding-bottom: 1px;
+}
   
   /* 🌟 Two-Section Layout */
   .menu-layout {
     display: flex;
-    height: calc(110vh - 210px);
+    height: calc(100vh - 200px);
+   
   }
   
+
+  /* 🔍 Fancy Search */
+.search-bar {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-icon {
+  position: absolute;
+  left: 12px;
+  color: #b7950b;
+  font-size: 1.2rem;
+}
+
+.fancy-search {
+  padding-left: 40px !important;
+  background: #fffef6;
+  border: 2px solid #b7950b;
+  border-radius: 25px;
+  transition: all 0.4s ease;
+}
+
+.fancy-search:focus {
+  box-shadow: 0 0 12px rgba(183, 149, 11, 0.4);
+  transform: scale(1.03);
+}
+
+/* 🌀 Fade-in animation for cards */
+.fade-in {
+  animation: fadeInSmooth 0.8s ease;
+}
+
+@keyframes fadeInSmooth {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
   /* Left Scroll Section (Menu) */
   .menu-section {
     flex: 0.65;
@@ -15,6 +70,7 @@
     scrollbar-width: thin;
     scrollbar-color: #b7950b #fff8e1;
     scroll-behavior: smooth;
+    margin-top: 20px;
   }
   
   .menu-section::-webkit-scrollbar {
@@ -34,7 +90,7 @@
     background: linear-gradient(180deg, #fffdf3, #fff6d1);
     /* border-left: 3px solid #b7950b; */
     padding: 1.5rem;
-    height: calc(98vh - 130px);
+    height: calc(90vh - 130px);
     overflow: scroll;
     position: sticky;
     top: 0;
@@ -91,11 +147,11 @@
     font-family: "Playfair Display", serif;
     color: #4b3c00;
     font-weight: 600;
-    font-size: 1.1rem;
+    font-size: 1.5rem;
   }
   .menu-desc {
     color: #555;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     line-height: 1.3;
   }
   
@@ -374,4 +430,39 @@
   .royal-tabs {
     justify-content: center;
   }
+}
+
+
+/* 🏷️ Page title */
+.takeorder-title {
+  text-align: center;
+  margin: 1.5rem 0;
+}
+.takeorder-title h2 {
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+  /* color: #b8860b; */
+}
+.takeorder-title p {
+  color: #666;
+  font-size: 15px;
+  margin-top: 5px;
+}
+
+/* 🏷️ Category shown during search */
+.found-category {
+  /* color: #b8860b; */
+  font-family: "Playfair Display", serif;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  /* border-left: 4px solid #d4af37; */
+  padding-left: 10px;
+  /* background: #fff9e6; */
+  border-radius: 4px;
+}
+
+/* Section spacing */
+.category-section {
+  margin-bottom: 2rem;
 }

@@ -5,7 +5,7 @@
   background: #fffbea;
   min-height: 100vh;
   padding: 40px 20px;
-  color: #5a4300;
+  color: #5c4a00;
 }
 
 .page-title {
@@ -78,7 +78,7 @@
 }
 
 .status-badge.green {
-  background-color: #78c57c;
+  background-color: #19b421;
 }
 
 .status-badge.red {

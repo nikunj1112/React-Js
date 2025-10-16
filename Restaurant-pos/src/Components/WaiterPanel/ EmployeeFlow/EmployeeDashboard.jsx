@@ -18,21 +18,17 @@ export default function EmployeeDashboard() {
   const navigate = useNavigate();
   const location = useLocation();
 
-  // ✅ Check if a sidebar button is active
   const isActive = (path) => location.pathname === path;
 
   return (
-    <div className="employee-dashboard">
-      {/* 🌟 Sidebar */}
+    <div className="dashboard-layout">
+      {/* 🌟 Sidebar - fixed */}
       <aside className="sidebar">
-        {/* 🔝 Top Section */}
         <div className="sidebar-top">
           <div className="brand">
             <img src={img1} alt="Logo" className="logo" />
-            {/* <h2 className="brand-name">Maharaja POS</h2> */}
           </div>
 
-          {/* 🧭 Navigation Menu */}
           <nav className="menu">
             <button
               onClick={() => navigate("/dashboard/select-table")}
@@ -92,7 +88,6 @@ export default function EmployeeDashboard() {
           </nav>
         </div>
 
-        {/* 🔚 Bottom Section: Logout */}
         <div className="logout">
           <button onClick={() => navigate("/login")}>
             <RiLogoutCircleRLine /> <span>Logout</span>
@@ -100,8 +95,8 @@ export default function EmployeeDashboard() {
         </div>
       </aside>
 
-      {/* 🧾 Main Content */}
-      <main className="content-area">
+      {/* 🧾 Main Content Area */}
+      <main className="main-content">
         <Outlet />
       </main>
     </div>

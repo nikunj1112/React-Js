@@ -190,3 +190,50 @@
     }
   }
   
+
+
+  /* ---------- Layout ---------- */
+.dashboard-layout {
+  display: flex;
+  height: 100vh;
+  overflow: hidden; /* Stop body scroll */
+  background: #fffdf5;
+}
+
+/* ---------- Sidebar ---------- */
+.sidebar {
+  width: 270px;
+  background: linear-gradient(180deg, #fff9e6 0%, #fdf0b3 100%);
+  border-right: 2px solid rgba(212, 175, 55, 0.25);
+  box-shadow: 3px 0 25px rgba(212, 175, 55, 0.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 30px 22px;
+  position: fixed; /* 🟡 Sidebar stays fixed */
+  top: 0;
+  left: 0;
+  height: 100vh;
+  z-index: 10;
+}
+
+/* ---------- Main Content ---------- */
+.main-content {
+  flex: 1;
+  margin-left: 270px; /* space for fixed sidebar */
+  height: 100vh;
+  overflow-y: auto; /* 🟣 Only this scrolls */
+  padding: 40px;
+  animation: fadeInContent 1s ease;
+  color: #3b3000;
+  background: #fffdf5;
+}
+
+/* ---------- Scrollbar ---------- */
+.main-content::-webkit-scrollbar {
+  width: 8px;
+}
+.main-content::-webkit-scrollbar-thumb {
+  background: #d4af37;
+  border-radius: 4px;
+}

@@ -13,7 +13,7 @@ export default function TakeOrder() {
   const [customerInfo, setCustomerInfo] = useState(null);
   const navigate = useNavigate();
 
-  // ✅ Fetch menu & customer info from localStorage
+  // ✅ Fetch menu and customer info
   useEffect(() => {
     fetch("http://localhost:3000/menu")
       .then((res) => res.json())
@@ -37,7 +37,7 @@ export default function TakeOrder() {
     if (savedCustomer) setCustomerInfo(savedCustomer);
   }, []);
 
-  // 🔍 Search filter
+  // 🔍 Filter data based on search
   const filteredData = searchTerm
     ? Object.keys(menuData).reduce((acc, cat) => {
         const filtered = menuData[cat]?.filter((item) =>
@@ -48,7 +48,7 @@ export default function TakeOrder() {
       }, {})
     : { [activeCategory]: menuData[activeCategory] || [] };
 
-  // 🛒 Add to order
+  // ➕ Add item to cart
   const handleAdd = (item) => {
     const existing = orderItems.find((i) => i.food_name === item.food_name);
     if (existing) {
@@ -62,7 +62,7 @@ export default function TakeOrder() {
     }
   };
 
-  // ➕➖ Update quantity
+  // 🔄 Update quantity
   const updateQty = (name, change) => {
     setOrderItems((prev) =>
       prev
@@ -80,10 +80,9 @@ export default function TakeOrder() {
     setOrderItems(orderItems.filter((i) => i.food_name !== name));
   };
 
-  // 💰 Total
   const total = orderItems.reduce((acc, i) => acc + i.price * i.qty, 0);
 
-  // 🧾 Place order → Save to localStorage + redirect to UpdateStatus
+  // 🧾 Place order
   const handlePlaceOrder = () => {
     if (orderItems.length === 0) {
       alert("Please add at least one item to the order!");
@@ -103,10 +102,15 @@ export default function TakeOrder() {
     const updatedOrders = [...existingOrders, orderData];
     localStorage.setItem("orders", JSON.stringify(updatedOrders));
 
-    alert(`🧾 Order placed successfully for ${customerInfo?.customerName || "Customer"}!`);
+    alert(
+      `🧾 Order placed successfully for ${
+        customerInfo?.customerName || "Customer"
+      }!`
+    );
     setOrderItems([]);
 
-    navigate("/dashboard/update-status");
+    // ✅ Navigate to UpdateStatus page
+    navigate("/dashboard/update-order");
   };
 
   if (loading) return <h4 className="text-center mt-5">Loading menu...</h4>;
@@ -114,45 +118,53 @@ export default function TakeOrder() {
   return (
     <div className="royal-menu-wrapper">
       <Container fluid>
-        {/* 🔹 Tabs + Search */}
+        {/* 🏷️ Page Title */}
+        <div className="takeorder-title">
+          <h2>🍽️ Take New Order</h2>
+          <p>Search dishes, add items, and place customer orders easily.</p>
+        </div>
+
+        {/* 🔍 Category Tabs + Search */}
         <div className="category-search-container">
-  {/* Tabs (Left) */}
-  <Nav variant="tabs" className="royal-tabs">
-    {Object.keys(menuData).map((cat) => (
-      <Nav.Item key={cat}>
-        <Nav.Link
-          active={activeCategory === cat}
-          onClick={() => setActiveCategory(cat)}
-        >
-          {cat === "mainCourseVeg"
-            ? "Main Course (Veg)"
-            : cat === "mainCourseNonVeg"
-            ? "Main Course (Non-Veg)"
-            : cat.charAt(0).toUpperCase() + cat.slice(1)}
-        </Nav.Link>
-      </Nav.Item>
-    ))}
-  </Nav>
+          <Nav variant="tabs" className="royal-tabs">
+            {Object.keys(menuData).map((cat) => (
+              <Nav.Item key={cat}>
+                <Nav.Link
+                  active={activeCategory === cat}
+                  onClick={() => {
+                    setActiveCategory(cat);
+                    setSearchTerm("");
+                  }}
+                >
+                  {cat === "mainCourseVeg"
+                    ? "Main Course (Veg)"
+                    : cat === "mainCourseNonVeg"
+                    ? "Main Course (Non-Veg)"
+                    : cat.charAt(0).toUpperCase() + cat.slice(1)}
+                </Nav.Link>
+              </Nav.Item>
+            ))}
+          </Nav>
 
-  {/* Search (Right) */}
-  <input
-    type="text"
-    placeholder="Search dishes..."
-    className="menu-search"
-    value={searchTerm}
-    onChange={(e) => setSearchTerm(e.target.value)}
-  />
-</div>
+          <input
+            type="text"
+            placeholder="🔍 Search dishes..."
+            className="menu-search"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
+        </div>
 
-
-        {/* 🔹 Menu Layout */}
+        {/* 🧾 Main Layout */}
         <div className="menu-layout">
-          {/* Left - Menu */}
+          {/* 🍛 Menu List */}
           <div className="menu-section">
             {Object.keys(filteredData).map((cat) => (
-              <div key={cat}>
-                {searchTerm && (
-                  <h5 className="category-heading">
+              <div key={cat} className="category-section">
+                {/* 🏷️ Show category when searching */}
+                {searchTerm && filteredData[cat].length > 0 && (
+                  <h5 className="found-category">
+                    🍛 {" "}
                     {cat === "mainCourseVeg"
                       ? "Main Course (Veg)"
                       : cat === "mainCourseNonVeg"
@@ -160,36 +172,56 @@ export default function TakeOrder() {
                       : cat.charAt(0).toUpperCase() + cat.slice(1)}
                   </h5>
                 )}
-                {filteredData[cat].map((item) => (
-                  <div key={item.id} className="menu-card mb-3">
-                    <img src={item.image} alt={item.food_name} className="menu-img" />
-                    <div className="menu-text">
-                      <h5 className="menu-name">{item.food_name}</h5>
-                      <p className="menu-desc">{item.description}</p>
+
+                {filteredData[cat].length === 0 ? (
+                  <p className="text-muted text-center">No dishes found...</p>
+                ) : (
+                  filteredData[cat].map((item) => (
+                    <div key={item.id} className="menu-card fade-in">
+                      <img
+                        src={item.image}
+                        alt={item.food_name}
+                        className="menu-img"
+                      />
+                      <div className="menu-text">
+                        <h5 className="menu-name">{item.food_name}</h5>
+                        <p className="menu-desc">{item.description}</p>
+                      </div>
+                      <div className="menu-action">
+                        <span className="menu-price">₹{item.price}</span>
+                        <Button
+                          variant="warning"
+                          className="add-btn"
+                          onClick={() => handleAdd(item)}
+                        >
+                          <i className="ri-add-circle-line me-1"></i>Add
+                        </Button>
+                      </div>
                     </div>
-                    <div className="menu-action">
-                      <span className="menu-price">₹{item.price}</span>
-                      <Button variant="warning" className="add-btn" onClick={() => handleAdd(item)}>
-                        <i className="ri-add-circle-line me-1"></i>Add
-                      </Button>
-                    </div>
-                  </div>
-                ))}
+                  ))
+                )}
               </div>
             ))}
           </div>
 
-          {/* Right - Order Summary */}
+          {/* 🧾 Order Summary */}
           <div className="order-summary-card">
             <h4>🧾 Order Summary</h4>
-
             {customerInfo && (
               <div className="summary-customer">
-                <p><strong>Customer:</strong> {customerInfo.customerName}</p>
-                <p><strong>Table:</strong> {customerInfo.tableNo}</p>
-                <p><strong>Phone:</strong> {customerInfo.phone}</p>
+                <p>
+                  <strong>Customer:</strong> {customerInfo.customerName}
+                </p>
+                <p>
+                  <strong>Table:</strong> {customerInfo.tableNo}
+                </p>
+                <p>
+                  <strong>Phone:</strong> {customerInfo.phone}
+                </p>
                 {customerInfo.specialRequest && (
-                  <p><strong>Note:</strong> {customerInfo.specialRequest}</p>
+                  <p>
+                    <strong>Note:</strong> {customerInfo.specialRequest}
+                  </p>
                 )}
                 <hr />
               </div>
@@ -203,11 +235,19 @@ export default function TakeOrder() {
                   <div className="summary-left">
                     <strong>{item.food_name}</strong>
                     <div className="summary-controls">
-                      <Button size="sm" variant="outline-warning" onClick={() => updateQty(item.food_name, -1)}>
+                      <Button
+                        size="sm"
+                        variant="outline-warning"
+                        onClick={() => updateQty(item.food_name, -1)}
+                      >
                         -
                       </Button>
                       <span className="mx-2">{item.qty}</span>
-                      <Button size="sm" variant="outline-warning" onClick={() => updateQty(item.food_name, 1)}>
+                      <Button
+                        size="sm"
+                        variant="outline-warning"
+                        onClick={() => updateQty(item.food_name, 1)}
+                      >
                         +
                       </Button>
                     </div>

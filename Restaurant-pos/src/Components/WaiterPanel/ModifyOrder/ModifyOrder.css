@@ -1,0 +1,54 @@
+.modify-order-page {
+    padding: 20px;
+    background: #fffef8;
+    border-radius: 16px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.1);
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+  
+  .customer-info {
+    background: #f9f9d9;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .ordered-item, .menu-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #fffbea;
+    padding: 10px 15px;
+    border-radius: 12px;
+    margin-bottom: 10px;
+  }
+  
+  .ordered-item button, .menu-item button {
+    background: #d8b400;
+    color: white;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  
+  .save-btn {
+    background: #0a8f08;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-right: 10px;
+  }
+  
+  .cancel-btn {
+    background: #f54242;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  
