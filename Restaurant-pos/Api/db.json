@@ -13,7 +13,8 @@
           "discount": 0,
           "description": "Grilled paneer cubes marinated in Indian spices.",
           "image": "https://avatars.mds.yandex.net/i?id=2a5c5916004cc22d22d34d18d2cc4349f51c34b1-10310841-images-thumbs&n=13",
-          "veg": true
+          "veg": true,
+          "rating": 4.8
         },
         {
           "id": 2,
@@ -27,6 +28,8 @@
           "description": "Spinach and green pea patties shallow fried.",
           "image": "https://avatars.mds.yandex.net/i?id=a86125f134a083273b2c3c875515470aa38c6b21-5175466-images-thumbs&n=13",
           "veg": true
+          ,
+          "rating": 4.3
         },
         {
           "id": 3,
@@ -39,7 +42,8 @@
           "discount": 0,
           "description": "Crispy rolls stuffed with mixed vegetables.",
           "image": "https://avatars.mds.yandex.net/i?id=2110d66963bd403ece98a58af8fc000a0842b59f-7863184-images-thumbs&n=13",
-          "veg": true
+          "veg": true,
+          "rating": 4.2
         },
         {
           "id": 4,
@@ -52,7 +56,8 @@
           "discount": 0,
           "description": "Golden fried sweet corn tossed with tangy masala.",
           "image": "https://avatars.mds.yandex.net/i?id=1f8d2f39c7c15722f360d037176e81e3b04d3a75-12472594-images-thumbs&n=13",
-          "veg": true
+          "veg": true,
+          "rating": 3.8
         },
         {
           "id": 5,
@@ -66,6 +71,8 @@
           "description": "Spicy Indo-Chinese paneer with capsicum and onion.",
           "image": "https://avatars.mds.yandex.net/i?id=9b2b3af7cde6ff6854c1644dc8360756fffdd39c-8210080-images-thumbs&n=13",
           "veg": true
+          ,
+          "rating": 4.1
         },
         {
           "id": 6,
@@ -78,7 +85,8 @@
           "discount": 0,
           "description": "Crispy veggie balls tossed in Manchurian sauce.",
           "image": "https://avatars.mds.yandex.net/i?id=1467532d6e10c7889be0ace54684bf5330e46831-7458047-images-thumbs&n=13",
-          "veg": true
+          "veg": true,
+          "rating": 4.4
         },
         {
           "id": 7,
@@ -91,7 +99,8 @@
           "discount": 0,
           "description": "Tandoor-grilled marinated chicken cubes.",
           "image": "https://avatars.mds.yandex.net/i?id=76a29a4141e960bdf2c65059795a917625ead445-13609632-images-thumbs&n=13",
-          "veg": false
+          "veg": false,
+          "rating": 4.5
         },
         {
           "id": 8,
@@ -105,6 +114,8 @@
           "description": "Crispy fried fish fillets with Punjabi spices.",
           "image": "https://avatars.mds.yandex.net/i?id=496a3bddd85e85bd19388ff9fb2732f065bfc557-12473993-images-thumbs&n=13",
           "veg": false
+          ,
+          "rating": 4.6
         },
         {
           "id": 9,
@@ -117,7 +128,8 @@
           "discount": 0,
           "description": "Juicy minced chicken roasted on skewers.",
           "image": "https://avatars.mds.yandex.net/i?id=435bc08a35b6c0c7647300cd0c5bc2313eccbfdb-9209611-images-thumbs&n=13",
-          "veg": false
+          "veg": false,
+          "rating": 4.7
         },
         {
           "id": 10,
@@ -130,7 +142,8 @@
           "discount": 0,
           "description": "Crispy fried prawns coated with red masala.",
           "image": "https://avatars.mds.yandex.net/i?id=7d569be4c2ce111229c7416d6f1c26050e8e350c-5531182-images-thumbs&n=13",
-          "veg": false
+          "veg": false,
+          "rating": 4.8
         },
         {
           "id": 11,
@@ -143,7 +156,8 @@
           "discount": 0,
           "description": "Paneer cubes deep fried with gram flour batter.",
           "image": "https://imageproxy.wolt.com/assets/678cfde92e7be86461817a7d",
-          "veg": true
+          "veg": true,
+          "rating": 4.9
         },
         {
           "id": 12,
@@ -157,6 +171,8 @@
           "description": "South Indian style fried spicy chicken bites.",
           "image": "https://avatars.mds.yandex.net/i?id=e7bd9aa7de4006253e6c975e96a7ca1912cc76a9-4146484-images-thumbs&n=13",
           "veg": false
+          ,
+          "rating": 4.4
         },
         {
           "id": 13,
@@ -170,6 +186,8 @@
           "description": "Crispy fried vegetable cutlets served with chutney.",
           "image": "https://avatars.mds.yandex.net/i?id=8d82ebaa5bfbbb130de2fc27be82b341e404ed23-9008017-images-thumbs&n=13",
           "veg": true
+          ,
+          "rating": 4.2
         },
         {
           "id": 14,
@@ -182,7 +200,8 @@
           "discount": 0,
           "description": "Assorted chicken and fish starters served with salad.",
           "image": "https://avatars.mds.yandex.net/i?id=a3f1e5b53db40298372dfb047ddcc65525aa66f6-5663902-images-thumbs&n=13",
-          "veg": false
+          "veg": false,
+          "rating": 4.1
         },
         {
           "id": 15,
@@ -196,6 +215,8 @@
           "description": "Assorted veg kebabs and tikkas with mint chutney.",
           "image": "https://avatars.mds.yandex.net/i?id=f0a80120ee8c8c0840fcd35a57db2ec1ec85fe65-5878150-images-thumbs&n=13",
           "veg": true
+          ,
+          "rating": 3.8
         }
       ],
       "mainCourse": {
@@ -211,7 +232,8 @@
             "discount": 0,
             "description": "Rich creamy tomato-based paneer gravy.",
             "image": "https://avatars.mds.yandex.net/i?id=8606c7cd6ba916f1cc4c6cfd272d65432f42e443-5428578-images-thumbs&n=13",
-            "veg": true
+            "veg": true,
+            "rating": 3.8
           },
           {
             "id": 17,
@@ -225,6 +247,8 @@
             "description": "Paneer cubes cooked in fresh spinach gravy.",
             "image": "https://avatars.mds.yandex.net/i?id=c51b16009b90bd303389136e85a49e04ab52ead3-9227998-images-thumbs&n=13",
             "veg": true
+            ,
+            "rating": 3.8
           },
           {
             "id": 18,
@@ -238,6 +262,8 @@
             "description": "Cashew-rich curry with cream and Indian spices.",
             "image": "https://avatars.mds.yandex.net/i?id=685d92b609ee7107ecef67543cb631c95cc45723-5869564-images-thumbs&n=13",
             "veg": true
+            ,
+            "rating": 3.8
           },
           {
             "id": 19,
@@ -250,7 +276,9 @@
             "discount": 0,
             "description": "Mushrooms cooked in onion-tomato gravy.",
             "image": "https://avatars.mds.yandex.net/i?id=e6537b5f25e642b56e59f5a0e7e3ce8507cc67fa-5268128-images-thumbs&n=13",
-            "veg": true
+            "veg": true,
+            "rating": 3.8
+
           },
           {
             "id": 20,
@@ -263,7 +291,9 @@
             "discount": 0,
             "description": "Fresh mixed vegetables cooked with masala.",
             "image": "https://avatars.mds.yandex.net/i?id=fb818e1697e6e1fbb6d297f750c4eaf13af6eb17-8969202-images-thumbs&n=13",
-            "veg": true
+            "veg": true,
+            "rating": 4.8
+
           },
           {
             "id": 21,
@@ -277,6 +307,8 @@
             "description": "Yellow lentils tempered with garlic and ghee.",
             "image": "https://avatars.mds.yandex.net/i?id=7ec4e7ef793d5edd69b3902c259737ffc06ee99b-16342694-images-thumbs&n=13",
             "veg": true
+            ,
+            "rating": 4.3
           },
           {
             "id": 22,
@@ -289,7 +321,8 @@
             "discount": 0,
             "description": "Black lentils cooked with cream and butter.",
             "image": "https://avatars.mds.yandex.net/i?id=9c52adf46afa302057282027287a4ea0108fbff54ae67067-11923369-images-thumbs&n=13",
-            "veg": true
+            "veg": true,
+            "rating": 4.3
           },
           {
             "id": 23,
@@ -302,7 +335,8 @@
             "discount": 0,
             "description": "Fragrant basmati rice flavored with cumin.",
             "image": "https://avatars.mds.yandex.net/i?id=9088b7df49d1f70585458cdc8d158dade121b714-4396111-images-thumbs&n=13",
-            "veg": true
+            "veg": true,
+            "rating": 4.3
           },
           {
             "id": 24,
@@ -315,7 +349,8 @@
             "discount": 0,
             "description": "Spiced rice cooked with vegetables.",
             "image": "https://avatars.mds.yandex.net/i?id=8a06dcfbc3a1e21b2b488bee80c1ec3d-5577672-images-thumbs&n=13",
-            "veg": true
+            "veg": true,
+            "rating": 4.3
           },
           {
             "id": 25,
@@ -328,7 +363,8 @@
             "discount": 0,
             "description": "Plain steamed basmati rice.",
             "image": "https://avatars.mds.yandex.net/i?id=7c8af8c816408152e0acd2fe91113c90ad5bc975-5734356-images-thumbs&n=13",
-            "veg": true
+            "veg": true,
+            "rating": 4.5
           },
           {
             "id": 26,
@@ -341,7 +377,8 @@
             "discount": 0,
             "description": "Soft Indian wheat flatbread.",
             "image": "https://avatars.mds.yandex.net/i?id=85b9e00ffe30158335729f19a2a79268d4300743-13206706-images-thumbs&n=13",
-            "veg": true
+            "veg": true,
+            "rating": 4.5
           },
           {
             "id": 27,
@@ -354,7 +391,8 @@
             "discount": 0,
             "description": "Tandoor-baked naan with butter.",
             "image": "https://avatars.mds.yandex.net/i?id=409f70c91879140dd1492cd9cb7de87b7c52f344-6946680-images-thumbs&n=13",
-            "veg": true
+            "veg": true,
+            "rating": 4.8
           },
           {
             "id": 28,
@@ -367,7 +405,8 @@
             "discount": 0,
             "description": "Naan topped with garlic and herbs.",
             "image": "https://avatars.mds.yandex.net/i?id=22d2f8dfce0e089e7a8e3a0cd8bb836d9b9799c2-4935265-images-thumbs&n=13",
-            "veg": true
+            "veg": true,
+            "rating": 4.2
           },
           {
             "id": 29,
@@ -380,7 +419,8 @@
             "discount": 0,
             "description": "Whole wheat roti cooked in tandoor.",
             "image": "https://avatars.mds.yandex.net/i?id=af7746eaab5d4129f273a4cb56050ad99ac1bb5b-5169626-images-thumbs&n=13",
-            "veg": true
+            "veg": true,
+            "rating": 4.3
           },
           {
             "id": 30,
@@ -394,6 +434,8 @@
             "description": "Paratha stuffed with potato or paneer filling.",
             "image": "https://avatars.mds.yandex.net/i?id=350594f2ebd7ea0021f033604e3feeac65c38901-8497208-images-thumbs&n=13",
             "veg": true
+            ,
+            "rating": 4.7
           }
         ],
         "nonVeg": [
@@ -408,7 +450,8 @@
             "discount": 0,
             "description": "Creamy tomato gravy with tender chicken pieces.",
             "image": "https://avatars.mds.yandex.net/i?id=c1eb88cf931f3818812423a1558c90f0212e9f31-10932937-images-thumbs&n=13",
-            "veg": false
+            "veg": false,
+            "rating": 4.3
           },
           {
             "id": 32,
@@ -421,7 +464,8 @@
             "discount": 0,
             "description": "Spicy traditional chicken curry.",
             "image": "https://avatars.mds.yandex.net/i?id=119ef38fbf059cba4410364dc17a48cce2721f3a-5859687-images-thumbs&n=13",
-            "veg": false
+            "veg": false,
+            "rating": 4.3
           },
           {
             "id": 33,
@@ -434,7 +478,8 @@
             "discount": 0,
             "description": "Aromatic basmati rice cooked with chicken and spices.",
             "image": "https://avatars.mds.yandex.net/i?id=bb9c6d26bae3d4e0d2867654ec990f5f6002b1fb-4566567-images-thumbs&n=13",
-            "veg": false
+            "veg": false,
+            "rating": 4.3
           },
           {
             "id": 34,
@@ -447,7 +492,8 @@
             "discount": 0,
             "description": "Rich Kashmiri mutton curry.",
             "image": "https://avatars.mds.yandex.net/i?id=711527955345029d6639890e38be4df627ffe9e7-12316895-images-thumbs&n=13",
-            "veg": false
+            "veg": false,
+            "rating": 4.3
           },
           {
             "id": 35,
@@ -460,7 +506,8 @@
             "discount": 0,
             "description": "Boiled eggs simmered in spicy curry.",
             "image": "https://avatars.mds.yandex.net/i?id=9a3b52ab58afe5af81e47b3a4da11bcb013927c0-5449619-images-thumbs&n=13",
-            "veg": false
+            "veg": false,
+            "rating": 4.3
           },
           {
             "id": 36,
@@ -473,7 +520,8 @@
             "discount": 0,
             "description": "Tangy coconut-based fish gravy.",
             "image": "https://avatars.mds.yandex.net/i?id=efabc767750f3fe834fb4e0573cefc8f2c2b91d2-12645552-images-thumbs&n=13",
-            "veg": false
+            "veg": false,
+            "rating": 4.3
           },
           {
             "id": 37,
@@ -486,7 +534,8 @@
             "discount": 0,
             "description": "Long-grain rice cooked with tender mutton.",
             "image": "https://avatars.mds.yandex.net/i?id=aa13dfeb3fc035134689a8034c10f0ea1b88d142-9147529-images-thumbs&n=13",
-            "veg": false
+            "veg": false,
+            "rating": 4.2
           },
           {
             "id": 38,
@@ -499,7 +548,8 @@
             "discount": 0,
             "description": "Slow-cooked chicken in handi-style curry.",
             "image": "https://avatars.mds.yandex.net/i?id=5f7ea84c10887501a410cc6b4733677de31f45d0-5277308-images-thumbs&n=13",
-            "veg": false
+            "veg": false,
+            "rating": 4.2
           },
           {
             "id": 39,
@@ -512,7 +562,8 @@
             "discount": 0,
             "description": "Coastal-style prawns cooked in coconut gravy.",
             "image": "https://avatars.mds.yandex.net/i?id=d161d1d90599bd59572a06ff54baadbf8a8145fe-7004933-images-thumbs&n=13",
-            "veg": false
+            "veg": false,
+            "rating": 4.2
           },
           {
             "id": 40,
@@ -525,7 +576,8 @@
             "discount": 0,
             "description": "Minced chicken cooked with spices.",
             "image": "https://avatars.mds.yandex.net/i?id=13236f82b4fff74e1d550e7a9cad4d4677fb7d03-10915333-images-thumbs&n=13",
-            "veg": false
+            "veg": false,
+            "rating": 4.2
           },
           {
             "id": 41,
@@ -538,7 +590,8 @@
             "discount": 0,
             "description": "Spicy minced mutton curry.",
             "image": "https://avatars.mds.yandex.net/i?id=7876f2d057eb8a2d0a3d19a16d795eea-5129481-images-thumbs&n=13",
-            "veg": false
+            "veg": false,
+            "rating": 4.7
           },
           {
             "id": 42,
@@ -551,7 +604,8 @@
             "discount": 0,
             "description": "Fragrant rice cooked with boiled eggs.",
             "image": " https://avatars.mds.yandex.net/i?id=2082889016274a6efdf5bc00e56d93ef478504ac-5910573-images-thumbs&n=13",
-            "veg": false
+            "veg": false,
+            "rating": 4.5
           },
           {
             "id": 43,
@@ -564,7 +618,8 @@
             "discount": 0,
             "description": "Fried fish served with rice and curry.",
             "image": "https://avatars.mds.yandex.net/i?id=9c8da68db66b5ae46d6bac0602bada1c90ac9d2b-10696481-images-thumbs&n=13",
-            "veg": false
+            "veg": false,
+            "rating": 4.1
           },
           {
             "id": 44,
@@ -577,7 +632,8 @@
             "discount": 0,
             "description": "Rich Mughlai curry with cashew paste.",
             "image": "https://avatars.mds.yandex.net/i?id=27d807559e48e1af5994c1a5645c33021ccddbfa-4514866-images-thumbs&n=13",
-            "veg": false
+            "veg": false,
+            "rating": 4.2
           },
           {
             "id": 45,
@@ -590,7 +646,8 @@
             "discount": 0,
             "description": "Classic spicy chicken gravy.",
             "image": "https://avatars.mds.yandex.net/i?id=ca8ec4a1d3314e9cb1c679f64905553c28ff89cf-4900962-images-thumbs&n=13",
-            "veg": false
+            "veg": false,
+            "rating": 4.3
           }
         ]
       },
@@ -606,7 +663,8 @@
           "discount": 0,
           "description": "Spiced buttermilk drink.",
           "image": "https://avatars.mds.yandex.net/i?id=374fd3447944a03f1c03726f26cb2b2a8d5ead2b-5663611-images-thumbs&n=13",
-          "veg": true
+          "veg": true,
+          "rating": 4.3
         },
         {
           "id": 47,
@@ -619,7 +677,8 @@
           "discount": 0,
           "description": "Sweetened yogurt-based drink.",
           "image": "https://avatars.mds.yandex.net/i?id=a9e0b8cc52272a782dd9b4686341d8fa090b663e-4553276-images-thumbs&n=13",
-          "veg": true
+          "veg": true,
+          "rating": 4.9
         },
         {
           "id": 48,
@@ -632,7 +691,8 @@
           "discount": 0,
           "description": "Chilled coffee blended with milk and ice cream.",
           "image": "https://avatars.mds.yandex.net/i?id=a8c2ee6a7506f28fb17cfd4c2975d60d92ffc246-5887964-images-thumbs&n=13",
-          "veg": true
+          "veg": true,
+          "rating": 4.9
         },
         {
           "id": 49,
@@ -645,7 +705,8 @@
           "discount": 0,
           "description": "Rich mango milkshake.",
           "image": "https://avatars.mds.yandex.net/i?id=53b0af08c3705a44aabc7615e40e09b825b1047e-8392048-images-thumbs&n=13",
-          "veg": true
+          "veg": true,
+          "rating": 4.9
         },
         {
           "id": 50,
@@ -658,7 +719,8 @@
           "discount": 0,
           "description": "Banana blended with milk and ice cream.",
           "image": "https://avatars.mds.yandex.net/i?id=f3a0eab62a4a84d9420ccba2489ea4f77be2e3be-5887371-images-thumbs&n=13",
-          "veg": true
+          "veg": true,
+          "rating": 4.9
         },
         {
           "id": 51,
@@ -671,7 +733,8 @@
           "discount": 0,
           "description": "Creamy strawberry shake.",
           "image": "https://avatars.mds.yandex.net/i?id=a785c9d730631e28c2154246d0ae110d6956c700-10779221-images-thumbs&n=13",
-          "veg": true
+          "veg": true,
+          "rating": 4.9
         },
         {
           "id": 52,
@@ -684,7 +747,8 @@
           "discount": 0,
           "description": "Lime soda sweet or salted.",
           "image": "https://avatars.mds.yandex.net/i?id=65db572f04cff8c2a1e3164b2f7b37a849d8b31e-4552854-images-thumbs&n=13",
-          "veg": true
+          "veg": true,
+          "rating": 4.9
         },
         {
           "id": 53,
@@ -697,7 +761,8 @@
           "discount": 0,
           "description": "Chilled Coca-Cola.",
           "image": "https://avatars.mds.yandex.net/i?id=73cac128808f26dc708794e8fc12417cd3ad0ee8-16491951-images-thumbs&n=13",
-          "veg": true
+          "veg": true,
+          "rating": 5.0
         },
         {
           "id": 54,
@@ -710,7 +775,8 @@
           "discount": 0,
           "description": "Chilled Pepsi.",
           "image": "https://avatars.mds.yandex.net/i?id=3bcfd5fbeb74676a44f286b5b32d040f87a58438-5473596-images-thumbs&n=13",
-          "veg": true
+          "veg": true,
+          "rating": 5.0
         },
         {
           "id": 55,
@@ -723,7 +789,8 @@
           "discount": 0,
           "description": "https://avatars.mds.yandex.net/i?id=fb8af2e0fcf983dcee115ba3cadb798a54311b32-12884905-images-thumbs&n=13",
           "image": "/images/drinks/sprite.jpg",
-          "veg": true
+          "veg": true,
+          "rating": 5.0
         },
         {
           "id": 56,
@@ -737,6 +804,8 @@
           "description": "Chilled brewed tea with lemon.",
           "image": "https://avatars.mds.yandex.net/i?id=c87fb2e5798c57e3236c32b50a18710836fad8f8-16855010-images-thumbs&n=13",
           "veg": true
+          ,
+          "rating": 4.6
         },
         {
           "id": 57,
@@ -749,7 +818,8 @@
           "discount": 0,
           "description": "Refreshing lemon mint mocktail.",
           "image": "https://avatars.mds.yandex.net/i?id=5e1874e4d858358e9748f1fe850624c6d481d572-12508610-images-thumbs&n=13",
-          "veg": true
+          "veg": true,
+          "rating": 4.9
         },
         {
           "id": 58,
@@ -762,7 +832,8 @@
           "discount": 0,
           "description": "Coconut and pineapple blend mocktail.",
           "image": "https://avatars.mds.yandex.net/i?id=dcf8e5765d273b10b81ae1c6f2867fb6ece196da-15400075-images-thumbs&n=13",
-          "veg": true
+          "veg": true,
+          "rating": 4.7
         },
         {
           "id": 59,
@@ -775,7 +846,8 @@
           "discount": 0,
           "description": "Fresh orange juice.",
           "image": "https://avatars.mds.yandex.net/i?id=6fbec18842d4fac5ffeb1f6f950a33a8efbdb944-4436930-images-thumbs&n=13",
-          "veg": true
+          "veg": true,
+          "rating": 4.5
         },
         {
           "id": 60,
@@ -788,7 +860,8 @@
           "discount": 0,
           "description": "Mineral water.",
           "image": "https://avatars.mds.yandex.net/i?id=2fdeeb4024d6eb09915aed0c5921fac94f943e2b-5220614-images-thumbs&n=13",
-          "veg": true
+          "veg": true,
+          "rating": 4.0
         }
       ],
       "desserts": [
@@ -803,7 +876,8 @@
           "discount": 0,
           "description": "Soft fried milk balls in sugar syrup.",
           "image": "https://avatars.mds.yandex.net/i?id=e9b06cb9256d73ca5f1a836cfe144c127be45510-13620566-images-thumbs&n=13",
-          "veg": true
+          "veg": true,
+          "rating": 4.0
         },
         {
           "id": 62,
@@ -816,7 +890,8 @@
           "discount": 0,
           "description": "Spongy cheese balls soaked in syrup.",
           "image": "https://avatars.mds.yandex.net/i?id=67554069ea8172f834695ae9ad9aa42fab9b88b9-16321275-images-thumbs&n=13",
-          "veg": true
+          "veg": true,
+          "rating": 4.0
         },
         {
           "id": 63,
@@ -829,7 +904,8 @@
           "discount": 0,
           "description": "Soft paneer soaked in sweet saffron milk.",
           "image": "https://avatars.mds.yandex.net/i?id=d97bc59d2335b6a68ba73b3c69f3014f7ab8186e-5108220-images-thumbs&n=13",
-          "veg": true
+          "veg": true,
+          "rating": 4.0
         },
         {
           "id": 64,
@@ -842,7 +918,8 @@
           "discount": 0,
           "description": "Traditional Indian ice cream flavored with saffron.",
           "image": "https://avatars.mds.yandex.net/i?id=525ac49f7f50cace7f2feb2d9ef49b061b6a89bb-4285578-images-thumbs&n=13",
-          "veg": true
+          "veg": true,
+          "rating": 4.1
         },
         {
           "id": 65,
@@ -855,7 +932,8 @@
           "discount": 0,
           "description": "Rich chocolate brownie served with ice cream.",
           "image": "https://avatars.mds.yandex.net/i?id=3fd75328191e23cd521ef5839a15559fdb81d859-5850566-images-thumbs&n=13",
-          "veg": true
+          "veg": true,
+          "rating": 4.1
         },
         {
           "id": 66,
@@ -868,7 +946,8 @@
           "discount": 0,
           "description": "Classic vanilla scoop.",
           "image": "https://avatars.mds.yandex.net/i?id=87d9700504e9d6d14fe35be0272602b29fc568ba-10803542-images-thumbs&n=13",
-          "veg": true
+          "veg": true,
+          "rating": 4.1
         },
         {
           "id": 67,
@@ -881,7 +960,8 @@
           "discount": 0,
           "description": "Rich chocolate ice cream.",
           "image": "https://avatars.mds.yandex.net/i?id=f8be6496f1a25775c16ca5b1ffb30ec8aa598705-16119096-images-thumbs&n=13",
-          "veg": true
+          "veg": true,
+          "rating": 4.1
         },
         {
           "id": 68,
@@ -894,7 +974,8 @@
           "discount": 0,
           "description": "Sweet strawberry flavored ice cream.",
           "image": "https://avatars.mds.yandex.net/i?id=f76388c2eb88bbd23a9f54fe0390a7f1ddcb93b7-10471613-images-thumbs&n=13",
-          "veg": true
+          "veg": true,
+          "rating": 4.1
         },
         {
           "id": 69,
@@ -907,7 +988,8 @@
           "discount": 0,
           "description": "Seasonal fruit bowl served chilled.",
           "image": "https://avatars.mds.yandex.net/i?id=3b84de4f3e4639379fb2796eb0ceca75ea61cb14-10018920-images-thumbs&n=13",
-          "veg": true
+          "veg": true,
+          "rating": 4.1
         },
         {
           "id": 70,
@@ -920,7 +1002,8 @@
           "discount": 0,
           "description": "Carrot halwa with ghee and dry fruits.",
           "image": "https://avatars.mds.yandex.net/i?id=cee9f98552478a59e922fff3f6adef0b9af921d1-10610468-images-thumbs&n=13",
-          "veg": true
+          "veg": true,
+          "rating": 4.1
         },
         {
           "id": 71,
@@ -933,7 +1016,8 @@
           "discount": 0,
           "description": "Crispy spiral sweets soaked in syrup.",
           "image": "https://avatars.mds.yandex.net/i?id=1561c45692db4a4b83357f4168d3efb1-5338518-images-thumbs&n=13",
-          "veg": true
+          "veg": true,
+          "rating": 4.2
         },
         {
           "id": 72,
@@ -946,7 +1030,8 @@
           "discount": 0,
           "description": "Creamy mango flavored pudding.",
           "image": "https://avatars.mds.yandex.net/i?id=32c82a45954eff3c5e17c2dcf60a24040c49e801-4336923-images-thumbs&n=13",
-          "veg": true
+          "veg": true,
+          "rating": 4.2
         },
         {
           "id": 73,
@@ -960,6 +1045,8 @@
           "description": "Smooth chocolate mousse dessert.",
           "image": "https://avatars.mds.yandex.net/i?id=9254fe42c55918d11c5d6ae7c37b4ddc-4077357-images-thumbs&n=13",
           "veg": true
+          ,
+            "rating": 4.2
         },
         {
           "id": 74,
@@ -972,7 +1059,8 @@
           "discount": 0,
           "description": "Creamy baked cheesecake slice.",
           "image": "https://avatars.mds.yandex.net/i?id=b40f1d8b0754f39d5d8d2099a8b51a22ccd51ad2-3608855-images-thumbs&n=13",
-          "veg": true
+          "veg": true,
+          "rating": 4.2
         },
         {
           "id": 75,
@@ -985,7 +1073,8 @@
           "discount": 0,
           "description": "Rice-based Indian dessert flavored with cardamom.",
           "image": "https://avatars.mds.yandex.net/i?id=b6690a0b2562533a6680d9a82a7397d0a9b67718-5222449-images-thumbs&n=13",
-          "veg": true
+          "veg": true,
+          "rating": 4.2
         }
       ]
     },
