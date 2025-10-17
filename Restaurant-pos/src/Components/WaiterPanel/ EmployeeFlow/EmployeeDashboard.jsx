@@ -4,7 +4,6 @@ import {
   RiDashboardLine,
   RiFileList2Line,
   RiUserLine,
-  RiSettings3Line,
   RiLogoutCircleRLine,
   RiBillLine,
   RiHistoryLine,
@@ -22,11 +21,12 @@ export default function EmployeeDashboard() {
 
   return (
     <div className="dashboard-layout">
-      {/* 🌟 Sidebar - fixed */}
+      {/* 🌟 Sidebar */}
       <aside className="sidebar">
         <div className="sidebar-top">
           <div className="brand">
             <img src={img1} alt="Logo" className="logo" />
+            <h2 className="brand-name">Employee Panel</h2>
           </div>
 
           <nav className="menu">
@@ -80,14 +80,15 @@ export default function EmployeeDashboard() {
             </button>
 
             <button
-              onClick={() => navigate("/dashboard/settings")}
-              className={isActive("/dashboard/settings") ? "active" : ""}
+              onClick={() => navigate("/dashboard/profile")}
+              className={isActive("/dashboard/profile") ? "active" : ""}
             >
-              <RiSettings3Line /> <span>Settings</span>
+              <RiUserLine /> <span>Profile</span>
             </button>
           </nav>
         </div>
 
+        {/* 🔴 Logout Section */}
         <div className="logout">
           <button onClick={() => navigate("/login")}>
             <RiLogoutCircleRLine /> <span>Logout</span>
@@ -95,7 +96,7 @@ export default function EmployeeDashboard() {
         </div>
       </aside>
 
-      {/* 🧾 Main Content Area */}
+      {/* 🧾 Main Content */}
       <main className="main-content">
         <Outlet />
       </main>

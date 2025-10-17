@@ -1,0 +1,47 @@
+.top-dishes-container {
+  padding: 20px;
+}
+
+.top-dishes-container h2 {
+  margin-bottom: 20px;
+  font-size: 28px;
+}
+
+.top-dishes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.dish-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  overflow: hidden;
+  transition: transform 0.2s;
+}
+
+.dish-card:hover {
+  transform: translateY(-5px);
+}
+
+.dish-image {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+.dish-info {
+  padding: 10px;
+}
+
+.dish-info h3 {
+  margin: 0 0 8px;
+  font-size: 18px;
+}
+
+.dish-info p {
+  margin: 2px 0;
+  font-size: 14px;
+  color: #555;
+}

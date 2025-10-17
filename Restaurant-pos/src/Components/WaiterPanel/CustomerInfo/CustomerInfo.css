@@ -200,3 +200,79 @@ textarea {
     transform: translateY(0);
   }
 }
+
+
+
+/* 🌟 Popup (Golden Theme) */
+.success-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 249, 230, 0.6);
+  backdrop-filter: blur(4px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeInPopup 0.4s ease;
+  z-index: 9999;
+}
+
+.popup-content {
+  background: linear-gradient(180deg, #fffdf7 0%, #fff8e1 100%);
+  border: 2px solid #f4c542;
+  border-radius: 20px;
+  padding: 30px 40px;
+  text-align: center;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+  animation: slideUp 0.5s ease;
+}
+
+.popup-content h3 {
+  color: #4a3500;
+  margin-bottom: 8px;
+}
+
+.popup-content p {
+  color: #6b5600;
+  font-size: 1rem;
+}
+
+.success-icon {
+  font-size: 2.5rem;
+  color: #e2b221;
+  margin-bottom: 10px;
+  animation: popScale 0.6s ease-in-out;
+}
+
+/* ✨ Animations */
+@keyframes fadeInPopup {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes popScale {
+  0% { transform: scale(0.7); opacity: 0; }
+  80% { transform: scale(1.1); opacity: 1; }
+  100% { transform: scale(1); }
+}
+
+
+
+.main-content {
+  flex: 1;
+  margin-left: 270px;
+  height: 100vh;
+  overflow-y: auto;
+  padding: 0px;
+  background: #fffdf5;
+  color: #3b3000;
+  animation: fadeInContent 1s 
+ease;
+}

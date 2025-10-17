@@ -8,6 +8,7 @@ export default function CustomerInfo() {
   const [phone, setPhone] = useState("");
   const [tableNo, setTableNo] = useState("");
   const [specialRequest, setSpecialRequest] = useState("");
+  const [showPopup, setShowPopup] = useState(false); // 🌟 Popup State
 
   const navigate = useNavigate();
 
@@ -25,12 +26,24 @@ export default function CustomerInfo() {
     // ✅ Save to localStorage
     localStorage.setItem("customerInfo", JSON.stringify(customerData));
 
-    alert(`✅ Customer Added: ${customerName}`);
+    // 🎉 Show popup
+    setShowPopup(true);
 
-    // ✅ Redirect to TakeOrder page
-    navigate("/dashboard/take-order");
+    // 🔊 Optional: Voice confirmation (English)
+    const utterance = new SpeechSynthesisUtterance(
+      `Customer ${customerName} added successfully.`
+    );
+    utterance.lang = "en-IN";
+    utterance.rate = 1;
+    window.speechSynthesis.speak(utterance);
 
-    // Clear fields (optional)
+    // Hide popup and redirect after delay
+    setTimeout(() => {
+      setShowPopup(false);
+      navigate("/dashboard/take-order");
+    }, 2500);
+
+    // Clear fields
     setCustomerName("");
     setPhone("");
     setTableNo("");
@@ -110,6 +123,17 @@ export default function CustomerInfo() {
           </div>
         </div>
       </div>
+
+      {/* 🟡 Success Popup */}
+      {showPopup && (
+        <div className="success-popup">
+          <div className="popup-content">
+            <i className="ri-check-double-line success-icon"></i>
+            <h3>Customer Added!</h3>
+            <p>{customerName} has been saved successfully.</p>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Container, Nav, Button } from "react-bootstrap";
+import { Container, Nav, Button, Modal, Form } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./TakeOrder.css";
@@ -11,9 +11,11 @@ export default function TakeOrder() {
   const [searchTerm, setSearchTerm] = useState("");
   const [loading, setLoading] = useState(true);
   const [customerInfo, setCustomerInfo] = useState(null);
+  const [showPopup, setShowPopup] = useState(false);
+  const [discount, setDiscount] = useState(0); // 💰 Discount %
   const navigate = useNavigate();
 
-  // ✅ Fetch menu and customer info
+  // ✅ Fetch menu + customer info
   useEffect(() => {
     fetch("http://localhost:3000/menu")
       .then((res) => res.json())
@@ -37,7 +39,7 @@ export default function TakeOrder() {
     if (savedCustomer) setCustomerInfo(savedCustomer);
   }, []);
 
-  // 🔍 Filter data based on search
+  // 🔍 Search Filter
   const filteredData = searchTerm
     ? Object.keys(menuData).reduce((acc, cat) => {
         const filtered = menuData[cat]?.filter((item) =>
@@ -48,7 +50,7 @@ export default function TakeOrder() {
       }, {})
     : { [activeCategory]: menuData[activeCategory] || [] };
 
-  // ➕ Add item to cart
+  // ➕ Add Item
   const handleAdd = (item) => {
     const existing = orderItems.find((i) => i.food_name === item.food_name);
     if (existing) {
@@ -62,7 +64,7 @@ export default function TakeOrder() {
     }
   };
 
-  // 🔄 Update quantity
+  // 🔄 Update Quantity
   const updateQty = (name, change) => {
     setOrderItems((prev) =>
       prev
@@ -75,14 +77,51 @@ export default function TakeOrder() {
     );
   };
 
-  // ❌ Remove item
+  // ❌ Remove Item
   const removeItem = (name) => {
     setOrderItems(orderItems.filter((i) => i.food_name !== name));
   };
 
-  const total = orderItems.reduce((acc, i) => acc + i.price * i.qty, 0);
+  // 🧮 Billing Calculations
+  const subtotal = orderItems.reduce((acc, i) => acc + i.price * i.qty, 0);
+  const gst = subtotal * 0.05; // 5% GST
+  const serviceCharge = subtotal * 0.1; // 10% service
+  const discountAmount = (subtotal * discount) / 100;
+  const grandTotal = subtotal + gst + serviceCharge - discountAmount;
 
-  // 🧾 Place order
+ // 🎤 English Voice Announcement (same as CustomerInfo)
+const speakOrderPlaced = (customerName) => {
+  const message = new SpeechSynthesisUtterance(
+    `Order has been placed successfully for ${customerName || "the customer"}.`
+  );
+
+  message.lang = "en-IN";
+  message.pitch = 1.1;
+  message.rate = 0.95;
+  message.volume = 1;
+
+  // ✅ Try to pick a natural English female voice (like Aasha)
+  const voices = window.speechSynthesis.getVoices();
+  const preferredVoice =
+    voices.find((v) =>
+      v.name.toLowerCase().includes("google uk english female")
+    ) ||
+    voices.find((v) =>
+      v.name.toLowerCase().includes("english")
+    ) ||
+    voices[0];
+
+  if (preferredVoice) {
+    message.voice = preferredVoice;
+  }
+
+  // 🗣 Speak now
+  window.speechSynthesis.cancel(); // stop previous speech
+  window.speechSynthesis.speak(message);
+};
+
+
+  // 🧾 Place Order
   const handlePlaceOrder = () => {
     if (orderItems.length === 0) {
       alert("Please add at least one item to the order!");
@@ -92,7 +131,11 @@ export default function TakeOrder() {
     const orderData = {
       customerInfo,
       orderItems,
-      total,
+      subtotal,
+      gst,
+      serviceCharge,
+      discount,
+      total: grandTotal,
       tableId: customerInfo?.tableId || customerInfo?.tableNo || "Unknown",
       status: "Pending",
       time: new Date().toLocaleString(),
@@ -102,14 +145,16 @@ export default function TakeOrder() {
     const updatedOrders = [...existingOrders, orderData];
     localStorage.setItem("orders", JSON.stringify(updatedOrders));
 
-    alert(
-      `🧾 Order placed successfully for ${
-        customerInfo?.customerName || "Customer"
-      }!`
-    );
+    setShowPopup(true);
     setOrderItems([]);
 
-    // ✅ Navigate to UpdateStatus page
+    setTimeout(() => {
+      speakOrderPlaced(customerInfo?.customerName);
+    }, 400);
+  };
+
+  const handleClosePopup = () => {
+    setShowPopup(false);
     navigate("/dashboard/update-order");
   };
 
@@ -118,13 +163,13 @@ export default function TakeOrder() {
   return (
     <div className="royal-menu-wrapper">
       <Container fluid>
-        {/* 🏷️ Page Title */}
+        {/* Title */}
         <div className="takeorder-title">
           <h2>🍽️ Take New Order</h2>
           <p>Search dishes, add items, and place customer orders easily.</p>
         </div>
 
-        {/* 🔍 Category Tabs + Search */}
+        {/* Category Tabs + Search */}
         <div className="category-search-container">
           <Nav variant="tabs" className="royal-tabs">
             {Object.keys(menuData).map((cat) => (
@@ -155,16 +200,15 @@ export default function TakeOrder() {
           />
         </div>
 
-        {/* 🧾 Main Layout */}
+        {/* Menu + Summary */}
         <div className="menu-layout">
-          {/* 🍛 Menu List */}
+          {/* Menu List */}
           <div className="menu-section">
             {Object.keys(filteredData).map((cat) => (
               <div key={cat} className="category-section">
-                {/* 🏷️ Show category when searching */}
                 {searchTerm && filteredData[cat].length > 0 && (
                   <h5 className="found-category">
-                    🍛 {" "}
+                    🍛{" "}
                     {cat === "mainCourseVeg"
                       ? "Main Course (Veg)"
                       : cat === "mainCourseNonVeg"
@@ -204,9 +248,10 @@ export default function TakeOrder() {
             ))}
           </div>
 
-          {/* 🧾 Order Summary */}
+          {/* 🧾 Order Summary / Billing */}
           <div className="order-summary-card">
             <h4>🧾 Order Summary</h4>
+
             {customerInfo && (
               <div className="summary-customer">
                 <p>
@@ -267,7 +312,36 @@ export default function TakeOrder() {
             )}
 
             <hr />
-            <h5>Total: ₹{total}</h5>
+            {/* 🧮 Billing Section */}
+            <div className="billing-summary">
+              <p>
+                Subtotal: <span>₹{subtotal.toFixed(2)}</span>
+              </p>
+              <p>
+                GST (5%): <span>₹{gst.toFixed(2)}</span>
+              </p>
+              <p>
+                Service (10%): <span>₹{serviceCharge.toFixed(2)}</span>
+              </p>
+              <Form.Group className="discount-input mt-2">
+                <Form.Label>Discount (%)</Form.Label>
+                <Form.Control
+                  type="number"
+                  min="0"
+                  max="100"
+                  value={discount}
+                  onChange={(e) => setDiscount(Number(e.target.value))}
+                />
+              </Form.Group>
+              <p>
+                Discount: <span>- ₹{discountAmount.toFixed(2)}</span>
+              </p>
+              <hr />
+              <h5 className="grand-total">
+                Grand Total: <span>₹{grandTotal.toFixed(2)}</span>
+              </h5>
+            </div>
+
             <Button
               variant="warning"
               className="w-100 mt-2 place-btn"
@@ -279,6 +353,23 @@ export default function TakeOrder() {
           </div>
         </div>
       </Container>
+
+      {/* ✅ Success Popup */}
+      <Modal show={showPopup} onHide={handleClosePopup} centered>
+        <Modal.Header closeButton>
+          <Modal.Title>🎉 Order Placed Successfully</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <p>
+            Order for <strong>{customerInfo?.customerName || "Customer"}</strong> has been placed successfully.
+          </p>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="success" onClick={handleClosePopup}>
+            OK
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </div>
   );
 }

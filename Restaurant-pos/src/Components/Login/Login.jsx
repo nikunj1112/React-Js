@@ -3,6 +3,7 @@ import "./Login.css";
 import "remixicon/fonts/remixicon.css";
 import { useNavigate } from "react-router-dom";
 import imgo1 from "../../assets/img/login-img/login-img2.png";
+import db from "../../../Api/db.json"; // ✅ JSON file with users and menu
 
 export default function Login() {
   const [role, setRole] = useState("");
@@ -16,32 +17,50 @@ export default function Login() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // ✅ Manager Login
-    if (
-      role === "manager" &&
-      email === "manager@urbanspice.com" &&
-      password === "admin123"
-    ) {
-      alert("✅ Manager login successful!");
-      setError("");
-      navigate("/dashboard");
-      return;
+    // ✅ Manager Login Logic (unchanged)
+    if (role === "manager") {
+      const managerFound = db.users?.managers?.find(
+        (m) => m.email.toLowerCase().trim() === email.toLowerCase().trim()
+      );
+
+      if (managerFound && managerFound.password === password) {
+        alert(`✅ Manager login successful! Welcome, ${managerFound.name}`);
+        setError("");
+        navigate("/manager/dashboard"); // ✅ Go to Manager Dashboard
+        return;
+      } else {
+        setError("❌ Invalid manager credentials.");
+        return;
+      }
     }
 
-    // ✅ Employee Login
-    if (
-      role === "employee" &&
-      empCode === "EMP001" &&
-      password === "waiter123"
-    ) {
-      alert("✅ Employee login successful!");
-      setError("");
-      navigate("/dashboard");
-      return;
+    // ✅ Employee (Waiter) Login Logic
+    if (role === "employee") {
+      // 🟢 Step 1: Check in db.json
+      const waiterFromDB = db.users?.waiters?.find(
+        (w) => w.email.toLowerCase().trim() === empCode.toLowerCase().trim()
+      );
+
+      // 🟢 Step 2: Check in localStorage (if added dynamically)
+      const localEmployees = JSON.parse(localStorage.getItem("employees")) || [];
+      const waiterFromLocal = localEmployees.find(
+        (w) => w.email?.toLowerCase().trim() === empCode.toLowerCase().trim()
+      );
+
+      const waiterFound = waiterFromDB || waiterFromLocal;
+
+      if (waiterFound && waiterFound.password === password) {
+        alert(`✅ Employee login successful! Welcome, ${waiterFound.name}`);
+        setError("");
+        navigate("/dashboard"); // ✅ Go to Waiter Dashboard
+        return;
+      } else {
+        setError("❌ Invalid employee credentials.");
+        return;
+      }
     }
 
-    // ❌ Invalid credentials
-    setError("❌ Invalid credentials or wrong role selected.");
+    setError("❌ Please select a role and enter valid credentials.");
   };
 
   return (
@@ -50,9 +69,7 @@ export default function Login() {
         {/* 👑 Logo Section */}
         <div className="branding-content">
           <img src={imgo1} alt="Maharaja Palace Logo" className="branding-logo" />
-          <p className="branding-tagline">
-            Experience Royal Dining at its Finest
-          </p>
+          <p className="branding-tagline">Experience Royal Dining at its Finest</p>
         </div>
 
         {/* 🪄 Role Selection */}
@@ -84,7 +101,7 @@ export default function Login() {
                 <input
                   type="email"
                   id="managerEmail"
-                  placeholder="manager@urbanspice.com"
+                  placeholder="manager@maharajapalace.com"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
@@ -94,11 +111,11 @@ export default function Login() {
 
             {role === "employee" && (
               <div className="input-group">
-                <label htmlFor="employeeCode">Employee Code</label>
+                <label htmlFor="employeeCode">Employee Email</label>
                 <input
                   type="text"
                   id="employeeCode"
-                  placeholder="e.g., EMP001"
+                  placeholder="e.g., rakesh.mehta@maharajapalace.com"
                   value={empCode}
                   onChange={(e) => setEmpCode(e.target.value)}
                   required

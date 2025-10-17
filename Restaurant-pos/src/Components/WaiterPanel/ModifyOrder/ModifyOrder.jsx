@@ -1,13 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Nav } from "react-bootstrap";
+import menuData from "../../../../Api/db.json";
 import "./ModifyOrder.css";
 
 export default function ModifyOrder() {
   const navigate = useNavigate();
+
   const [order, setOrder] = useState(null);
   const [updatedOrder, setUpdatedOrder] = useState(null);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [activeCategory, setActiveCategory] = useState("starters");
 
-  // ✅ Load the order to modify from localStorage
+  // 🟢 Load existing order from localStorage
   useEffect(() => {
     const savedOrder = JSON.parse(localStorage.getItem("modifyOrder"));
     if (savedOrder) {
@@ -16,91 +21,181 @@ export default function ModifyOrder() {
     }
   }, []);
 
-  // Example menu list
-  const menuItems = [
-    { name: "Paneer Tikka", price: 220 },
-    { name: "Veg Spring Roll", price: 160 },
-    { name: "Hara Bhara Kabab", price: 180 },
-    { name: "Masala Dosa", price: 120 },
+  if (!updatedOrder) return <p>Loading order...</p>;
+
+  // 🟢 Combine all menu items
+  const allMenuItems = [
+    ...menuData.menu.starters,
+    ...menuData.menu.mainCourse.veg,
+    ...menuData.menu.mainCourse.nonVeg,
+    ...menuData.menu.drinks,
+    ...menuData.menu.desserts,
   ];
 
-  // ✅ Add new item
-  const handleAddItem = (item) => {
-    setUpdatedOrder((prev) => ({
-      ...prev,
-      orderItems: [
-        ...(prev.orderItems || []),
-        { food_name: item.name, price: item.price, qty: 1 },
-      ],
-      total: (prev.total || 0) + item.price,
-    }));
-  };
+  // 🟢 Filter items based on search + category
+  const filteredItems = allMenuItems.filter(
+    (item) =>
+      item.food_name.toLowerCase().includes(searchTerm.toLowerCase()) &&
+      ((activeCategory === "starters" && menuData.menu.starters.includes(item)) ||
+        (activeCategory === "mainCourseVeg" &&
+          menuData.menu.mainCourse.veg.includes(item)) ||
+        (activeCategory === "mainCourseNonVeg" &&
+          menuData.menu.mainCourse.nonVeg.includes(item)) ||
+        (activeCategory === "drinks" && menuData.menu.drinks.includes(item)) ||
+        (activeCategory === "desserts" && menuData.menu.desserts.includes(item)))
+  );
 
-  // ✅ Remove item
-  const handleRemoveItem = (index) => {
-    const removedItem = updatedOrder.orderItems[index];
-    setUpdatedOrder((prev) => ({
-      ...prev,
-      orderItems: prev.orderItems.filter((_, i) => i !== index),
-      total: prev.total - removedItem.price * removedItem.qty,
-    }));
-  };
-
-  // ✅ Save updated order
-  const handleSave = () => {
+  // 🟢 Save updated order
+  const persistOrder = (newOrder) => {
+    setUpdatedOrder(newOrder);
+    localStorage.setItem("modifyOrder", JSON.stringify(newOrder));
     const allOrders = JSON.parse(localStorage.getItem("orders")) || [];
+    const updatedOrders = allOrders.map((o) =>
+      o.time === order.time ? newOrder : o
+    );
+    localStorage.setItem("orders", JSON.stringify(updatedOrders));
+  };
 
-    // Find the index of the modified order using time or customer name
+  // 🟢 Add item
+  const handleAddItem = (item) => {
+    const newOrder = { ...updatedOrder };
+    const idx = newOrder.orderItems.findIndex(
+      (i) => i.food_name === item.food_name
+    );
+    if (idx !== -1) newOrder.orderItems[idx].qty += 1;
+    else
+      newOrder.orderItems.push({
+        food_name: item.food_name,
+        price: item.price,
+        qty: 1,
+      });
+    newOrder.total = newOrder.orderItems.reduce(
+      (sum, i) => sum + i.price * i.qty,
+      0
+    );
+    persistOrder(newOrder);
+  };
+
+  // 🟢 Remove item
+  const handleRemoveItem = (index) => {
+    const newOrder = { ...updatedOrder };
+    newOrder.orderItems = newOrder.orderItems.filter((_, i) => i !== index);
+    newOrder.total = newOrder.orderItems.reduce(
+      (sum, i) => sum + i.price * i.qty,
+      0
+    );
+    persistOrder(newOrder);
+  };
+
+  // 🟢 Save + Back handlers
+  const handleSave = () => {
+    localStorage.setItem("lastInvoice", JSON.stringify(updatedOrder));
+    alert("✅ Order updated successfully!");
+    navigate("/dashboard/invoice");
+  };
+
+  const handleBack = () => {
+    const allOrders = JSON.parse(localStorage.getItem("orders")) || [];
     const updatedOrders = allOrders.map((o) =>
       o.time === order.time ? updatedOrder : o
     );
-
     localStorage.setItem("orders", JSON.stringify(updatedOrders));
-
-    alert("✅ Order updated successfully!");
-    navigate("/dashboard/update-status");
+    navigate("/dashboard/update-order");
   };
-
-  if (!updatedOrder) return <p>Loading order...</p>;
 
   return (
     <div className="modify-order-page">
-      <h2>🧾 Modify Order</h2>
+      <h2 className="page-title">🧾 Modify Order</h2>
 
-      <div className="customer-info">
-        <p><b>Customer:</b> {updatedOrder.customerInfo?.customerName}</p>
-        <p><b>Phone:</b> {updatedOrder.customerInfo?.phone}</p>
-        <p><b>Table:</b> {updatedOrder.customerInfo?.tableNo}</p>
-      </div>
+      {/* 🧍‍♂️ Customer Info + Order Items */}
+      <div className="modify-grid">
+        <div className="customer-section">
+          <h3>👤 Customer Details</h3>
+          <p><b>Name:</b> {updatedOrder.customerInfo?.customerName}</p>
+          <p><b>Phone:</b> {updatedOrder.customerInfo?.phone}</p>
+          <p><b>Table:</b> {updatedOrder.customerInfo?.tableNo}</p>
+        </div>
 
-      <div className="ordered-items">
-        <h3>🛍 Ordered Items</h3>
-        {updatedOrder.orderItems.map((item, index) => (
-          <div key={index} className="ordered-item">
-            <span>
-              {item.food_name} × {item.qty}
-            </span>
-            <span>₹{item.price * item.qty}</span>
-            <button onClick={() => handleRemoveItem(index)}>❌</button>
+        <div className="ordered-section">
+          <h3>🛍 Ordered Items</h3>
+          <div className="ordered-items-scroll">
+            {updatedOrder.orderItems.map((item, index) => (
+              <div key={index} className="ordered-item">
+                <span>{item.food_name} × {item.qty}</span>
+                <span>₹{item.price * item.qty}</span>
+                <button onClick={() => handleRemoveItem(index)}>❌</button>
+              </div>
+            ))}
           </div>
-        ))}
-        <p><strong>💰 Total: ₹{updatedOrder.total}</strong></p>
+          <p className="total">💰 <strong>Total: ₹{updatedOrder.total}</strong></p>
+        </div>
       </div>
 
+      {/* 🔍 Filter + Buttons */}
+      <div className="filter">
+        <div className="search-bar">
+          <input
+            type="text"
+            placeholder="🔍 Search for food..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
+        </div>
+
+        <div className="actions">
+          <button className="save-btn" onClick={handleSave}>💾 Save Changes</button>
+          <button className="cancel-btn" onClick={handleBack}>↩ Back</button>
+        </div>
+      </div>
+
+      {/* 🍽 Add More Items */}
       <div className="menu-items">
-        <h3>🍽 Add More Items</h3>
-        {menuItems.map((item, index) => (
-          <div key={index} className="menu-item">
-            <span>{item.name}</span>
-            <span>₹{item.price}</span>
-            <button onClick={() => handleAddItem(item)}>➕ Add</button>
-          </div>
-        ))}
-      </div>
+        <h3 className="menu-heading">🍽 Add More Items</h3>
 
-      <div className="actions">
-        <button className="save-btn" onClick={handleSave}>💾 Save Changes</button>
-        <button className="cancel-btn" onClick={() => navigate(-1)}>↩ Back</button>
+        <Nav variant="tabs" className="royal-tabs">
+          <Nav.Item>
+            <Nav.Link active={activeCategory === "starters"} onClick={() => setActiveCategory("starters")}>Starters</Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link active={activeCategory === "mainCourseVeg"} onClick={() => setActiveCategory("mainCourseVeg")}>Main Course (Veg)</Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link active={activeCategory === "mainCourseNonVeg"} onClick={() => setActiveCategory("mainCourseNonVeg")}>Main Course (Non-Veg)</Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link active={activeCategory === "drinks"} onClick={() => setActiveCategory("drinks")}>Drinks</Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link active={activeCategory === "desserts"} onClick={() => setActiveCategory("desserts")}>Desserts</Nav.Link>
+          </Nav.Item>
+        </Nav>
+
+        <div className="menu-grid">
+          {filteredItems.map((item) => (
+            <div key={item.id} className="menu-card">
+              <img
+                src={item.image}
+                alt={item.food_name}
+                className="menu-img"
+                onError={(e) =>
+                (e.target.src =
+                  "https://cdn-icons-png.flaticon.com/512/1046/1046784.png")
+                }
+              />
+             
+                <div className="menu-info">
+                  <h4>{item.food_name}</h4>
+                  <p className="price">₹{item.price}</p>
+                </div>
+
+                <button className="add-btn" onClick={() => handleAddItem(item)}>
+                  ➕ Add
+                </button>
+              
+            </div>
+          ))}
+          {filteredItems.length === 0 && <p className="no-items">No items found.</p>}
+        </div>
       </div>
     </div>
   );

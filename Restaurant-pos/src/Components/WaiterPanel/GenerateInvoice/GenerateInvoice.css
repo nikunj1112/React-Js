@@ -1,0 +1,204 @@
+.invoice-page {
+    background: #fffdf7;
+    min-height: 100vh;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: "Poppins", sans-serif;
+  }
+  
+  .invoice-card {
+    width: 700px;
+    background: #fff8e1;
+    border-radius: 12px;
+    padding: 2rem;
+    border: 1px solid #f0e2b6;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .invoice-title {
+    text-align: center;
+    font-size: 1.8rem;
+    color: #4b2e05;
+    margin-bottom: 1rem;
+  }
+  
+  .invoice-info p {
+    margin: 4px 0;
+    color: #4b2e05;
+  }
+  
+  .divider {
+    border: none;
+    border-top: 1px solid #e2c981;
+    margin: 1rem 0;
+  }
+  
+  /* Table Styling */
+  .invoice-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .invoice-table th,
+  .invoice-table td {
+    border-bottom: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .invoice-table th {
+    background: #fdf4d2;
+    color: #4b2e05;
+    font-weight: 600;
+  }
+  
+  /* Tax Summary */
+  .tax-summary {
+    margin-top: 1rem;
+    text-align: right;
+    color: #4b2e05;
+    font-size: 1rem;
+  }
+  
+  .tax-summary p {
+    margin: 4px 0;
+  }
+  
+  .grand-total {
+    margin-top: 8px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #2e1b00;
+  }
+  
+  /* Paid Status */
+  .paid-status {
+    margin-top: 1rem;
+    background: #dfffe2;
+    color: #007a00;
+    padding: 8px;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: 600;
+  }
+  
+  /* Payment Controls */
+  .payment-controls {
+    margin-top: 1.5rem;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+  }
+  
+  .payment-select {
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+  }
+  
+  .confirm-btn {
+    background: #ffd700;
+    border: none;
+    color: #4b2e05;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  
+  .confirm-btn:hover {
+    background: #ffb300;
+  }
+  
+ /* 🌟 Payment Controls Container */
+.payment-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 2rem;
+    background: #fff8e1; /* Soft Ivory background */
+    padding: 1rem 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 3px 8px rgba(183, 149, 11, 0.15);
+  }
+  
+  /* 💰 Payment Method Dropdown */
+  /* .payment-select {
+    background: #fdf5d4;
+    color: #5c4a00;
+    border: 1px solid #b7950b;
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 1rem;
+    font-weight: 500;
+    font-family: "Poppins", sans-serif;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 2px 5px rgba(183, 149, 11, 0.15);
+  }
+  
+  .payment-select:hover {
+    background: #f7d774;
+    border-color: #a7892a;
+  }
+   */
+  /* ✅ Confirm Payment Button */
+  .confirm-btn {
+    background: linear-gradient(90deg, #b7950b, #f7d774);
+    color: #5c4a00;
+    border: 1px solid #a7892a;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 3px 6px rgba(183, 149, 11, 0.3);
+    text-shadow: 0 1px 0 #fff8e1;
+  }
+  
+  .confirm-btn:hover {
+    background: linear-gradient(90deg, #f7d774, #b7950b);
+    color: #2e1b00;
+    box-shadow: 0 5px 10px rgba(92, 74, 0, 0.4);
+    transform: translateY(-2px);
+  }
+  
+  .confirm-btn:active {
+    transform: scale(0.97);
+  }
+  
+  /* 📥 Download Button */
+  .download-btn {
+    display: block;
+    margin: 1.5rem auto 0 auto;
+    background: linear-gradient(90deg, #b7950b, #f7d774);
+    color: #5c4a00;
+    border: 1px solid #a7892a;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 3px 6px rgba(183, 149, 11, 0.3);
+    text-shadow: 0 1px 0 #fff8e1;
+  }
+  
+  .download-btn:hover {
+    background: linear-gradient(90deg, #f7d774, #b7950b);
+    color: #2e1b00;
+    box-shadow: 0 5px 10px rgba(92, 74, 0, 0.4);
+    transform: translateY(-2px);
+  }
+  
+  .download-btn:active {
+    transform: scale(0.98);
+    box-shadow: 0 2px 5px rgba(92, 74, 0, 0.3);
+  }
+  
+  
+  

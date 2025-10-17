@@ -1,0 +1,219 @@
+/* 🌟 Global Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* 🌟 Layout Base */
+.dashboard-layout {
+  display: flex;
+  height: 100vh;
+  background: #fffdf5;
+  font-family: "Poppins", sans-serif;
+  color: #3e2e00;
+  overflow: hidden;
+}
+
+/* 🌟 Sidebar */
+.sidebar {
+  width: 270px;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: linear-gradient(180deg, #fff9e6 0%, #fdf0b3 100%);
+  border-right: 2px solid rgba(212, 175, 55, 0.25);
+  box-shadow: 3px 0 25px rgba(212, 175, 55, 0.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 28px 20px;
+  animation: slideInLeft 0.8s ease;
+  z-index: 10;
+}
+
+/* 🌟 Brand Section */
+.brand {
+  text-align: center;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.25);
+  padding-bottom: 15px;
+  margin-bottom: 25px;
+}
+
+.brand img.logo {
+  width: 160px;
+  object-fit: contain;
+  filter: drop-shadow(0 3px 6px rgba(212, 175, 55, 0.3));
+  transition: transform 0.3s ease;
+}
+
+.brand img.logo:hover {
+  transform: scale(1.05);
+}
+
+.brand-name {
+  margin-top: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #b7950b;
+  letter-spacing: 0.5px;
+}
+
+/* 🌟 Menu Section */
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.menu button {
+  width: 100%;
+  background: transparent;
+  border: none;
+  color: #4b3f00;
+  text-align: left;
+  padding: 12px 14px;
+  font-size: 15.5px;
+  font-weight: 500;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+/* Hover Effect */
+.menu button:hover {
+  background: rgba(212, 175, 55, 0.15);
+  color: #b7950b;
+  transform: translateX(6px);
+  box-shadow: 0 3px 10px rgba(212, 175, 55, 0.25);
+}
+
+/* Active Menu */
+.menu button.active {
+  background: linear-gradient(90deg, #b7950b 0%, #f7d774 100%);
+  color: #fff;
+  font-weight: 600;
+  box-shadow: 0 4px 14px rgba(212, 175, 55, 0.4);
+  transform: translateX(0);
+}
+
+/* 🌟 Logout Section */
+.logout {
+  border-top: 1px solid rgba(212, 175, 55, 0.3);
+  padding-top: 20px;
+}
+
+.logout button {
+  width: 100%;
+  background: transparent;
+  border: none;
+  color: #b20000;
+  text-align: left;
+  font-size: 16px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.logout button:hover {
+  background: rgba(255, 0, 0, 0.08);
+  color: #d11a1a;
+  transform: translateX(5px);
+}
+
+/* 🌟 Main Content */
+.main-content {
+  flex: 1;
+  margin-left: 270px;
+  height: 100vh;
+  overflow-y: auto;
+  padding: 0px;
+  background: #fffdf5;
+  color: #3b3000;
+  animation: fadeInContent 1s ease;
+}
+
+/* 🌟 Scrollbar */
+.main-content::-webkit-scrollbar {
+  width: 8px;
+}
+.main-content::-webkit-scrollbar-thumb {
+  background: #d4af37;
+  border-radius: 4px;
+}
+
+/* 🌟 Animations */
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInContent {
+  from {
+    opacity: 0;
+    transform: scale(1.03);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* 🌟 Icons */
+.menu button svg,
+.logout button svg {
+  font-size: 1.3rem;
+  flex-shrink: 0;
+}
+
+/* 🌟 Responsive Design */
+@media (max-width: 900px) {
+  .sidebar {
+    width: 230px;
+    padding: 22px 15px;
+  }
+
+  .brand img.logo {
+    width: 130px;
+  }
+
+  .brand-name {
+    font-size: 1rem;
+  }
+
+  .main-content {
+    margin-left: 230px;
+    padding: 25px;
+  }
+
+  .menu button {
+    font-size: 14px;
+    padding: 10px 12px;
+  }
+}
+
+@media (max-width: 600px) {
+  .sidebar {
+    position: absolute;
+    transform: translateX(-100%);
+  }
+
+  .main-content {
+    margin-left: 0;
+  }
+}

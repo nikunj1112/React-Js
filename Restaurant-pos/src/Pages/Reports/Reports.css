@@ -1,0 +1,52 @@
+.reports-page {
+  background: #faf9f8;
+  min-height: 100vh;
+}
+
+.metric-card {
+  border-radius: 16px;
+  background: #fff;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.metric-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+}
+
+.metric-card h6 {
+  font-weight: 500;
+  color: #888;
+}
+
+.metric-card h4 {
+  font-weight: 700;
+  margin: 5px 0;
+  color: #333;
+}
+
+.list-unstyled li {
+  padding: 8px 0;
+  border-bottom: 1px solid #f2f2f2;
+}
+
+.list-unstyled li:last-child {
+  border-bottom: none;
+}
+.btn-warning {
+  background-color: #ff9a00 !important;
+  border: none !important;
+  color: #fff !important;
+  font-weight: 600;
+}
+
+.btn-outline-warning {
+  border-color: #ff9a00 !important;
+  color: #ff9a00 !important;
+}
+
+.btn-outline-warning:hover {
+  background-color: #ff9a00 !important;
+  color: #fff !important;
+}

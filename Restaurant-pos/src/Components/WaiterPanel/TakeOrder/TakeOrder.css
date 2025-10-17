@@ -466,3 +466,79 @@
 .category-section {
   margin-bottom: 2rem;
 }
+
+
+
+/* 🌟 Order Success Popup Styling */
+.modal-content {
+  background: linear-gradient(180deg, #fffdf7 0%, #fff8e1 100%);
+  border: 2px solid #f4c542;
+  border-radius: 18px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  animation: popupSlide 0.5s ease;
+  font-family: "Poppins", sans-serif;
+}
+
+.modal-header {
+  background: #f7e7a8;
+  border-bottom: 2px solid #f4c542;
+  color: #4a3500;
+  font-weight: 600;
+  border-radius: 16px 16px 0 0;
+}
+
+.modal-title {
+  font-size: 1.4rem;
+  letter-spacing: 0.5px;
+}
+
+.modal-body {
+  padding: 1.5rem;
+  color: #4a3500;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.modal-body strong {
+  color: #a37800;
+}
+
+.modal-footer {
+  border-top: none;
+  justify-content: center;
+  background: transparent;
+}
+
+/* ✅ OK Button (Royal Golden) */
+.modal-footer .btn-success {
+  background: linear-gradient(135deg, #f4c542, #f7e7a8);
+  border: none;
+  color: #3c2f00;
+  font-weight: 600;
+  padding: 8px 25px;
+  border-radius: 30px;
+  transition: all 0.3s ease;
+}
+
+.modal-footer .btn-success:hover {
+  background: linear-gradient(135deg, #f8e36a, #f4c542);
+  transform: scale(1.05);
+}
+
+/* ✨ Animation */
+@keyframes popupSlide {
+  from {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 🔔 Optional: backdrop blur for classy feel */
+.modal-backdrop.show {
+  backdrop-filter: blur(4px);
+  background-color: rgba(0, 0, 0, 0.3);
+}

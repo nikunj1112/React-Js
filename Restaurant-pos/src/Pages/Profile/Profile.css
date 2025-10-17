@@ -1,0 +1,137 @@
+.profile-dashboard {
+  background: #f8fafc;
+  min-height: 100vh;
+  padding: 40px 60px;
+  font-family: "Poppins", sans-serif;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.dashboard-header h2 {
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.dashboard-header p {
+  color: #64748b;
+  margin: 0;
+}
+
+.profile-avatar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.profile-avatar img {
+  width: 55px;
+  height: 55px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.profile-avatar h6 {
+  font-weight: 600;
+  margin: 0;
+}
+
+.profile-avatar p {
+  font-size: 13px;
+  color: #64748b;
+  margin: 0;
+}
+
+/* Custom Cards */
+.custom-card {
+  border: none;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  background: #fff;
+}
+
+.search-input {
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 6px 12px;
+  font-size: 14px;
+  outline: none;
+  width: 140px;
+}
+
+.account-item,
+.bill-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.account-item:last-child,
+.bill-item:last-child {
+  border-bottom: none;
+}
+
+.account-number {
+  font-weight: 600;
+  margin-bottom: 3px;
+}
+
+.amount-badge {
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.amount-badge.paid {
+  background: #22c55e;
+}
+
+.amount-badge.unpaid {
+  background: #ef4444;
+}
+
+/* Profile Card */
+.profile-card {
+  position: relative;
+  overflow: hidden;
+  border: none;
+  border-radius: 16px;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.05);
+}
+
+.profile-gradient {
+  background: linear-gradient(135deg, #3b82f6, #10b981);
+  height: 100px;
+  width: 100%;
+}
+
+.profile-photo {
+  margin-top: -60px;
+}
+
+.profile-photo img {
+  width: 100px;
+  height: 100px;
+  border: 4px solid white;
+}
+
+.next-btn {
+  background: linear-gradient(135deg, #3b82f6, #10b981);
+  border: none;
+  padding: 10px 30px;
+  border-radius: 10px;
+  font-weight: 600;
+  color: white;
+}
+
+.next-btn:hover {
+  opacity: 0.9;
+}

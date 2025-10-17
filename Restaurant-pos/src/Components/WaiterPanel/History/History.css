@@ -1,0 +1,108 @@
+/* 🌟 Overall Wrapper */
+.history-wrapper {
+    padding: 2rem;
+    background: #fffdf7;
+    font-family: "Poppins", sans-serif;
+    min-height: 100vh;
+  }
+  
+  /* 🌟 Title */
+  .history-title {
+    text-align: center;
+    color: #4b2e05;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  /* 🌟 Grid for 2x layout */
+  .history-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
+    gap: 2rem;
+    justify-content: center;
+  }
+  
+  /* 🌟 Individual Card */
+  .history-card {
+    background: #fff8e1;
+    border-radius: 12px;
+    padding: 1.2rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid #f0e2b6;
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .history-card:hover {
+    transform: scale(1.02);
+  }
+  
+  /* 🌟 Invoice Box (Printable Area) */
+  .invoice-box {
+    background: #fff;
+    border-radius: 8px;
+    padding: 1.2rem;
+    border: 1px solid #ddd;
+  }
+  
+  .invoice-heading {
+    text-align: center;
+    font-size: 1.3rem;
+    color: #4b2e05;
+    margin-bottom: 0.8rem;
+  }
+  
+  /* 🌟 Table Styling */
+  .invoice-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+  }
+  
+  .invoice-table th,
+  .invoice-table td {
+    border-bottom: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+    font-size: 0.95rem;
+  }
+  
+  .invoice-table th {
+    background: #fdf4d2;
+    color: #4b2e05;
+    font-weight: 600;
+  }
+  
+  /* 🌟 Total */
+  .total {
+    text-align: right;
+    margin-top: 10px;
+    font-size: 1.1rem;
+    color: #4b2e05;
+  }
+  
+  /* 🌟 Download Button */
+  .download-btn {
+    margin-top: 12px;
+    background: #ffd700;
+    border: none;
+    color: #4b2e05;
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    width: 100%;
+    transition: 0.3s;
+  }
+  
+  .download-btn:hover {
+    background: #ffb300;
+  }
+  
+  /* 🌟 Empty message */
+  .no-history {
+    text-align: center;
+    margin-top: 3rem;
+    color: #888;
+    font-size: 1.2rem;
+  }
+  
