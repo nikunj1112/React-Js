@@ -1,0 +1,91 @@
+.totalorders-wrapper {
+    padding: 1.5rem;
+    background: #fffdf7;
+    min-height: 100vh;
+    font-family: "Poppins", sans-serif;
+  }
+  
+  .totalorders-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+  }
+  
+  .totalorders-title {
+    font-size: 1.8rem;
+    color: #222;
+    margin: 0;
+  }
+  
+  .employee-info {
+    background: #f8f4e1;
+    padding: 0.7rem 1rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  }
+  
+  .employee-info p {
+    margin: 0.2rem 0;
+    font-size: 0.95rem;
+    color: #333;
+  }
+  
+  .no-orders {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #888;
+  }
+  
+  .totalorders-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.2rem;
+  }
+  
+  .order-card {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 1rem 1.3rem;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12);
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .order-card:hover {
+    transform: translateY(-4px);
+  }
+  
+  .order-title {
+    color: #b8860b;
+    font-size: 1.4rem;
+    margin-bottom: 0.6rem;
+    text-align: center;
+  }
+  
+  .order-meta p {
+    font-size: 0.9rem;
+    color: #444;
+    margin: 0.2rem 0;
+  }
+  
+  .order-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 0.5rem;
+  }
+  
+  .order-table th,
+  .order-table td {
+    border-bottom: 1px solid #eee;
+    padding: 6px 10px;
+    text-align: left;
+  }
+  
+  .order-total {
+    text-align: right;
+    font-weight: 600;
+    margin-top: 0.8rem;
+    color: #2c2c2c;
+  }
+  

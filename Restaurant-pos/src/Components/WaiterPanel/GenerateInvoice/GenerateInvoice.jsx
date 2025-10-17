@@ -7,16 +7,23 @@ import "./GenerateInvoice.css"; // 🎨 CSS import
 export default function GenerateInvoice() {
   const [invoice, setInvoice] = useState(null);
   const [paymentMethod, setPaymentMethod] = useState("UPI");
+  const [currentEmployee, setCurrentEmployee] = useState(null);
   const invoiceRef = useRef();
 
   useEffect(() => {
+    // 🟢 Load last invoice
     const lastInvoice = JSON.parse(localStorage.getItem("lastInvoice"));
     if (lastInvoice) setInvoice(lastInvoice);
+
+    // 🟢 Load logged-in employee info
+    const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
+    setCurrentEmployee(loggedInUser);
   }, []);
 
   // 🧾 Tax calculations
   const calculateTotals = () => {
-    if (!invoice) return { subtotal: 0, gst: 0, serviceCharge: 0, grandTotal: 0 };
+    if (!invoice)
+      return { subtotal: 0, gst: 0, serviceCharge: 0, grandTotal: 0 };
     const subtotal = invoice.total || 0;
     const gst = +(subtotal * 0.05).toFixed(2); // 5% GST
     const serviceCharge = +(subtotal * 0.1).toFixed(2); // 10% Service Charge
@@ -26,6 +33,7 @@ export default function GenerateInvoice() {
 
   const { subtotal, gst, serviceCharge, grandTotal } = calculateTotals();
 
+  // 🧾 Download as PDF
   const downloadPDF = async () => {
     if (!invoiceRef.current) return;
 
@@ -41,8 +49,11 @@ export default function GenerateInvoice() {
     pdf.save(`Invoice_${invoice.customerInfo?.customerName}.pdf`);
   };
 
+  // 🟢 Confirm Payment & Save to History
   const confirmPayment = () => {
     if (!invoice) return;
+
+    const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
 
     const fullInvoice = {
       ...invoice,
@@ -52,6 +63,8 @@ export default function GenerateInvoice() {
       gst,
       serviceCharge,
       grandTotal,
+      employeeName: loggedInUser?.name || "Unknown",
+      employeeEmail: loggedInUser?.email || "N/A",
     };
 
     const history = JSON.parse(localStorage.getItem("history")) || [];
@@ -71,10 +84,26 @@ export default function GenerateInvoice() {
         <h2 className="invoice-title">🧾 Maharaja Palace Invoice</h2>
 
         <div className="invoice-info">
-          <p><b>Customer:</b> {invoice.customerInfo?.customerName}</p>
-          <p><b>Phone:</b> {invoice.customerInfo?.phone}</p>
-          <p><b>Table:</b> {invoice.customerInfo?.tableNo}</p>
-          <p><b>Date:</b> {invoice.date || new Date().toLocaleString()}</p>
+          {/* ✅ Employee Info */}
+          <p>
+            <b>Employee:</b>{" "}
+            {invoice.employeeName ||
+              currentEmployee?.name ||
+              "Unknown Employee"}
+          </p>
+
+          <p>
+            <b>Customer:</b> {invoice.customerInfo?.customerName}
+          </p>
+          <p>
+            <b>Phone:</b> {invoice.customerInfo?.phone}
+          </p>
+          <p>
+            <b>Table:</b> {invoice.customerInfo?.tableNo}
+          </p>
+          <p>
+            <b>Date:</b> {invoice.date || new Date().toLocaleString()}
+          </p>
         </div>
 
         <hr className="divider" />
@@ -103,14 +132,22 @@ export default function GenerateInvoice() {
         <hr className="divider" />
 
         <div className="tax-summary">
-          <p><b>Subtotal:</b> ₹{subtotal}</p>
-          <p><b>GST (5%):</b> ₹{gst}</p>
-          <p><b>Service Charge (10%):</b> ₹{serviceCharge}</p>
+          <p>
+            <b>Subtotal:</b> ₹{subtotal}
+          </p>
+          <p>
+            <b>GST (5%):</b> ₹{gst}
+          </p>
+          <p>
+            <b>Service Charge (10%):</b> ₹{serviceCharge}
+          </p>
           <h3 className="grand-total">Grand Total: ₹{grandTotal}</h3>
         </div>
 
         {invoice.paid && (
-          <p className="paid-status">✅ Paid via {invoice.paymentMethod}</p>
+          <p className="paid-status">
+            ✅ Paid via {invoice.paymentMethod}
+          </p>
         )}
       </div>
 

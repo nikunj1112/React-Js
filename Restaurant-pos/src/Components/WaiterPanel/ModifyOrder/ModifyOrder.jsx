@@ -11,11 +11,20 @@ export default function ModifyOrder() {
   const [updatedOrder, setUpdatedOrder] = useState(null);
   const [searchTerm, setSearchTerm] = useState("");
   const [activeCategory, setActiveCategory] = useState("starters");
+  const [employee, setEmployee] = useState(null); // 🟢 Logged-in employee info
 
-  // 🟢 Load existing order from localStorage
+  // 🟢 Load existing order + employee info
   useEffect(() => {
     const savedOrder = JSON.parse(localStorage.getItem("modifyOrder"));
+    const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
+    setEmployee(loggedInUser);
+
     if (savedOrder) {
+      // agar employee info missing ho to add kar do
+      if (loggedInUser && !savedOrder.employeeName) {
+        savedOrder.employeeName = loggedInUser.name;
+        savedOrder.employeeEmail = loggedInUser.email;
+      }
       setOrder(savedOrder);
       setUpdatedOrder(savedOrder);
     }
@@ -45,10 +54,16 @@ export default function ModifyOrder() {
         (activeCategory === "desserts" && menuData.menu.desserts.includes(item)))
   );
 
-  // 🟢 Save updated order
+  // 🟢 Save updated order (with employee info)
   const persistOrder = (newOrder) => {
+    if (employee) {
+      newOrder.employeeName = employee.name;
+      newOrder.employeeEmail = employee.email;
+    }
+
     setUpdatedOrder(newOrder);
     localStorage.setItem("modifyOrder", JSON.stringify(newOrder));
+
     const allOrders = JSON.parse(localStorage.getItem("orders")) || [];
     const updatedOrders = allOrders.map((o) =>
       o.time === order.time ? newOrder : o
@@ -89,8 +104,22 @@ export default function ModifyOrder() {
 
   // 🟢 Save + Back handlers
   const handleSave = () => {
-    localStorage.setItem("lastInvoice", JSON.stringify(updatedOrder));
-    alert("✅ Order updated successfully!");
+    const finalOrder = { ...updatedOrder };
+
+    if (employee) {
+      finalOrder.employeeName = employee.name;
+      finalOrder.employeeEmail = employee.email;
+    }
+
+    // ✅ Save to lastInvoice
+    localStorage.setItem("lastInvoice", JSON.stringify(finalOrder));
+
+    // ✅ Update history
+    const history = JSON.parse(localStorage.getItem("history")) || [];
+    history.push(finalOrder);
+    localStorage.setItem("history", JSON.stringify(history));
+
+    alert(`✅ Order updated successfully by ${employee?.name || "Employee"}!`);
     navigate("/dashboard/invoice");
   };
 
@@ -114,6 +143,7 @@ export default function ModifyOrder() {
           <p><b>Name:</b> {updatedOrder.customerInfo?.customerName}</p>
           <p><b>Phone:</b> {updatedOrder.customerInfo?.phone}</p>
           <p><b>Table:</b> {updatedOrder.customerInfo?.tableNo}</p>
+          <p><b>Employee:</b> {employee?.name || updatedOrder.employeeName || "N/A"}</p>
         </div>
 
         <div className="ordered-section">
@@ -178,20 +208,17 @@ export default function ModifyOrder() {
                 alt={item.food_name}
                 className="menu-img"
                 onError={(e) =>
-                (e.target.src =
-                  "https://cdn-icons-png.flaticon.com/512/1046/1046784.png")
+                  (e.target.src =
+                    "https://cdn-icons-png.flaticon.com/512/1046/1046784.png")
                 }
               />
-             
-                <div className="menu-info">
-                  <h4>{item.food_name}</h4>
-                  <p className="price">₹{item.price}</p>
-                </div>
-
-                <button className="add-btn" onClick={() => handleAddItem(item)}>
-                  ➕ Add
-                </button>
-              
+              <div className="menu-info">
+                <h4>{item.food_name}</h4>
+                <p className="price">₹{item.price}</p>
+              </div>
+              <button className="add-btn" onClick={() => handleAddItem(item)}>
+                ➕ Add
+              </button>
             </div>
           ))}
           {filteredItems.length === 0 && <p className="no-items">No items found.</p>}

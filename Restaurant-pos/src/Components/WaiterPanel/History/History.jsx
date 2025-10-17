@@ -1,4 +1,3 @@
-// History.jsx
 import React, { useEffect, useState, useRef } from "react";
 import jsPDF from "jspdf";
 import html2canvas from "html2canvas";
@@ -6,11 +5,15 @@ import "./History.css";
 
 export default function History() {
   const [history, setHistory] = useState([]);
+  const [currentEmployee, setCurrentEmployee] = useState(null);
   const invoiceRefs = useRef({});
 
   useEffect(() => {
+    const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
+    setCurrentEmployee(loggedInUser);
+
     const savedHistory = JSON.parse(localStorage.getItem("history")) || [];
-    setHistory(savedHistory.reverse()); // Show latest first
+    setHistory(savedHistory.reverse());
   }, []);
 
   const downloadPDF = async (index) => {
@@ -44,6 +47,16 @@ export default function History() {
               className="invoice-box"
             >
               <h3 className="invoice-heading">🍽 Maharaja Palace</h3>
+
+              {/* ✅ Show employee name from history */}
+              {invoice.employeeName ? (
+                <p><b>Employee:</b> {invoice.employeeName}</p>
+              ) : currentEmployee ? (
+                <p><b>Employee:</b> {currentEmployee.name}</p>
+              ) : (
+                <p><b>Employee:</b> Unknown</p>
+              )}
+
               <p><b>Customer:</b> {invoice.customerInfo?.customerName}</p>
               <p><b>Phone:</b> {invoice.customerInfo?.phone}</p>
               <p><b>Table:</b> {invoice.customerInfo?.tableNo}</p>

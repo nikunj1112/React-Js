@@ -1,0 +1,133 @@
+.topdishes-wrapper {
+    padding: 2.5rem 2rem;
+    background: linear-gradient(135deg, #fffef9, #fff6e5);
+    font-family: "Poppins", sans-serif;
+    animation: fadeIn 0.8s ease-in-out;
+    min-height: 90vh;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  .topdishes-title {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 600;
+    color: #d19a0e;
+    margin-bottom: 2rem;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15);
+  }
+  
+  .topdishes-title span {
+    color: #555;
+    font-size: 1.1rem;
+  }
+  
+  .topdishes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.8rem;
+    justify-content: center;
+  }
+  
+  .dish-card {
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    position: relative;
+  }
+  
+  .dish-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.15);
+  }
+  
+  .img-container {
+    position: relative;
+  }
+  
+  .dish-img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-bottom: 2px solid #f1f1f1;
+    transition: all 0.3s ease;
+  }
+  
+  .dish-card:hover .dish-img {
+    filter: brightness(1.05);
+    transform: scale(1.05);
+  }
+  
+  .rating-badge {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    background: linear-gradient(135deg, #ffb300, #ff9800);
+    color: #fff;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 0.85rem;
+    font-weight: 600;
+  }
+  
+  .dish-info {
+    padding: 1rem 1.2rem;
+    text-align: left;
+  }
+  
+  .dish-name {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 0.4rem;
+    font-weight: 600;
+  }
+  
+  .dish-desc {
+    font-size: 0.9rem;
+    color: #777;
+    height: 42px;
+    overflow: hidden;
+    margin-bottom: 0.8rem;
+  }
+  
+  .dish-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .dish-price {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #28a745;
+  }
+  
+  .order-btn {
+    background: linear-gradient(135deg, #d4a017, #f5c542);
+    border: none;
+    color: #fff;
+    padding: 6px 14px;
+    border-radius: 8px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .order-btn:hover {
+    background: linear-gradient(135deg, #f0b90b, #e6a400);
+    transform: scale(1.05);
+  }
+  
+  .no-dishes {
+    text-align: center;
+    color: #999;
+    font-size: 1.1rem;
+    margin-top: 2rem;
+  }
+  

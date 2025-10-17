@@ -787,8 +787,8 @@
           "availability": true,
           "tax_rate": 5,
           "discount": 0,
-          "description": "https://avatars.mds.yandex.net/i?id=fb8af2e0fcf983dcee115ba3cadb798a54311b32-12884905-images-thumbs&n=13",
-          "image": "/images/drinks/sprite.jpg",
+          "description": "Chilled lemon-flavored soft drink.",
+          "image": "https://avatars.mds.yandex.net/i?id=fb8af2e0fcf983dcee115ba3cadb798a54311b32-12884905-images-thumbs&n=13",
           "veg": true,
           "rating": 5.0
         },
