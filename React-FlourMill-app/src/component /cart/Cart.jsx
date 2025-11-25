@@ -2,6 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import "./Cart.css";
 
+
 export default function Cart({ CartItem, onAdd, onRemove }) {
   const totalPrice = CartItem.reduce((a, c) => a + c.price * c.qty, 0);
   const navigate = useNavigate();
