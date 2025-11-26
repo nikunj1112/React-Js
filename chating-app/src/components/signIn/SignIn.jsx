@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { signin, fetchusers, signinwithgoogles, signup } from "../../slices/userslice";
 import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router";
 import "./SignIn.css";
 
 // import Logo from "../../assets/img/logo.png";
