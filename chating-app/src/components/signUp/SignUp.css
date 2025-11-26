@@ -1,0 +1,104 @@
+/* Background */
+.signup-wrapper {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #EFECE3;
+    padding: 20px;
+  }
+  
+  /* Card */
+  .signup-card {
+    background: white;
+    width: 380px;
+    padding: 40px 35px;
+    border-radius: 18px;
+    box-shadow: 0px 8px 18px rgba(0, 0, 0, 0.15);
+    text-align: center;
+  }
+  
+  /* Title */
+  .title {
+    font-size: 28px;
+    color: #4A70A9;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  .subtitle {
+    font-size: 14px;
+    color: #000000aa;
+    margin-bottom: 25px;
+  }
+  
+  /* Input */
+  .input-group {
+    position: relative;
+    width: 90%;
+    margin: 20px 0;
+    
+
+  }
+  
+  .input-group input {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #8FABD4;
+    border-radius: 8px;
+    outline: none;
+    font-size: 15px;
+    background: transparent;
+  }
+  
+  .input-group input:focus {
+    border-color: #4A70A9;
+  }
+  
+  .input-group label {
+    position: absolute;
+    top: -10px;
+    left: 12px;
+    background: #ffffff;
+    padding: 0 4px;
+    font-size: 13px;
+    color: #4A70A9;
+  }
+  
+  /* Button */
+  .btn.signup-btn {
+    width: 98%;
+    padding: 12px;
+    background: #4A70A9;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .btn.signup-btn:hover {
+    background: #3b5a85;
+  }
+  
+  /* Login Redirect */
+  .login-text {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #000000aa;
+  }
+  
+  .login-link {
+    margin-left: 6px;
+    color: #4A70A9;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  .login-link:hover {
+    text-decoration: underline;
+  }
+  
+  h2 .title{
+    margin-top: 0;
+  }
