@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Divkunj & Nivya | Special Edition</title>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&family=Montserrat:wght@800&family=Sacramento&display=swap"
+        rel="stylesheet">
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        :root {
+            --primary: #ff4d6d;
+            --secondary: #ff758f;
+            --dark: #590d22;
+            --soft: #fff0f3;
+            --white: #ffffff;
+            --glass: rgba(255, 255, 255, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--soft);
+            color: var(--dark);
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        #main-wrapper {
+            height: 100vh;
+            width: 100vw;
+            position: relative;
+            overflow-y: auto;
+            background: radial-gradient(circle at top right, #ffccd5, #fff0f3);
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .status-badge {
+            background: white;
+            padding: 6px 15px;
+            border-radius: 30px;
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--primary);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--soft);
+        }
+
+        section {
+            min-height: 100vh;
+            padding: 80px 20px 120px;
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            z-index: 10;
+        }
+
+        section.active {
+            display: flex;
+            animation: slideIn 0.6s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .glass-panel {
+            background: var(--glass);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            border-radius: 30px;
+            padding: 25px;
+            width: 100%;
+            max-width: 500px;
+            box-shadow: 0 10px 30px rgba(255, 77, 109, 0.1);
+            text-align: center;
+        }
+
+        /* Home Page Love Symbols */
+        .love-symbols {
+            font-size: 3rem;
+            margin: 20px 0;
+            display: flex;
+            gap: 20px;
+            animation: bounce 2s infinite ease-in-out;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        /* Gallery Slideshow */
+        .slideshow-container {
+            width: 100%;
+            max-width: 350px;
+            height: 450px;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 5px solid white;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .slides {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: none;
+        }
+
+        .slides.active {
+            display: block;
+            animation: fade 1s;
+        }
+
+        @keyframes fade {
+            from {
+                opacity: 0.4;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Timer UI */
+        .timer-grid {
+            display: flex;
+            gap: 10px;
+            margin: 25px 0;
+        }
+
+        .timer-unit {
+            background: white;
+            padding: 12px;
+            border-radius: 15px;
+            min-width: 70px;
+            text-align: center;
+            box-shadow: 0 8px 20px rgba(255, 77, 109, 0.15);
+        }
+
+        .timer-unit span {
+            display: block;
+            font-size: 22px;
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        .timer-unit label {
+            font-size: 10px;
+            text-transform: uppercase;
+            color: #888;
+        }
+
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3.2rem;
+            text-align: center;
+        }
+
+        .pink-gradient-text {
+            background: linear-gradient(to right, var(--primary), var(--dark));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-dock {
+            position: fixed;
+            bottom: 25px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 400px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 15px;
+            border-radius: 40px;
+            display: flex;
+            justify-content: space-around;
+            box-shadow: 0 20px 40px rgba(255, 77, 109, 0.25);
+            z-index: 1000;
+        }
+
+        .nav-btn {
+            color: #d1d1d1;
+            font-size: 20px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .nav-btn.active {
+            color: var(--primary);
+            transform: scale(1.2);
+        }
+
+        .magic-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 15px 35px;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 6px 20px rgba(255, 77, 109, 0.3);
+            margin: 10px;
+            transition: 0.3s;
+        }
+
+        #letter-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(89, 13, 34, 0.98);
+            z-index: 9999;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .paper {
+            background: #fff;
+            width: 100%;
+            max-width: 500px;
+            padding: 40px;
+            border-radius: 2px;
+        }
+            /* --- Timeline Section --- */
+            #timeline { background: var(--soft-pink); }
+
+.timeline-box {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.timeline-item {
+    padding: 20px 30px;
+    background: white;
+    border-radius: 15px;
+    margin-bottom: 30px;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    border-left: 5px solid var(--rose);
+    width: 100%;
+}
+
+.timeline-date {
+    font-weight: bold;
+    color: var(--rose);
+    display: block;
+    margin-bottom: 10px;
+}
+    </style>
+</head>
+
+<body>
+
+    <div id="main-wrapper">
+        <header>
+            <div class="status-badge"><i class="fas fa-heart"></i> DIVKUNJ ❤️ NIVYA</div>
+            <!-- <div id="music-trigger" style="font-size: 24px; color: var(--primary); cursor: pointer;"
+                onclick="handleMusic()">
+                <i class="fas fa-compact-disc" id="disc-icon"> tap to play song</i>
+            </div> -->
+        </header>
+
+
+
+        <section id="home" class="active">
+
+            <img height="200" style="margin-top: 70px; margin-bottom: 30px;"  src="img/nikunj:div.png" alt="">
+
+            <h1 class="pink-gradient-text ">Divya, My Love</h1>
+
+            <div class="love-symbols">
+                <span>💖</span><span>✨</span><span>💍</span><span>🌸</span>
+            </div>
+
+            <p style="text-align: center; opacity: 0.8; margin-bottom: 20px;">Welcome to our world of Love & Memories.
+            </p>
+            <button class="magic-btn" onclick="navTo('gallery')">View Memories 📸</button>
+        </section>
+
+        <section id="gallery">
+            <h1>Memory Lane</h1>
+            <p style="margin-bottom: 20px; font-size: 14px; color: var(--secondary);">Hamari sabse pyaari pics...</p>
+
+            <div class="slideshow-container">
+                <img src="img/Image 05-03-25 at 1.16 PM.jpg" class="slides active" alt="Memory 1">
+                <img src="img/Snapchat-225738247.jpg" class="slides" alt="Memory 2">
+                <img src="img/Snapchat-617757022.jpg" class="slides" alt="Memory 3">
+                <img src="img/Snapchat-376225719.jpg" class="slides" alt="Memory 4">
+            </div>
+
+            <div style="margin-top: 20px; display: flex; gap: 10px;">
+                <button class="magic-btn" style="padding: 10px 20px;" onclick="changeSlide(-1)">Prev</button>
+                <button class="magic-btn" style="padding: 10px 20px;" onclick="changeSlide(1)">Next</button>
+            </div>
+        </section>
+
+        <section id="story">
+            <h1 style="margin-top: 30px;" >Since 30 Oct 2024</h1>
+            <div class="timer-grid">
+                <div class="timer-unit"><span id="days">00</span><label>Days</label></div>
+                <div class="timer-unit"><span id="hours">00</span><label>Hours</label></div>
+                <div class="timer-unit"><span id="mins">00</span><label>Mins</label></div>
+                <div class="timer-unit"><span id="secs">00</span><label>Secs</label></div>
+            </div>
+
+        <div class="timeline-box">
+                <div class="timeline-item hidden">
+                    <span class="timeline-date">30 October 2024</span>
+                    <h3>The Beginning</h3>
+                    <p>Wo din jab "Nivya" ka safar shuru hua. Ek naya ehsaas aur ek naya rishta.</p>
+                </div>
+                <div class="timeline-item hidden">
+                    <span class="timeline-date">November - December 2024</span>
+                    <h3>Deepening Bonds</h3>
+                    <p>Der raat tak baatein, ek dusre ko samajhna aur wo pyaari si nok-jhok.</p>
+                </div>
+                <div class="timeline-item hidden">
+                    <span class="timeline-date">The Testing Time</span>
+                    <h3>The Storm</h3>
+                    <p>Jab ghar mein pata chala aur mushkilein badhin, par humara bond "Divkunj" aur bhi majboot ho
+                        gaya.</p>
+                </div>
+                <div class="timeline-item hidden">
+                    <span class="timeline-date">Today & Forever</span>
+                    <h3>Still Together</h3>
+                    <p>Itni ladayion aur mushkilon ke baad bhi, hum saath hain aur hamesha rahenge.</p>
+                </div>
+            </div>
+
+            <div class="glass-panel">
+                <p>Humne sath ladna sikha, sath hasna sikha, aur ghar pe pata chalne ke baad tumne hamesha mera sath
+                    diya. You are my true love.</p>
+            </div>
+            <button class="magic-btn" onclick="document.getElementById('letter-overlay').style.display='flex'">Read
+                Secret Letter 💌</button>
+        </section>
+
+        <section id="more">
+            <h1 style="margin-top: 80px;">Surprise Corner</h1>
+            <button class="magic-btn" onclick="generateCompliment()">Get a Compliment ✨</button>
+            <div id="compliment-display" style="margin: 20px 0; font-weight: 600;">Click for a sweet message!</div>
+            <hr style="width: 100%; margin: 20px 0; border: 0.5px solid var(--soft);">
+            <button class="magic-btn" style="margin-top: 40px;" onclick="navTo('quiz')">Play Love Quiz 🎮</button>
+        </section>
+
+        <section id="quiz">
+            <h1>The Quiz</h1>
+            <div class="glass-panel" id="quiz-ui">
+                <h3 id="q-text">Loading...</h3>
+                <div id="ans-options" style="margin-top: 20px;"></div>
+            </div>
+        </section>
+
+        <div class="nav-dock">
+            <div class="nav-btn active" onclick="navTo('home', this)"><i class="fas fa-home"></i></div>
+            <div class="nav-btn" onclick="navTo('gallery', this)"><i class="fas fa-camera-retro"></i></div>
+            <div class="nav-btn" onclick="navTo('story', this)"><i class="fas fa-clock"></i></div>
+            <div class="nav-btn" onclick="navTo('more', this)"><i class="fas fa-star"></i></div>
+        </div>
+    </div>
+
+    <div id="letter-overlay">
+        <div class="paper">
+            <i class="fas fa-times-circle" style="float: right; cursor: pointer; color: var(--primary);"
+                onclick="this.parentElement.parentElement.style.display='none'"></i>
+            <h2 style="font-family: 'Sacramento', cursive; color: var(--primary); margin-bottom: 10px;">Dearest Divya...
+            </h2>
+            <div
+                style="font-family: Serif; font-size: 20px; line-height: 1.6; max-height: 400px; overflow-y: auto;">
+                Divya, jab hum pehli baar mile the, maine kabhi nahi socha tha ki tum meri zindagi ka itna bada hissa
+                ban jaogi. Humaari shuruat 30 October 2024 ko hui thi, aur tab se lekar aaj tak, ek bhi din aisa nahi
+                gaya jab tum mere khayalon mein na rahi ho.
+                Log kehte hain ki pyaar sirf hasne aur muskurane ka naam hai, lekin humne sikha hai ki pyaar har mushkil
+                mein saath khade rehne ka naam hai. Humne saath mein bhot saara time spend kiya, kitni hi baatein ki,
+                kitne hi sapne dekhe. Haan, humne bhot ladayi jhagde bhi kiye, kabhi tum ruthi to kabhi main, par har
+                baar hum pehle se zyada kareeb aa gaye.
+                Sabse bada imtihaan tab aaya jab tumhare ghar mein sabko pata chal gaya. Wo waqt hum dono ke liye bahut
+                mushkil tha, lekin tumne himmat nahi haari. Tumne dikha diya ki tumhara pyaar kitna saccha hai. Ghar
+                walon ke pressure ke baad bhi tumne mera haath nahi chhoda, aur yahi baat tumhe meri nazron mein duniya
+                ki sabse special ladki banati hai. ❤️
+            </div>
+        </div>
+    </div>
+
+    <audio id="bg-audio" loop>
+        <source src="" type="audio/mpeg">
+    </audio>
+
+    <script>
+        // 1. Navigation
+        function navTo(id, el) {
+            document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+            if (el) {
+                document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+                el.classList.add('active');
+            }
+        }
+
+        // 2. Slideshow Logic
+        let slideIndex = 0;
+        function changeSlide(n) {
+            const slides = document.querySelectorAll('.slides');
+            slides[slideIndex].classList.remove('active');
+            slideIndex = (slideIndex + n + slides.length) % slides.length;
+            slides[slideIndex].classList.add('active');
+        }
+        // Auto slide every 3 seconds
+        setInterval(() => changeSlide(1), 3000);
+
+        // 3. Love Timer
+        const datingDate = new Date("October 30, 2024 00:00:00").getTime();
+        setInterval(() => {
+            const now = new Date().getTime();
+            const diff = now - datingDate;
+            document.getElementById('days').innerText = Math.floor(diff / (1000 * 60 * 60 * 24));
+            document.getElementById('hours').innerText = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            document.getElementById('mins').innerText = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            document.getElementById('secs').innerText = Math.floor((diff % (1000 * 60)) / 1000);
+        }, 1000);
+
+        // 4. Compliments
+        const comps = ["Tumhari aankhein bhot pyaari hain! 👀", "Divya, you are my world. 🌎", "Nivya is the best gf ever! 👑", "Divkunj loves you more than anything. ❤️"];
+        function generateCompliment() {
+            document.getElementById('compliment-display').innerText = comps[Math.floor(Math.random() * comps.length)];
+            confetti({ particleCount: 40, colors: ['#ff4d6d'] });
+        }
+
+        // 5. Quiz
+        const questions = [
+  { 
+    q: "Divya kiski hai? 💖", 
+    a: ["Sabki 😜", "Sirf Divkunj ki ❤️"], 
+    c: 1 
+  },
+  { 
+    q: "Hamari relationship start date kaunsi hai? 📅", 
+    a: ["30 Oct 2024", "30 Nov 2024"], 
+    c: 0 
+  },
+  { 
+    q: "Divkunj ka favorite moment kaunsa hai? ✨", 
+    a: ["Jab hum saath hase", "Jab hum lad ke bhi saath rahe"], 
+    c: 1 
+  },
+  { 
+    q: "divya ka sabse cute nickname kya hai? 🧸", 
+    a: ["Golu-molu teddy", "Madam ji 😅"], 
+    c: 0 
+  },
+  { 
+    q: "Mushkil time me Divya ne kya kiya? 🤝", 
+    a: ["Chhod diya", "Hamesha sath diya ❤️"], 
+    c: 1 
+  },
+  { 
+    q: "Divkunj ka promise kya hai? 💍", 
+    a: ["Kabhi saath nahi chhodunga", "Jab mann ho tab baat band 😝"], 
+    c: 0 
+  }
+];
+        let qIdx = 0;
+        function loadQ() {
+            const data = questions[qIdx];
+            document.getElementById('q-text').innerText = data.q;
+            const div = document.getElementById('ans-options');
+            div.innerHTML = "";
+            data.a.forEach((opt, i) => {
+                const b = document.createElement('button');
+                b.className = "magic-btn"; b.style.width = "100%";
+                b.innerText = opt;
+                b.onclick = () => {
+                    if (i === data.c) {
+                        qIdx++;
+                        if (qIdx < questions.length) loadQ();
+                        else {
+                            document.getElementById('quiz-ui').innerHTML = "<h2>Winner! ❤️</h2>";
+                            confetti({ particleCount: 150 });
+                        }
+                    } else { alert("Wrong my love!"); }
+                };
+                div.appendChild(b);
+            });
+        }
+        loadQ();
+
+        // 6. Music
+        let playing = false;
+        function handleMusic() {
+            const a = document.getElementById('bg-audio');
+            const icon = document.getElementById('disc-icon');
+            if (!playing) { a.play(); icon.classList.add('fa-spin'); }
+            else { a.pause(); icon.classList.remove('fa-spin'); }
+            playing = !playing;
+        }
+    </script>
+</body>
+
+</html>
